@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('jenis_kelamin');
             $table->string('nama_instansi');
-            $table->string('tjabatan');
+            $table->string('jabatan');
             $table->string('no_telp');
             $table->timestamps();
         });
