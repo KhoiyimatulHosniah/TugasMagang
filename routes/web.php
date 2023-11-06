@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\LoginController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +21,6 @@ Route::get('/', function () {
 });
 
 /*Login*/
-Route::get('/login', 'LoginController@showLoginForm')->name('login');
-Route::post('/login', 'LoginController@login');
-Route::post('/logout', 'LoginController@logout')->name('logout');
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
