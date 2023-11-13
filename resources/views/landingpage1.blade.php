@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>home landing</title>
+    <title>BUTANOL APPLICATION</title>
     <link href="asset/images/logoB.png" rel="icon">
     <style>
         body {
