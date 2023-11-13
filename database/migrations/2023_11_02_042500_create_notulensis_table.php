@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('sidang_rapat');
             $table->date('hari_tanggal');
-            $table->timestamps('jam_panggilan');
-            $table->timestamps('jam_sidang_rapat');
+            $table->time('jam_panggilan');
+            $table->time('jam_sidang_rapat');
             $table->string('acara');
             $table->string('ketua');
             $table->string('sekretaris');
