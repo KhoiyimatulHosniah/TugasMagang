@@ -13,9 +13,19 @@ class Landingpage1Controller extends Controller
      */
     public function index()
     {
-        return view('Landingpage1');
+        return view('landingpage1');
+    }
+    public function button1()
+    {
+        // Logic for Button 1
+        return view('button1');
     }
 
+    public function button2()
+    {
+        // Logic for Button 2
+        return view('button2');
+    }
     /**
      * Show the form for creating a new resource.
      *
