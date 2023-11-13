@@ -16,20 +16,25 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->validate([
-            'username' => 'required|username',
+            'username' => 'required',
             'password' => 'required',
+        ],[
+            'username.required' => 'Username wajib diisi',
+            'password.required' => 'Password wajib diisi'
         ]);
 
-        if (Auth::attempt($credentials)) {
-            // Authentication passed
-            if (Auth::user()->lvl != 3) {
-                return view('/Landingpage2');
-            } else {
-                return view('/Landingpage3');
-            }
-        } else {
-            return back()->withErrors(['username' => 'Invalid username or password.']);
+
+        $infologin = [
+            'username' => $request->username,
+            'password' => $request->password,
+        ];
+
+        if(Auth::attempt($infologin)){
+            return redirect('/landingpage2');
+        }else{
+            return redirect('')->withErrors('Username atau Password yang dimasukkan tidak sesuai')->withInput();
         }
+
     }
 
     public function logout()
