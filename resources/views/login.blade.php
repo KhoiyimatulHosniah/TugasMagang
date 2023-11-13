@@ -32,13 +32,13 @@
 
                                 <div class="mb-md-2 mt-0 vh-4" style="height: 100px; !important">
                                     <img src="asset/images/logoAd1.png" alt="Logo">
-                                    <h2 class="text-gray-900 mb-4">LOGIN</h2>
+                                    <h3 class="text-gray-900 mb-4">LOGIN</h3>
                                     
 
                                 </div>
 
                                     <form class="user" action="{{url('/login') }}" method="POST">
-                                        @csrf>
+                                        @csrf
                                         <div class="form-group">
                                                 <input type="name" class="form-control form-control-user"
                                                     id="exampleInputUsername" aria-describedby="usernameHelp"
