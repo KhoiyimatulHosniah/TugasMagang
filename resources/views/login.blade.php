@@ -8,8 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="">
-
-        <title>BUTANOL</title>
+        <title>BUTANOL APPLICATION</title>
+        <link href="asset/images/logoB.png" rel="icon">
 
         <!-- Custom fonts for this template-->
         <link href="asset/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -31,8 +31,8 @@
                             <div class="card-body back-login p-5 text-center">
 
                                 <div class="mb-md-2 mt-0 vh-4" style="height: 100px; !important">
-                                    <h1 class="text-gray-900 mb-4">LOGIN</h1>
-                                    <img src="{{ asset('images/logoAd.png') }}" alt="Logo">
+                                    <img src="asset/images/logoAd1.png" alt="Logo">
+                                    <h2 class="text-gray-900 mb-4">LOGIN</h2>
                                 </div>
 
 
