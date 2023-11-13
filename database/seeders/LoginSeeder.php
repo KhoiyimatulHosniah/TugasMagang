@@ -17,19 +17,19 @@ class LoginSeeder extends Seeder
     {
         $userData = [
             [
-                'name'=>'Desi',
+                'username'=>'Desi',
                 'email'=>'desi@gmail.com',
                 'role'=>'operator',
                 'password'=>bcrypt('123456')
             ],
             [
-                'name'=>'Nia',
+                'username'=>'Nia',
                 'email'=>'nia@gmail.com',
                 'role'=>'admin',
                 'password'=>bcrypt('123456')
             ],
             [
-                'name'=>'Andriana',
+                'username'=>'Andriana',
                 'email'=>'andriana@gmail.com',
                 'role'=>'notulen',
                 'password'=>bcrypt('123456')

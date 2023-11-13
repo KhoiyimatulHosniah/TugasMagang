@@ -33,8 +33,8 @@
                                 <div class="mb-md-2 mt-0 vh-4" style="height: 100px; !important">
                                     <h1 class="text-gray-900 mb-4">LOGIN</h1>
                                     <img src="{{ asset('images/logoAd.png') }}" alt="Logo">
-
                                 </div>
+
 
                                     <form class="user" action="{{url('/login') }}" method="POST">
                                         @csrf>
