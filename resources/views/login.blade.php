@@ -32,13 +32,7 @@
 
                                 <div class="mb-md-2 mt-0 vh-4" style="height: 100px; !important">
                                     <img src="asset/images/logoAd1.png" alt="Logo">
-<<<<<<< HEAD
                                     <h3 class="text-gray-900 mb-4">LOGIN</h3>
-                                    
-
-=======
-                                    <h2 class="text-gray-900 mb-4">LOGIN</h2>
->>>>>>> 62b402dc2d1a3cfe42831cc6302f70cb78a13962
                                 </div>
 
 
