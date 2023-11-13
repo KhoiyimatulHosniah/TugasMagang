@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>home landing</title>
+    <link href="asset/images/logoB.png" rel="icon">
     <style>
         body {
             background-image: url('/background/background landing.png');
