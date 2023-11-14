@@ -29,12 +29,29 @@ class LoginController extends Controller
             'password' => $request->password,
         ];
 
-        if(Auth::attempt($infologin)){
-            return redirect('/landingpage2');
-        }else{
-            return redirect('')->withErrors('Username atau Password yang dimasukkan tidak sesuai')->withInput();
-        }
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
 
+            switch ($user->role) {
+                case 'admin':
+                    return redirect('dashboardAdmin');
+                    break;
+
+                case 'operator':
+                    return redirect('landingpage1');
+                    break;
+
+                case 'notulen':
+                    return redirect('dashboardNotu');
+                    break;
+
+                default:
+                    return redirect('landingpage1'); 
+            }
+      
+        }else {
+            return redirect()->back()->withErrors('Username atau Password yang dimasukkan tidak sesuai')->withInput();
+        }
     }
 
     public function logout()

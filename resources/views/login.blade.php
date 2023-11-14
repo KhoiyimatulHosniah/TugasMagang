@@ -35,27 +35,27 @@
                                     <h3 class="text-gray-900 mb-4">LOGIN</h3>
                                 </div>
 
-
-                                    <form class="user" action="{{url('/login') }}" method="POST">
+                                    <form class="user" action="{{ url('/login') }}" method="POST">
                                         @csrf
                                         <div class="form-group">
-                                                <input type="name" class="form-control form-control-user"
-                                                    id="exampleInputUsername" aria-describedby="usernameHelp"
-                                                    placeholder="Username">
+                                            <input type="text" name="username" class="form-control form-control-user" id="exampleInputUsername"
+                                                aria-describedby="usernameHelp" placeholder="Username" value="{{ old('username') }}">
+                                            @error('username')
+                                            <div class="text-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
-                                            <div class="form-group">
-                                                <input type="password" class="form-control form-control-user"
-                                                    id="exampleInputPassword" placeholder="Password">
-                                            </div>
 
-
-            
-                                            <a href="" class="btn btn-primary btn-user btn-block">
-                                                Login
-                                            </a>
+                                        <div class="form-group">
+                                            <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword"
+                                                placeholder="Password">
+                                            @error('password')
+                                         <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
                                     </form>
-                                    
-                                
+                                                                    
                             </div>
                         </div>
                     </div>
