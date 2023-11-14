@@ -16,9 +16,9 @@ use App\Http\Controllers\Landingpage1Controller;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
 /*Login*/
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -27,5 +27,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 /*LandingPage*/
 Route::get('/landingpage1', [Landingpage1Controller::class, 'index'])->name('landingpage1');
-Route::get('/button1', [Landingpage1Controller::class, 'button1']);
-Route::get('/button2', [Landingpage1Controller::class, 'button2']);
+Route::get('/layanan', [Landingpage1Controller::class, 'layanan'])->name('layanan');
+Route::get('/tentang', [Landingpage1Controller::class, 'tentang'])->name('tentang');
+Route::get('/kontak', [Landingpage1Controller::class, 'kontak'])->name('kontak');
+Route::post('/kontak/submit', [Landingpage1Controller::class, 'submitKontak'])->name('kontak.submit');;
