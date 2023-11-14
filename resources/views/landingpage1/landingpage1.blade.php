@@ -16,19 +16,28 @@
         }
 
         header {
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 10px;
-            text-align: right;
-        }
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            z-index: 1000; 
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+    }
+        
+        
 
         nav {
-            margin-top: 20px;
-            text-align: center;
+            
+            background-color: rgba(48, 56, 215, 0.5);
+            text-align: right;
+            padding: 20px;
         }
 
         nav a {
-            color: white;
-            margin: 0 15px;
+            color: rgb(72, 68, 103);
+            margin: 0 10px;
             text-decoration: none;
             font-weight: bold;
         }
@@ -41,20 +50,50 @@
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
+        h1,
+        .h1 {
+            color: #ffffff;
+            font-style: italic;
+            font-size: 55px;
+            margin-top: 103px;
+            margin-left: 230px;
+}
+        h2,
+        .h2 {
+            color: #344767;
+            font-style: italic;
+            font-size: 55px;
+            margin-left: 230px;
+}
+footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-    
-
     <nav>
         <a href="{{ route('landingpage1') }}">Beranda</a>
         <a href="{{ route('layanan') }}">Layanan</a>
         <a href="{{ route('tentang') }}">Tentang Kami</a>
         <a href="{{ route('kontak') }}">Kontak</a>
     </nav>
-<div>
-        <h1>Selamat Datang di </h1>
-        <h1>Application BUTANOL<h1>
+
+    <div >
+        <h1 >Selamat Datang di </h1>
+        <h2>Application BUTANOL</h2>
+    </div>
+
+
+    <footer>
+            <p>&copy; {{ date('Y') }} PKLpolije. Dinas Komunikasi dan Informatika.</p>
+    </footer>
     </div>
 </body>
 </html>

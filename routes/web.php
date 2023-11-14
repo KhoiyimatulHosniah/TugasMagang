@@ -16,9 +16,9 @@ use App\Http\Controllers\Landingpage1Controller;
 |
 */
 
-/*Route::get('/', function () {
+Route::get('/', function () {
     return view('welcome');
-});*/
+});
 
 /*Login*/
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
