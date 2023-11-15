@@ -15,30 +15,7 @@ class Landingpage1Controller extends Controller
     {
         return view('landingpage1.landingpage1');
     }
-    public function layanan()
-    {
-        return view('landingpage1.layanan');
-    }
-
-    public function tentang()
-    {
-        return view('landingpage1.tentang');
-    }
-
-    public function kontak()
-    {
-        return view('landingpage1.kontak');
-    }
-
-    public function submitKontak(Request $request)
-    {
-        // Logika untuk menghandle pengiriman pesan kontak
-        // Misalnya, simpan pesan ke database atau kirim email
-        // $request->input('name'), $request->input('email'), $request->input('message')
-
-        // Redirect atau tampilkan pesan sukses ke halaman kontak
-        return redirect()->route('kontak')->with('success', 'Pesan berhasil dikirim!');
-    }
+   
     /**
      * Show the form for creating a new resource.
      *

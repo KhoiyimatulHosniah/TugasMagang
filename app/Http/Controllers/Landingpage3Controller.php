@@ -11,9 +11,9 @@ class Landingpage3Controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index3()
     {
-        return view('Landingpage3');
+        return view('landingpage3.landingpage3');
     }
 
     /**

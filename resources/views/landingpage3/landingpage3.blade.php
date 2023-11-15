@@ -7,10 +7,10 @@
     <link href="asset/images/logoB.png" rel="icon">
     <style>
         body {
-            background: url('/background/background bukutamu.png') center/cover no-repeat; 
-            height: 510px;
+            background: url('/background/background notulensi.png') center/cover no-repeat; 
+            height: 500px;
             color: white;
-            font-family:'Kanit';
+            font-family: 'Kanit';
             margin: 0;
             padding: 0;
         }
@@ -20,15 +20,15 @@
             color: #212121;
             font-style: italic;
             font-size: 45px;
-            margin-top: 45px;
-            margin-left: 150px;
+            margin-top: 60px;
+            margin-left: 130px;
         }
         h2,
         .h2 {
             color: #212121;
             font-style: italic;
             font-size: 45px;
-            margin-left: 150px;
+            margin-left: 130px;
             margin-top: 10px;
         }
         footer {
@@ -48,7 +48,7 @@
         .button1 {
             margin: 10px; 
             font-family: 'Kanit';
-            margin-left: 150px;
+            margin-left: 130px;
             padding: 10px 15px; 
             border: none; 
             background-color: #007ACC; 
@@ -71,10 +71,10 @@
 
         .button2 {
             margin: 10px; 
-            font-family: 'Kanit';
             margin-left: 10px;
             padding: 10px 15px; 
             border: none; 
+            font-family: 'Kanit';
             background-color: #007ACC; 
             color: white; 
             text-align: center; 
@@ -95,12 +95,11 @@
 
     <div >
         <h1>Selamat Datang di</h1>
-        <h2>Dinas Komunikasi dan Informatika</h2>
-        <h2>Kabupaten Situbondo</h2>
+        <h2>Aplikasi Notulesi</h2>
     </div>
     <div class="button-container">
-        <a href="/login"><button class="button1">RESEPSIONIS</button></a>
-        <a href="/buku_tamu.tamu"><button class="button2">BUKU TAMU</button>
+        <a href="/login"><button class="button1">NOTULENSI</button></a>
+        <a href="/notulensi.notulensi"><button class="button2">DAFTAR HADIR</button>
       </div>
     
     <footer>

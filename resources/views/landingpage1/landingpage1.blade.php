@@ -10,7 +10,7 @@
             background-image: url('/background/background landing.png');
             background-size: cover;
             color: white;
-            font-family: Arial, sans-serif;
+            font-family: 'Kanit';
             margin: 0;
             padding: 0;
         }
@@ -25,21 +25,19 @@
             align-items: center;
             justify-content: space-between;
     }
-        
-        
-
         nav {
             
-            background-color: rgba(48, 56, 215, 0.5);
+            background-color: #1d55b6;;
             text-align: right;
             padding: 20px;
+            
         }
-
         nav a {
             color: rgb(72, 68, 103);
             margin: 0 10px;
             text-decoration: none;
             font-weight: bold;
+            
         }
 
         .container {
@@ -51,6 +49,26 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
+        #welcome {
+            background: url('/background/background landing.png') center/cover no-repeat; 
+            height: 450px; /* Sesuaikan tinggi dengan preferensi Anda */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            margin: 20px;
+            
+        }
+        #layanan {
+            background-color: #9fb0ce;;
+            max-width: 800px;
+            margin: 80px auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
         h1,
         .h1 {
             color: #ffffff;
@@ -58,15 +76,15 @@
             font-size: 55px;
             margin-top: 103px;
             margin-left: 230px;
-}
+        }
         h2,
         .h2 {
             color: #344767;
             font-style: italic;
             font-size: 55px;
             margin-left: 230px;
-}
-footer {
+        }
+        footer {
             position: fixed;
             bottom: 0;
             width: 100%;
@@ -79,10 +97,9 @@ footer {
 </head>
 <body>
     <nav>
-        <a href="{{ route('landingpage1') }}">Beranda</a>
-        <a href="{{ route('layanan') }}">Layanan</a>
-        <a href="{{ route('tentang') }}">Tentang Kami</a>
-        <a href="{{ route('kontak') }}">Kontak</a>
+        <a href="#welcome">Beranda</a>
+        <a href="#layanan">Layanan</a>
+        <a href="#TentangKami">Tentang Kami</a>
     </nav>
 
     <div >
@@ -91,6 +108,7 @@ footer {
     </div>
 
 
+    
     <footer>
             <p>&copy; {{ date('Y') }} PKLpolije. Dinas Komunikasi dan Informatika.</p>
     </footer>
