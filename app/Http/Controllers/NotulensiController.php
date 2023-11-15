@@ -8,3 +8,4 @@ class NotulensiController extends Controller
 {
     //
 }
+
