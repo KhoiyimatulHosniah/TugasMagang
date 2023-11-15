@@ -32,11 +32,6 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/landingpage1', [Landingpage1Controller::class, 'index'])->name('landingpage1');
 Route::get('/landingpage2', [Landingpage2Controller::class, 'index2'])->name('landingpage2');
 Route::get('/landingpage3', [Landingpage3Controller::class, 'index3'])->name('landingpage3');
-;
-Route::get('/layanan', [Landingpage1Controller::class, 'layanan'])->name('layanan');
-Route::get('/tentang', [Landingpage1Controller::class, 'tentang'])->name('tentang');
-Route::get('/kontak', [Landingpage1Controller::class, 'kontak'])->name('kontak');
-Route::post('/kontak/submit', [Landingpage1Controller::class, 'submitKontak'])->name('kontak.submit');
 
 /*daftar hadir*/
 Route::get('/daftarhadir', [DaftarHadirController::class, 'showForm']);
