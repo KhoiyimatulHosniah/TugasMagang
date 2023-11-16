@@ -27,10 +27,10 @@
         <div class="container py-0 vh-100">
                 <div class="row d-flex justify-content-center align-items-center h-100">
                     <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                        <div class="card bg-form-login text-white" style="margin-top:0; !important">
+                        <div class="card bg-form-login text-white" style="margin-top:0;">
                             <div class="card-body back-login p-5 text-center">
 
-                                <div class="mb-md-2 mt-0 vh-4" style="height: 100px; !important">
+                                <div class="mb-md-2 mt-0 vh-4" style="height: 100px;">
                                     <img src="asset/images/logoAd1.png" alt="Logo">
                                     <h3 class="text-gray-900 mb-4">LOGIN</h3>
                                 </div>

@@ -1,12 +1,14 @@
 <?php
 
-use App\Http\Controllers\DaftarhadirController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\DaftarhadirController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Landingpage1Controller;
 use App\Http\Controllers\Landingpage2Controller;
 use App\Http\Controllers\Landingpage3Controller;
+use App\Http\Controllers\TamuController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +36,15 @@ Route::get('/landingpage2', [Landingpage2Controller::class, 'index2'])->name('la
 Route::get('/landingpage3', [Landingpage3Controller::class, 'index3'])->name('landingpage3');
 
 /*daftar hadir*/
-Route::get('/daftarhadir', [DaftarHadirController::class, 'showForm']);
-Route::post('/daftarhadir/submit', [DaftarHadirController::class, 'submitForm'])->name('daftar-hadir.submit');;
-;
+Route::get('/daftarhadir', [DaftarhadirController::class, 'showForm']);
+Route::post('/daftarhadir/submit', [DaftarhadirController::class, 'submitForm'])->name('daftar-hadir.submit');
+
+
+Route::get('/layanan', [Landingpage1Controller::class, 'layanan'])->name('layanan');
+Route::get('/tentang', [Landingpage1Controller::class, 'tentang'])->name('tentang');
+Route::get('/kontak', [Landingpage1Controller::class, 'kontak'])->name('kontak');
+Route::post('/kontak/submit', [Landingpage1Controller::class, 'submitKontak'])->name('kontak.submit');
+
+// Form Tamu
+Route::get('/form', [TamuController::class, 'showForm'])->name('form');
+Route::post('/form', [TamuController::class, 'processForm']);
