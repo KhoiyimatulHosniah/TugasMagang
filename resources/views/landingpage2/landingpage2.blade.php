@@ -100,7 +100,7 @@
     </div>
     <div class="button-container">
         <a href="/login"><button class="button1">RESEPSIONIS</button></a>
-        <a href="/buku_tamu.tamu"><button class="button2">BUKU TAMU</button>
+        <a href="/form"><button class="button2">BUKU TAMU</button>
       </div>
     
     <footer>
