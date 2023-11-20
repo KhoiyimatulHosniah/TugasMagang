@@ -3,11 +3,13 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\DaftarhadirController;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LoginBukuTamuController;
 use App\Http\Controllers\Landingpage1Controller;
 use App\Http\Controllers\Landingpage2Controller;
 use App\Http\Controllers\Landingpage3Controller;
 use App\Http\Controllers\TamuController;
+use App\Http\Controllers\LoginNotulensiController;
+
 
 
 /*
@@ -25,10 +27,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/*Login*/
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [LoginController::class, 'login']);
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+/*Login Buku Tamu*/
+Route::get('/login', [LoginBukuTamuController::class, 'showLoginAdmin'])->name('login');
+Route::post('/login', [LoginBukuTamuController::class, 'login']);
+Route::post('/logout', [LoginBukuTamuController::class, 'logout'])->name('logout');
+
+/*Login Notulensi*/
+Route::get('/loginNotulensi', [LoginNotulensiController::class, 'showLoginNotulensi'])->name('loginNotulensi');
+Route::post('/loginNotulensi', [LoginNotulensiController::class, 'login']);
+Route::post('/logout', [LoginNotulensiController::class, 'logout'])->name('logout');
 
 /*LandingPage*/
 Route::get('/landingpage1', [Landingpage1Controller::class, 'index'])->name('landingpage1');
@@ -47,4 +54,5 @@ Route::post('/kontak/submit', [Landingpage1Controller::class, 'submitKontak'])->
 
 // Form Tamu
 Route::get('/form', [TamuController::class, 'showForm'])->name('form');
-Route::post('/form', [TamuController::class, 'processForm']);
+Route::post('/form', [TamuController::class, 'processForm']);;
+;
