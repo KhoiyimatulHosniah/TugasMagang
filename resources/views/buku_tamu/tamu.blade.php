@@ -40,7 +40,9 @@
                                     <div class="text-center">
                                         <h1 class="h5 text-gray-900 mb-4">FORM TAMU</h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" action="{{ url('/form') }}" method="POST">
+                                        @csrf
+
                                         <div class="form-group">
                                             <input type="name" class="form-control form-control-user"
                                                 id="exampleInputName" aria-describedby="nameHelp"
