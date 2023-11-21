@@ -27,6 +27,8 @@ section{
 }
  
 nav{
+    position: fixed;
+    width: 90%;
     display: flex;
     justify-content: space-between;
     align-items:center;
@@ -34,7 +36,7 @@ nav{
     background-color:#FFFFFF;
     box-shadow:2px 2px 12px rgba(0,0,0,0.2);
     padding:0px 5%;
-     
+    z-index: 1000;
 }
 nav ul{
     display: flex;
