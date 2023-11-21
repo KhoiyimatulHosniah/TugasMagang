@@ -27,15 +27,16 @@
         <div class="container py-0 vh-100">
                 <div class="row d-flex justify-content-center align-items-center h-100">
                     <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                        <h4 class="text-gray-900 mb-4">Selamat Datang sebagai Notulensi</h4>
                         <div class="card bg-form-login text-white" style="margin-top:0;">
                             <div class="card-body back-login p-5 text-center">
 
-                                <div class="mb-md-2 mt-0 vh-4" style="height: 100px;">
+                                <div class="mb-md-2 mt-0 vh-4" style="height: 150px;">
                                     <img src="asset/images/logoAd1.png" alt="Logo">
-                                    <h3 class="text-gray-900 mb-4">LOGIN</h3>
+                                    <h4 class="text-gray-900 mb-4">LOGIN</h4>
                                 </div>
 
-                                    <form class="user" action="{{ url('/login') }}" method="POST">
+                                    <form class="user" action="{{ url('/loginNotulensi') }}" method="POST">
                                         @csrf
                                         <div class="form-group">
                                             <input type="text" name="username" class="form-control form-control-user" id="exampleInputUsername"
