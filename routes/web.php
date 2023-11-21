@@ -45,13 +45,6 @@ Route::get('/landingpage3', [Landingpage3Controller::class, 'index3'])->name('la
 /*daftar hadir*/
 Route::get('/daftarhadir', [DaftarhadirController::class, 'showForm']);
 Route::post('/daftarhadir/submit', [DaftarhadirController::class, 'submitForm'])->name('daftar-hadir.submit');
-
-
-Route::get('/layanan', [Landingpage1Controller::class, 'layanan'])->name('layanan');
-Route::get('/tentang', [Landingpage1Controller::class, 'tentang'])->name('tentang');
-Route::get('/kontak', [Landingpage1Controller::class, 'kontak'])->name('kontak');
-Route::post('/kontak/submit', [Landingpage1Controller::class, 'submitKontak'])->name('kontak.submit');
-
 // Form Tamu
 Route::get('/form', [TamuController::class, 'showForm'])->name('form');
 Route::post('/form', [TamuController::class, 'processForm']);;
