@@ -28,7 +28,7 @@
         <!-- Outer Row -->
         <div class="row justify-content-center">
 
-            <div class="col-xl-10 col-lg-12 col-md-9">
+            <div class="col-xl-10 col-lg-12 col-md-6">
 
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
@@ -40,37 +40,40 @@
                                     <div class="text-center">
                                         <h1 class="h5 text-gray-900 mb-4">FORM TAMU</h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" action="{{ url('/form') }}" method="POST">
+                                        @csrf
+
                                         <div class="form-group">
-                                            <input type="name" class="form-control form-control-user"
+                                            <input type="name" class="form-control"
                                                 id="exampleInputName" aria-describedby="nameHelp"
                                                 placeholder="Nama">
                                         </div>
+
                                         <div class="form-group">
-                                            <select class="form-control form-control-user" id="jenis_kelamin" name="jenis_kelamin" required>
-                                                <option value="jenis_kelamin">Jenis Kelamin</option>
-                                                <option value="pria">Pria</option>
-                                                <option value="wanita">Wanita</option>
+                                            <select type="form" class="form-control" id="exampleFormControl" aria-describedby="formHelp">
+                                            <option>Jenis Kelamin</option>
+                                            <option>Laki-laki</option>
+                                            <option>Perempuan</option>
                                             </select>
                                         </div>
 
                                        <div class="form-group">
-                                            <input type="date" class="form-control form-control-user"
+                                            <input type="date" class="form-control"
                                                 id="exampleInputTanggal" placeholder="">
                                         </div>
 
                                         <div class="form-group">
-                                            <input type="name" class="form-control form-control-user"
+                                            <input type="name" class="form-control"
                                                 id="exampleInputName" aria-describedby="nameHelp"
                                                 placeholder="Tujuan">
                                         </div>
                                         <div class="form-group">
-                                            <input type="name" class="form-control form-control-user"
+                                            <input type="name" class="form-control"
                                                 id="exampleInputName" aria-describedby="nameHelp"
                                                 placeholder="Nama Instansi">
                                         </div>
                                         <div class="form-group">
-                                            <input type="name" class="form-control form-control-user"
+                                            <input type="name" class="form-control"
                                                 id="exampleInputName" aria-describedby="nameHelp"
                                                 placeholder="Telepon">
                                         </div>
