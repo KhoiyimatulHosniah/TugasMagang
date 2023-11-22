@@ -1,83 +1,89 @@
 <!DOCTYPE html>
-<html>
-<head>
-<title>Form Daftar Hadir</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color:#39A7FF;
-            background-size: cover;
-            background-position: center;
-            color: #000000;
-        }
+    <html lang="en">
 
-        h1 {
-            color: #333;
-            color: #000000;
-            text-align: center;
-            padding-top: 50px;
-        }
+    <head>
 
-        form {
-            max-width: 400px;
-            margin: 0 auto;
-        }
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>BUTANOL APPLICATION</title>
+        <link href="asset/images/logoB.png" rel="icon">
 
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        input {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            box-sizing: border-box;
-        }
+        <!-- Custom fonts for this template-->
+        <link href="asset/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+            rel="stylesheet">
 
-        button {
-            background-color: #E0F4FF;
-            color: black;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
+        <!-- Custom styles for this template-->
+        <link href="asset/css/sb-admin-2.min.css" rel="stylesheet">
 
-        p {
-            color: green;
-        }
-    </style>
-</head>
-<body>
-    <h1>Form Daftar Hadir</h1>
+    </head>
+<body class="bg-gradient-primary">
 
-    @if(session('success'))
-        <p>{{ session('success') }}</p>
-    @endif
+    <div class="container">
 
-    <form method="post" action="{{ route('daftar-hadir.submit') }}">
-        @csrf
-        <label for="nama">Nama:</label>
-        <input type="text" name="nama" required>
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
 
-        <label for="instansi">Jenis Kelamin:</label>
-        <input type="text" name="instansi" required>
-        <label for="instansi">Nama Instansi:</label>
-        <input type="text" name="nama_instansi" required>
-        <label for="jabatan">Jabatan:</label>
-        <input type="text" name="jabatan" required>
+            <div class="col-xl-10 col-lg-12 col-md-9">
 
-        <label for="no_telp">No. Telepon:</label>
-        <input type="text" name="no_telp" required>
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-password-image"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h5 text-gray-900 mb-4">FORM DAFTAR HADIR</h1>
+                                    </div>
+                                    <form class="user">
+                                        <div class="form-group">
+                                            <input type="name" class="form-control form-control-user"
+                                                id="exampleInputName" aria-describedby="nameHelp"
+                                                placeholder="Nama">
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="form-control form-control-user" id="jenis_kelamin" name="jenis_kelamin" required>
+                                                <option value="jenis_kelamin">Jenis Kelamin</option>
+                                                <option value="laki-laki">Laki-laki</option>
+                                                <option value="perempuan">Perempuan</option>
+                                            </select>
+                                        </div>
 
-        <button type="submit">Kirim</button>
-    </form>
+                                        <div class="form-group">
+                                            <input type="name" class="form-control form-control-user"
+                                                id="exampleInputName" aria-describedby="nameHelp"
+                                                placeholder="Nama Intansi">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="name" class="form-control form-control-user"
+                                                id="exampleInputName" aria-describedby="nameHelp"
+                                                placeholder="Jabatan">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="name" class="form-control form-control-user"
+                                                id="exampleInputName" aria-describedby="nameHelp"
+                                                placeholder="Telepon">
+                                        </div>
+                                    </form>
+                                    <hr>
+                                    <button type="submit" class="btn btn-primary btn-user btn-block">KIRIM</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </body>
+
 </html>

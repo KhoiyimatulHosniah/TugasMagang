@@ -15,14 +15,14 @@ public function submitForm(Request $request)
 {
     // Validasi form jika diperlukan
     $request->validate([
-        'nama' => 'required|string',
-        'jenis_kelamin' => 'required|string',
-        'nama_instansi' => 'required|string',
-        'jabatan' => 'required|string',
-        'no_telp' => 'required|string',
+        'nama' => 'required',
+        'jenis_kelamin' => 'required',
+        'Nama_instansi' => 'required',
+        'jabatan' => 'required',
+        'telepon' => 'required',
     ]);
         // Simpan data ke database atau lakukan tindakan lain sesuai kebutuhan
 
-        return redirect('/daftar-hadir')->with('success', 'Formulir berhasil disubmit!');
+        return redirect('/daftarhadir')->with('success', 'Formulir berhasil disubmit!');
     }
 }
