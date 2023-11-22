@@ -8,6 +8,7 @@ use App\Http\Controllers\Landingpage1Controller;
 use App\Http\Controllers\Landingpage2Controller;
 use App\Http\Controllers\Landingpage3Controller;
 use App\Http\Controllers\TamuController;
+use App\Http\Controllers\DashboardTamuController;
 use App\Http\Controllers\LoginNotulensiController;
 
 
@@ -54,5 +55,8 @@ Route::post('/kontak/submit', [Landingpage1Controller::class, 'submitKontak'])->
 
 // Form Tamu
 Route::get('/form', [TamuController::class, 'showForm'])->name('form');
-Route::post('/form', [TamuController::class, 'processForm']);;
-;
+Route::post('/form', [TamuController::class, 'processForm']);
+
+//Dashboard Resepsionis
+Route::get('/dashboardTamu', [DashboardTamuController::class, 'index'])->name('dashboardTamu');
+
