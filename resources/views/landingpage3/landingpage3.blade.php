@@ -99,7 +99,7 @@
     </div>
     <div class="button-container">
         <a href="/login"><button class="button1">NOTULENSI</button></a>
-        <a href="/notulensi.notulensi"><button class="button2">DAFTAR HADIR</button>
+        <a href="/form"><button class="button2">DAFTAR HADIR</button>
       </div>
     
     <footer>
