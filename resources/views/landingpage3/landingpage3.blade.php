@@ -13,6 +13,7 @@
             font-family: 'Kanit';
             margin: 0;
             padding: 0;
+            
         }
 
         h1,
@@ -39,6 +40,7 @@
             bottom: 0;
             width: 100%;
             text-align: center;
+            
             
         }
         .button1-container {

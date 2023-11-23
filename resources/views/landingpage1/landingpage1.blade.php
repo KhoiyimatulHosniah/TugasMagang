@@ -184,6 +184,30 @@ footer{
     bottom:10px;
     transform: translateX(-50%);
 }
+/* For smaller screens, adjust layout */
+@media screen and (max-width: 768px) {
+    .layanan-col {
+        flex-direction: column;
+        margin: auto;
+    }
+
+    .layanan-1, .layanan-2 {
+        flex-basis: auto;
+        width: auto;
+        margin-bottom: 30px;
+    }
+
+    .layanan-col img {
+        margin-left: 0;
+        margin-top: 0;
+        display: block;
+    }
+
+    .layanan-col h3 {
+        margin-left: 0;
+        text-align: center;
+    }
+}
 
  </style>
 <body>
@@ -227,7 +251,7 @@ footer{
             </div>
             
             <div class="layanan-2" onclick="handleClick()">
-                <a href="/landingpage3">
+                <a href="/landingpage2">
                 <div>
                     <img src="asset/images/resepsionis.png">
                  <h3>Resepsionis</h3>
