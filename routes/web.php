@@ -12,6 +12,8 @@ use App\Http\Controllers\DashboardTamuController;
 use App\Http\Controllers\LoginNotulensiController;
 use App\Http\Controllers\DashboardNotulenController;
 use App\Http\Controllers\FormNotulenController;
+use App\Http\Controllers\FormKegiatanController;
+use App\Http\Controllers\TambahRapatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,5 +58,6 @@ Route::get('/dashboardTamu', [DashboardTamuController::class, 'index'])->name('d
 //Dashboard Notulensi
 Route::get('/dashboardNotulen', [DashboardNotulenController::class, 'index2'])->name('dashboardNotulen');
 Route::get('/formNotulen', [FormNotulenController::class, 'index'])->name('formNotulen');
-Route::get('/formKegiatan', [FormNotulenController::class, 'index'])->name('formKegiatan');
+Route::get('/formKegiatan', [FormKegiatanController::class, 'index'])->name('formKegiatan');
+Route::get('/tambahRapat', [TambahRapatController::class, 'index'])->name('tambahRapat');
 

@@ -171,23 +171,87 @@
 
                     <!-- Content Row -->
 
-                    <div class="row">
+                    <div class="row mx-3">
 
                         <!-- Area Chart -->
-                        <div class="col-xl-8 col-lg-7">
+                        <div class="col-12">
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Kegiatan Rapat</h6>
                                 </div>
                                 <!-- Card Body -->
+                                <form action="/submitkegiatan" method="POST"> <!-- Replace "/submitForm" with your form submission URL -->
+                                    <div class="card-body">
+                    <div class="form-group row">
+                        <label for="kegiatan" class="col-sm-4 col-form-label">Kegiatan</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="kegiatan" name="kegiatan">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="tanggal" class="col-sm-4 col-form-label">Hari/Tanggal</label>
+                        <div class="col-sm-8">
+                            <input type="date" class="form-control" id="tanggal" name="tanggal">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="pukul" class="col-sm-4 col-form-label">Pukul</label>
+                        <div class="col-sm-8">
+                            <input type="time" class="form-control" id="pukul" name="pukul">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="tempat" class="col-sm-4 col-form-label">Tempat</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="tempat" name="tempat">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="undangan" class="col-sm-4 col-form-label">Undangan Rapat</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="undangan" name="undangan">
+                        </div>
+                    </div>
+                    <!-- Content Row -->
+
+                    <div class="row ">
+
+                                <!-- Card Body -->
                                 <div class="card-body">
-                                    <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
-                                    </div>
-                                </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Nama Instansi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>$1000</td>
+                                                </tr>
+                                                <!-- Add more rows as needed -->
+                                            </tbody>
+                                        </table>
                             </div>
+                        </div>
+                        
+
+                    </div>
+                    <div class="form-group row text-right">
+                        <div class="col-sm-4"></div> 
+                        <div class="col-sm-8">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            
+                            </div>
+                            
                         </div>
                         
 
