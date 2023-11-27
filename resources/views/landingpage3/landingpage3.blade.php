@@ -100,8 +100,8 @@
         <h2>Aplikasi Notulesi</h2>
     </div>
     <div class="button-container">
-        <a href="/login"><button class="button1">NOTULENSI</button></a>
-        <a href="/form"><button class="button2">DAFTAR HADIR</button>
+        <a href="/loginNotulensi"><button class="button1">NOTULENSI</button></a>
+        <a href="/daftarhadir"><button class="button2">DAFTAR HADIR</button>
       </div>
     
     <footer>
