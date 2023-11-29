@@ -22,7 +22,7 @@
 
     </head>
 
-    <body class="bg-gradient-primary">
+    <body class="bg-primary">
         <section class="vh-5 gradient-custom">
         <div class="container py-0 vh-100">
                 <div class="row d-flex justify-content-center align-items-center h-100">

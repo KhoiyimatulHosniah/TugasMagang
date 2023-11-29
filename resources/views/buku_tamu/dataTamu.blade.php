@@ -169,49 +169,71 @@
                                 Logout
                             </a>
                     </div>
+                
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
 
-
-                    <!-- Content Row -->
-
-                    <div class="row">
-
-                        <!-- Area Chart -->
-                        <div class="col-xl-8 col-lg-7">
-                            <div class="card shadow mb-4">
-                                // Diagram data tamu
+                    <!-- DataTales Example -->
+                    <div class="container">
+                        <div class="card mt-5">
+                            <div class="card-body">
+                                <h3 class="display-5">Data Tamu</h3>
+                                <table id="dataTable" class="table table-bordered" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama</th>
+                                            <th>Jenis Kelamin</th>
+                                            <th>Tanggal</th>
+                                            <th>Nama Instansi</th>
+                                            <th>Tujuan</th>
+                                            <th>Telepon</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($items as $item)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $item->nama }}</td>
+                                            <td>{{ $item->jenis_kelamin }}</td>
+                                            <td>{{ $item->tanggal }}</td>
+                                            <td>{{ $item->nama_instansi }}</td>
+                                            <td>{{ $item->tujuan }}</td>
+                                            <td>{{ $item->no_telp }}</td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                                <a href="/form" type="submit" name="register" class="btn btn-primary">Tambah</a>
                             </div>
                         </div>
 
+                    
                     </div>
-        
-                </div>
-                
-            </div>
-            
-        </div>
-        
-    </div>
-    
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
+
+                </div>    
+
+                <!-- Logout Modal-->
+                <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                <a class="btn btn-primary" href="landingPage">Logout</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="landingPage">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
     <!-- Bootstrap core JavaScript-->

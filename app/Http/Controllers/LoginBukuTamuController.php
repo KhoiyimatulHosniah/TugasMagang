@@ -38,7 +38,7 @@ class LoginBukuTamuController extends Controller
                     break;
 
                 case 'operator':
-                    return redirect('landingpage1');
+                    return redirect('');
                     break;
 
                 case 'notulen':
@@ -54,7 +54,7 @@ class LoginBukuTamuController extends Controller
         }
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::logout();
         return redirect('/login');

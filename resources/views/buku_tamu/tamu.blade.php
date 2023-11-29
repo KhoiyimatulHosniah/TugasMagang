@@ -40,7 +40,7 @@
                                     <div class="text-center">
                                         <h1 class="h5 text-gray-900 mb-4">FORM TAMU</h1>
                                     </div>
-                                    <form class="user" action="{{ url('/form') }}" method="POST">
+                                    <form class="user" action="datatamu" method="POST">
                                         @csrf
 
                                         <div class="form-group">
@@ -50,10 +50,12 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <select type="form" class="form-control" id="exampleFormControl" aria-describedby="formHelp">
-                                            <option>Jenis Kelamin</option>
-                                            <option>Laki-laki</option>
-                                            <option>Perempuan</option>
+                                            <select type="text" placeholder="Pilih Jenis Kelamin"
+                                                class="form-control form-select" name="jenis_kelamin" id="jenis_kelamin">
+                                                <option>Pilih Jenis Kelamin</option>
+                                                <option>Laki-laki</option>
+                                                <option>Perempuan</option>
+                                                
                                             </select>
                                         </div>
 
@@ -77,15 +79,14 @@
                                                 id="exampleInputName" aria-describedby="nameHelp"
                                                 placeholder="Telepon">
                                         </div>
+                                        <hr>
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">KIRIM</button>
                                     </form>
-                                    <hr>
-                                    <button type="submit" class="btn btn-primary btn-user btn-block">KIRIM</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
 
         </div>

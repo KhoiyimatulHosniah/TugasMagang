@@ -9,6 +9,7 @@ use App\Http\Controllers\Landingpage2Controller;
 use App\Http\Controllers\Landingpage3Controller;
 use App\Http\Controllers\TamuController;
 use App\Http\Controllers\DashboardTamuController;
+use App\Http\Controllers\DataTamuController;
 use App\Http\Controllers\LoginNotulensiController;
 use App\Http\Controllers\DashboardNotulenController;
 use App\Http\Controllers\FormNotulenController;
@@ -48,6 +49,7 @@ Route::get('/landingpage3', [Landingpage3Controller::class, 'index3'])->name('la
 /*daftar hadir*/
 Route::get('/daftarhadir', [DaftarhadirController::class, 'showForm']);
 Route::post('/daftarhadir/submit', [DaftarhadirController::class, 'submitForm'])->name('daftar-hadir.submit');
+
 // Form Tamu
 Route::get('/form', [TamuController::class, 'showForm'])->name('form');
 Route::post('/form', [TamuController::class, 'processForm']);
@@ -55,9 +57,21 @@ Route::post('/form', [TamuController::class, 'processForm']);
 //Dashboard Resepsionis
 Route::get('/dashboardTamu', [DashboardTamuController::class, 'index'])->name('dashboardTamu');
 
+<<<<<<< Updated upstream
 //Dashboard Notulensi
 Route::get('/dashboardNotulen', [DashboardNotulenController::class, 'index2'])->name('dashboardNotulen');
 Route::get('/formNotulen', [FormNotulenController::class, 'index'])->name('formNotulen');
 Route::get('/formKegiatan', [FormKegiatanController::class, 'index'])->name('formKegiatan');
 Route::get('/tambahRapat', [TambahRapatController::class, 'index'])->name('tambahRapat');
 
+=======
+// Data Tamu
+Route::get('/datatamu', [DataTamuController::class, 'tabelTamu'])->name('datatamu');
+Route::get('/datatamu/create', [DataTamuController::class, 'create'])->name('datatamu.create');
+Route::post('/datatamu/store', [DataTamuController::class, 'store'])->name('datatamu.store');
+
+//Button Logout
+Route::get('/landingpage', function () {
+    return view('landingpage');
+})->name('landingpage');
+>>>>>>> Stashed changes
