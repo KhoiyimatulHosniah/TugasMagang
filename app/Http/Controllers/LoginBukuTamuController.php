@@ -34,7 +34,7 @@ class LoginBukuTamuController extends Controller
 
             switch ($user->role) {
                 case 'admin':
-                    return redirect('dashboardAdmin');
+                    return redirect('dashboardTamu');
                     break;
 
                 case 'operator':

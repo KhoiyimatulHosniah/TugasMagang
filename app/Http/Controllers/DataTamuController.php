@@ -23,12 +23,11 @@ class DataTamuController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
-
+ 
     // create data
     public function create()
     {
-        //
+        return view('buku_tamu.dataTamu');
     }
 
     /**
@@ -39,7 +38,19 @@ class DataTamuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama' => 'required',
+            'jenis_kelamin' => 'required',
+            'tanggal' => 'required',
+            'tujuan' => 'required',
+            'nama_instansi' => 'required',
+            'no_telp' => 'required',
+            
+        ]);
+
+        tamu::create($request->all());
+
+        return redirect()->route('datatamu.create')->with('success', 'Tamu berhasil ditambahkan!');
     }
 
     /**
@@ -50,7 +61,7 @@ class DataTamuController extends Controller
      */
     public function show()
     {
-        return view('buku_tamu.datatamu');
+        return view('buku_tamu.dataTamu');
     }
 
     /**

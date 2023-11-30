@@ -40,11 +40,11 @@
                                     <div class="text-center">
                                         <h1 class="h5 text-gray-900 mb-4">FORM TAMU</h1>
                                     </div>
-                                    <form class="user" action="datatamu" method="POST">
+                                    <form class="user" action="{{ route('datatamu.store') }}" method="POST">
                                         @csrf
 
                                         <div class="form-group">
-                                            <input type="name" class="form-control"
+                                            <input type="text" class="form-control"
                                                 id="exampleInputName" aria-describedby="nameHelp"
                                                 placeholder="Nama">
                                         </div>
@@ -65,17 +65,17 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <input type="name" class="form-control"
+                                            <input type="text" class="form-control"
                                                 id="exampleInputName" aria-describedby="nameHelp"
                                                 placeholder="Tujuan">
                                         </div>
                                         <div class="form-group">
-                                            <input type="name" class="form-control"
+                                            <input type="text" class="form-control"
                                                 id="exampleInputName" aria-describedby="nameHelp"
                                                 placeholder="Nama Instansi">
                                         </div>
                                         <div class="form-group">
-                                            <input type="name" class="form-control"
+                                            <input type="text" class="form-control"
                                                 id="exampleInputName" aria-describedby="nameHelp"
                                                 placeholder="Telepon">
                                         </div>
