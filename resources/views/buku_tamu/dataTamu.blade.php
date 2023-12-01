@@ -178,6 +178,16 @@
                     <!-- DataTales Example -->
                         <div class="card mt-5">
                             <div class="card-body">
+                            
+                            @if(session('success'))
+                                <div class="alert alert-success">
+                                    {{ session('success') }}
+                                </div>
+                            @elseif(session('error'))
+                                <div class="alert alert-danger">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
                                 <table id="dataTable" class="table table-bordered" style="width:100%">
                                     <thead>
                                         <tr>
@@ -201,15 +211,19 @@
                                             <td>{{ $item->nama_instansi }}</td>
                                             <td>{{ $item->tujuan }}</td>
                                             <td>{{ $item->no_telp }}</td>
+                                            <td>
+                                                <a href="{{ route('datatamu.hapus', ['id' => $item->id]) }}" class="btn btn-danger btn-circle" onclick="confirmModal('{{ route('datatamu.hapus', ['id' => $item['id']]) }}'))">
+                                                    <i class='fas fa-trash-alt' ></i>
+                                                </a>
+                                            </td>
                                         </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
-                                <a href="/form" type="submit" name="register" class="btn btn-primary">Tambah</a>
+                                <a href="{{ route ('form') }}" type="submit" name="form" class="btn btn-primary">Tambah</a>
                             </div>
                         </div>
 
-                    
                     </div>
 
 

@@ -49,8 +49,7 @@ class DataTamuController extends Controller
         ]);
 
         tamu::create($request->all());
-
-        return redirect()->route('datatamu.create')->with('success', 'Tamu berhasil ditambahkan!');
+        return redirect()->route('datatamu')->with('success', 'Tamu berhasil ditambahkan!');
     }
 
     /**
@@ -72,7 +71,9 @@ class DataTamuController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = tamu::find($id);
+
+        return view('tamu.edit', compact('item'));
     }
 
     /**
@@ -93,10 +94,18 @@ class DataTamuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function hapus($id)
     {
-        //
+        $item = tamu::find($id);
+
+        if ($item) {
+            $item->delete();
+            return redirect()->back()->with('success', 'Data berhasil dihapus.');
+        } else {
+            return redirect()->back()->with('error', ' Data tidak ditemukan');
+        }
     }
+    
 
     
 }
