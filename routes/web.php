@@ -67,6 +67,8 @@ Route::get('/tambahRapat', [TambahRapatController::class, 'index'])->name('tamba
 Route::get('/datatamu', [DataTamuController::class, 'tabelTamu'])->name('datatamu');
 Route::get('/datatamu/create', [DataTamuController::class, 'create'])->name('datatamu.create');
 Route::post('/datatamu/store', [DataTamuController::class, 'store'])->name('datatamu.store');
+Route::get('/datatamu/{id}/hapus', [DataTamuController::class, 'hapus'])->name('datatamu.hapus');
+
 
 //Button Logout
 Route::get('/landingpage', function () {

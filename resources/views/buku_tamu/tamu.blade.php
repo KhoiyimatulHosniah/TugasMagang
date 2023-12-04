@@ -44,14 +44,14 @@
                                         @csrf
 
                                         <div class="form-group">
-                                            <input type="text" class="form-control"
+                                            <input type="text" class="form-control" name="nama"
                                                 id="exampleInputName" aria-describedby="nameHelp"
                                                 placeholder="Nama">
                                         </div>
 
                                         <div class="form-group">
                                             <select type="text" placeholder="Pilih Jenis Kelamin"
-                                                class="form-control form-select" name="jenis_kelamin" id="jenis_kelamin">
+                                                class="form-control form-select" name="jenis_kelamin" aria-describedby="nameHelp" id="jenis_kelamin">
                                                 <option>Pilih Jenis Kelamin</option>
                                                 <option>Laki-laki</option>
                                                 <option>Perempuan</option>
@@ -60,22 +60,22 @@
                                         </div>
 
                                        <div class="form-group">
-                                            <input type="date" class="form-control"
-                                                id="exampleInputTanggal" placeholder="">
+                                            <input type="date" class="form-control" name="tanggal"
+                                                id="exampleInputTanggal" aria-describedby="nameHelp" placeholder="">
                                         </div>
 
                                         <div class="form-group">
-                                            <input type="text" class="form-control"
+                                            <input type="text" class="form-control" name="tujuan"
                                                 id="exampleInputName" aria-describedby="nameHelp"
                                                 placeholder="Tujuan">
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control"
+                                            <input type="text" class="form-control" name="nama_instansi"
                                                 id="exampleInputName" aria-describedby="nameHelp"
                                                 placeholder="Nama Instansi">
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control"
+                                            <input type="text" class="form-control" name="no_telp"
                                                 id="exampleInputName" aria-describedby="nameHelp"
                                                 placeholder="Telepon">
                                         </div>
