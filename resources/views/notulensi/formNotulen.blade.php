@@ -179,39 +179,49 @@
                 </nav>
                 <!-- End of Topbar -->
 
-
                     <!-- Content Row -->
 
-                    <div class="row">
+                    <div class="row mx-3">
 
                         <!-- Area Chart -->
-                        <div class="col-xl-8 col-lg-7">
+                        <div class="col-12">
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Kegiatan Rapat</h6>
+                                </div>
+                                <div class="mt-2 ml-3">
+                                    <a href="/tambahRapat" class="btn btn-primary btn-sm "><i class="fas fa-plus" ></i></a>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                    <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
-                                    </div>
-                                </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Sidang/Rapat</th>
+                                                    <th>Hari/Tanggal</th>
+                                                    <th>Jam Panggilan</th>
+                                                    <th>Jam Sidang</th>
+                                                    <th>Acara</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Rapat rapat</td>
+                                                    <td>11/29/2023</td>
+                                                </tr>
+                                                <!-- Add more rows as needed -->
+                                            </tbody>
+                                        </table>
                             </div>
                         </div>
-                        
-
                     </div>
-
-        
                 </div>
-                
-
-            </div>
-            
-        </div>
-        
+            </div>    
+        </div>  
     </div>
     
 
@@ -219,7 +229,7 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
-
+ 
 
     <!-- Bootstrap core JavaScript-->
     <script src="asset/vendor/jquery/jquery.min.js"></script>
