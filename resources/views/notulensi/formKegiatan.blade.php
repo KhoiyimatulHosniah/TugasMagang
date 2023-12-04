@@ -202,6 +202,17 @@
                                                 <tr>
                                                     <td>2023-11-27</td>
                                                     <td>$1000</td>
+                                                    <td>$1000</td>
+                                                    <td>$1000</td>
+                                                    <td>$1000</td>
+                                                    <td>
+                                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                                            <button type="button" class="btn btn-info btn-sm ml-2" title="Edit">
+                                                                <i class="fas fa-plus"></i>
+                                                            </button>
+                                                        </div>
+                                                       
+                                                    </td>
                                                 </tr>
                                                 <!-- Add more rows as needed -->
                                             </tbody>

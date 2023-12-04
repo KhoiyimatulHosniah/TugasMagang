@@ -182,7 +182,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Kegiatan Rapat</h6>
                                 </div>
                                 <!-- Card Body -->
-                                <form action="/submitkegiatan" method="POST"> <!-- Replace "/submitForm" with your form submission URL -->
+                                <form action="/formKegiatan" method="POST"> <!-- Replace "/submitForm" with your form submission URL -->
                                     <div class="card-body">
                     <div class="form-group row">
                         <label for="kegiatan" class="col-sm-4 col-form-label">Kegiatan</label>
@@ -195,6 +195,7 @@
                         <div class="col-sm-8">
                             <input type="date" class="form-control" id="tanggal" name="tanggal">
                         </div>
+                        
                     </div>
                     <div class="form-group row">
                         <label for="pukul" class="col-sm-4 col-form-label">Pukul</label>
@@ -205,15 +206,121 @@
                     <div class="form-group row">
                         <label for="tempat" class="col-sm-4 col-form-label">Tempat</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="tempat" name="tempat">
+                            <select class="form-control" id="tempat" name="tempat" onchange="checkOther()">
+                                <option value=""disabled selected>Pilih Tempat</option>
+                                <option value="Pilihan 1">Ruang Baluran</option>
+                                <option value="Pilihan 2">Ruang Intelligence Room</option>
+                                <option value="Lainnya">Lainnya</option>
+                            </select>
+                            <div id="otherInput" style="display: none;">
+                                <input type="text" class="form-control mt-2" id="otherText" placeholder="Isi tempat lainnya">
+                            </div>
                         </div>
                     </div>
+                    
+                    <script>
+                        function checkOther() {
+                            var tempatDropdown = document.getElementById('tempat');
+                            var otherInput = document.getElementById('otherInput');
+                            var otherText = document.getElementById('otherText');
+                    
+                            if (tempatDropdown.value === 'Lainnya') {
+                                otherInput.style.display = 'block';
+                                otherText.required = true;
+                            } else {
+                                otherInput.style.display = 'none';
+                                otherText.required = false;
+                                otherText.value = '';
+                            }
+                        }
+                    </script>
                     <div class="form-group row">
                         <label for="undangan" class="col-sm-4 col-form-label">Undangan Rapat</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="undangan" name="undangan">
-                        </div>
-                    </div>
+                            <div class="input-group">
+                    <input type="text" class="form-control" id="undangan" name="undangan">
+                                <div class="input-group-append">
+                    <span class="input-group-text" onclick="addData()"><i class="fas fa-plus-circle"></i></span>
+                                </div>
+                            </div>
+                            <script>
+    function addData() {
+    var undanganValue = document.getElementById('undangan').value.trim();
+
+    // Check if the input is not empty
+    if (undanganValue !== '') {
+        var table = document.getElementById('undangantabel').getElementsByTagName('tbody')[0];
+
+        // Check if the value already exists in the table
+        var duplicate = false;
+        for (var i = 0; i < table.rows.length; i++) {
+            var existingValue = table.rows[i].cells[1].innerHTML.trim();
+            if (existingValue.toLowerCase() === undanganValue.toLowerCase()) {
+                duplicate = true;
+                break;
+            }
+        }
+
+        // If it's not a duplicate, add the data
+        if (!duplicate) {
+            var rowCount = table.rows.length;
+            var row = table.insertRow(rowCount);
+
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+
+            cell1.innerHTML = rowCount + 1;
+            cell2.innerHTML = undanganValue;
+            cell3.innerHTML = `
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-info btn-sm ml-2" onclick="editRow(this)" title="Edit">
+                        <i class="fas fa-pencil-alt"></i>
+                    </button>
+                </div>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-danger btn-sm ml-2" onclick="deleteRow(this)" title="Delete">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            `;
+
+            // Clear the input after adding data
+            document.getElementById('undangan').value = '';
+        } else {
+            alert('Data sudah ada dalam tabel.');
+        }
+    } else {
+        alert('Input tidak boleh kosong');
+    }
+}
+
+    function editRow(btn) {
+        var row = btn.parentNode.parentNode.parentNode;
+        var cells = row.getElementsByTagName("td");
+
+        var newValue = prompt("Enter new value:", cells[1].innerHTML);
+        if (newValue !== null) {
+            cells[1].innerHTML = newValue;
+        }
+    }
+
+    function deleteRow(btn) {
+    var row = btn.parentNode.parentNode.parentNode;
+    var table = row.parentNode;
+
+    table.removeChild(row); // Hapus baris
+
+    // Perbarui nomor urutan pada sel pertama setiap baris setelah penghapusan
+    var rowCount = table.rows.length;
+    for (var i = 0; i < rowCount; i++) {
+        table.rows[i].cells[0].innerHTML = i + 1;
+    }
+}
+
+    
+</script>
+                        
                     <!-- Content Row -->
 
                     <div class="row ">
@@ -221,18 +328,16 @@
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <div class="table-responsive">
-                                        <table class="table table-bordered" width="100%" cellspacing="0">
+                                        <table id ="undangantabel" class="table table-bordered" width="100%" cellspacing="0">
                                             <thead>
                                                 <tr>
                                                     <th>No</th>
                                                     <th>Nama Instansi</th>
+                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>$1000</td>
-                                                </tr>
+                                                    
                                                 <!-- Add more rows as needed -->
                                             </tbody>
                                         </table>
@@ -244,7 +349,7 @@
                     <div class="form-group row text-right">
                         <div class="col-sm-4"></div> 
                         <div class="col-sm-8">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Tambah</button>
                         </div>
                     </div>
                 </div>
