@@ -16,13 +16,35 @@
         <link
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
             rel="stylesheet">
+        <!-- Vendor CSS Files -->
+        <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+        <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+        <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+        <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+        <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+        <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
         <!-- Custom styles for this template-->
         <link href="asset/css/sb-admin-2.min.css" rel="stylesheet">
+        <link href="assets/css/style.css" rel="stylesheet">
 
     </head>
 <body class="bg-gradient-primary">
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center">
 
+      <h1 class="logo me-auto">
+        <a href="/landing1" style="display: flex; align-items: center;">
+          <img src="asset\images/logo2.png" alt="Logo" style="height: 40px; margin-right: 10px;">
+          Pemerintah Kabupaten Situbondo
+        </a>
+      </h1>
+      <!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
     <div class="container">
 
         <!-- Outer Row -->

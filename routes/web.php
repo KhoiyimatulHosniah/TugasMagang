@@ -4,9 +4,9 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\DaftarhadirController;
 use App\Http\Controllers\LoginBukuTamuController;
-use App\Http\Controllers\Landingpage1Controller;
-use App\Http\Controllers\Landingpage2Controller;
-use App\Http\Controllers\Landingpage3Controller;
+use App\Http\Controllers\Landing1Controller;
+use App\Http\Controllers\Landing2Controller;
+use App\Http\Controllers\Landing3Controller;
 use App\Http\Controllers\TamuController;
 use App\Http\Controllers\DashboardTamuController;
 use App\Http\Controllers\DataTamuController;
@@ -42,9 +42,9 @@ Route::post('/loginNotulensi', [LoginNotulensiController::class, 'login']);
 Route::post('/logout', [LoginNotulensiController::class, 'logout'])->name('logout');
 
 /*LandingPage*/
-Route::get('/landingpage1', [Landingpage1Controller::class, 'index'])->name('landingpage1');
-Route::get('/landingpage2', [Landingpage2Controller::class, 'index2'])->name('landingpage2');
-Route::get('/landingpage3', [Landingpage3Controller::class, 'index3'])->name('landingpage3');
+Route::get('/landing2', [Landing2Controller::class, 'index'])->name('landing2');
+Route::get('/landing3', [Landing3Controller::class, 'index'])->name('landing3');
+Route::get('/landing1', [Landing1Controller::class, 'index'])->name('landing1');
 
 /*daftar hadir*/
 Route::get('/daftarhadir', [DaftarhadirController::class, 'showForm']);
