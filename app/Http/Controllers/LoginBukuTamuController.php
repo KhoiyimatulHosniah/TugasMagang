@@ -24,11 +24,6 @@ class LoginBukuTamuController extends Controller
         ]);
 
 
-        $infologin = [
-            'username' => $request->username,
-            'password' => $request->password,
-        ];
-
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
 
@@ -38,11 +33,11 @@ class LoginBukuTamuController extends Controller
                     break;
 
                 case 'operator':
-                    return redirect('');
+                    return redirect('landingpage1');
                     break;
 
                 case 'notulen':
-                    return redirect('dashboardNotu');
+                    return redirect('dashboardNotulen')->with('success', 'Login berhasil. Selamat datang, ' . $user->nama);
                     break;
 
                 default:
@@ -50,13 +45,13 @@ class LoginBukuTamuController extends Controller
             }
       
         }else {
-            return redirect()->back()->withErrors('Username atau Password yang dimasukkan tidak sesuai')->withInput();
+            return redirect()->back()->withErrors(['error' => 'Username atau Password yang dimasukkan tidak sesuai'])->withInput();
         }
     }
 
     public function logout(Request $request)
     {
         Auth::logout();
-        return redirect('/login');
+        return redirect('/login')->with('success', 'Anda telah berhasil logout.');
     }
 }

@@ -21,6 +21,10 @@
     <!-- Custom styles for this template-->
     <link href="asset/css/sb-admin-2.min.css" rel="stylesheet">
 
+    <!-- Timer Notifikasi-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
 </head>
 
 <body id="page-top">
@@ -149,7 +153,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
                                 <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                    src="">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -178,16 +182,27 @@
                     <!-- DataTales Example -->
                         <div class="card mt-5">
                             <div class="card-body">
-                            
-                            @if(session('success'))
-                                <div class="alert alert-success">
-                                    {{ session('success') }}
-                                </div>
-                            @elseif(session('error'))
-                                <div class="alert alert-danger">
-                                    {{ session('error') }}
-                                </div>
-                            @endif
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    @if(session('success'))
+                                        Swal.fire({
+                                            icon: 'success',
+                                            title: 'Berhasil!',
+                                            text: '{{ session('success') }}',
+                                            timer: 2000, // waktu dalam milidetik (2 detik)
+                                            showConfirmButton: false
+                                        });
+                                    @elseif(session('error'))
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'Error!',
+                                            text: '{{ session('error') }}',
+                                            timer: 2000, // waktu dalam milidetik (2 detik)
+                                            showConfirmButton: false
+                                        });
+                                    @endif
+                                });
+                            </script>
                                 <table id="dataTable" class="table table-bordered" style="width:100%">
                                     <thead>
                                         <tr>
@@ -243,7 +258,7 @@
                             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                             <div class="modal-footer">
                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                                <a class="btn btn-primary" href="landingPage">Logout</a>
+                                <a class="btn btn-primary" href="{{ route ('landingpage1') }}">Logout</a>
                             </div>
                         </div>
                     </div>

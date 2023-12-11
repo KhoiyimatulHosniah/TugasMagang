@@ -57,26 +57,56 @@
                                     <h4 class="text-gray-900 mb-4">LOGIN</h4>
                                 </div>
 
+                                        @if(session('success'))
+                                            <div class="alert alert-success">
+                                                {{ session('success') }}
+                                            </div>
+                                        @endif
+
+                                        @if(session('error'))
+                                            <div class="alert alert-danger">
+                                                {{ session('error') }}
+                                            </div>
+                                        @endif
+
                                     <form class="user" action="{{ url('/login') }}" method="POST">
                                         @csrf
+
                                         <div class="form-group">
                                             <input type="text" name="username" class="form-control form-control-user" id="exampleInputUsername"
                                                 aria-describedby="usernameHelp" placeholder="Username" value="{{ old('username') }}">
-                                            @error('username')
-                                            <div class="text-danger">{{ $message }}</div>
-                                            @enderror
                                         </div>
 
                                         <div class="form-group">
                                             <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword"
                                                 placeholder="Password">
-                                            @error('password')
-                                         <div class="text-danger">{{ $message }}</div>
-                                            @enderror
                                         </div>
+
+                                        @if ($errors->any())
+                                            <div id="notification" class="alert alert-danger">
+                                                {{ $errors->first() }}
+                                            </div>
+
+
+                                            <script>
+                                                $(document).ready(function() {
+                                                    // Sembunyikan notifikasi setelah 5 detik
+                                                    setTimeout(function() {
+                                                        $('#notification').fadeOut('fast');
+                                                    }, 3000); // 5000 milidetik (3 detik)
+                                                });
+                                            </script>
+                                        @endif
                                         
                                         <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
                                     </form>
+
+                                    <script>
+                                        function togglePassword() {
+                                            var passwordInput = document.getElementById('password');
+                                            passwordInput.type = (passwordInput.type === 'password') ? 'text' : 'password';
+                                        }
+                                    </script>
                                                                     
                             </div>
                         </div>
