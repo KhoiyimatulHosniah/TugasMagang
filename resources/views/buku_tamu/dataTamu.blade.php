@@ -67,7 +67,7 @@
 
             <!-- Nav Item - Jadwal -->
             <li class="nav-item">
-                <a class="nav-link" href="/jadwal">
+                <a class="nav-link" href="/jadwalPegawai">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Jadwal Pegawai</span></a>
             </li>
@@ -160,7 +160,7 @@
                                 aria-labelledby="userDropdown">
                                 
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="landingpage1" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="landing1" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -258,7 +258,7 @@
                             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                             <div class="modal-footer">
                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                                <a class="btn btn-primary" href="{{ route ('landingpage1') }}">Logout</a>
+                                <a class="btn btn-primary" href="{{ route ('landing1') }}">Logout</a>
                             </div>
                         </div>
                     </div>

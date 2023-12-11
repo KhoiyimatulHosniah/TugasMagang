@@ -33,7 +33,7 @@ class LoginBukuTamuController extends Controller
                     break;
 
                 case 'operator':
-                    return redirect('landingpage1');
+                    return redirect('landing1');
                     break;
 
                 case 'notulen':
@@ -41,7 +41,7 @@ class LoginBukuTamuController extends Controller
                     break;
 
                 default:
-                    return redirect('landingpage1'); 
+                    return redirect('landing1'); 
             }
       
         }else {

@@ -15,6 +15,7 @@ use App\Http\Controllers\DashboardNotulenController;
 use App\Http\Controllers\FormNotulenController;
 use App\Http\Controllers\FormKegiatanController;
 use App\Http\Controllers\TambahRapatController;
+use App\Http\Controllers\JadwalPegawaiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,6 +69,9 @@ Route::get('/datatamu', [DataTamuController::class, 'tabelTamu'])->name('datatam
 Route::get('/datatamu/create', [DataTamuController::class, 'create'])->name('datatamu.create');
 Route::post('/datatamu/store', [DataTamuController::class, 'store'])->name('datatamu.store');
 Route::get('/datatamu/{id}/hapus', [DataTamuController::class, 'hapus'])->name('datatamu.hapus');
+
+//Jadwal Pegawai
+Route::get('/jadwalPegawai', [JadwalPegawaiController::class, 'jadwal'])->name('jadwalPegawai');
 
 
 //Button Logout
