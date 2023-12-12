@@ -15,7 +15,7 @@ class DataTamuController extends Controller
     public function tabelTamu()
     {
         $items = tamu::all(); // Mengambil semua data pengguna dari tabel tamus
-        return view ('buku_tamu.dataTamu', compact('items'));
+        return view('buku_tamu.dataTamu', compact('items'));
     }
 
     /**
@@ -23,7 +23,7 @@ class DataTamuController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
- 
+
     // create data
     public function create()
     {
@@ -33,7 +33,7 @@ class DataTamuController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -45,7 +45,7 @@ class DataTamuController extends Controller
             'tujuan' => 'required',
             'nama_instansi' => 'required',
             'no_telp' => 'required',
-            
+
         ]);
 
         tamu::create($request->all());
@@ -55,7 +55,7 @@ class DataTamuController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show()
@@ -66,7 +66,7 @@ class DataTamuController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -79,8 +79,8 @@ class DataTamuController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -91,7 +91,7 @@ class DataTamuController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function hapus($id)
@@ -105,8 +105,7 @@ class DataTamuController extends Controller
             return redirect()->back()->with('error', ' Data tidak ditemukan');
         }
     }
-    
 
-    
+
 }
 
