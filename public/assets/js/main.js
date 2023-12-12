@@ -90,7 +90,6 @@
     window.addEventListener('load', headerScrolled)
     onscroll(document, headerScrolled)
   }
-
   /**
    * Back to top button
    */
@@ -243,6 +242,8 @@
     }
   });
 
+  
+
   /**
    * Animation on scroll
    */
@@ -254,5 +255,13 @@
       mirror: false
     });
   });
+/**
+   * Navigation hamburger
+   */
+  const navToggle = document.querySelector('.nav-toggle');
+  const navMenu = document.querySelector('.nav-container ul');
 
+  navToggle.addEventListener('click', () => {
+  navMenu.classList.toggle('show-nav'); // Tambah atau hapus kelas 'show-nav' pada klik
+});
 })()

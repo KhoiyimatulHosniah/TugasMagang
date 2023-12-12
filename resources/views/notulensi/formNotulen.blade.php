@@ -77,25 +77,6 @@
             </div>
 
         </ul>
-        <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="landingPage">Logout</a>
-            </div>
-        </div>
-    </div>
-</div>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -173,18 +154,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
+                                
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -196,7 +166,28 @@
                     </ul>
 
                 </nav>
+                <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" href="landingPage">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+
                 <!-- End of Topbar -->
+
 
                     <!-- Content Row -->
 
@@ -209,38 +200,151 @@
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-primary">Kegiatan Rapat</h6>
-                                </div>
-                                <div class="mt-2 ml-3">
-                                    <a href="/tambahRapat" class="btn btn-primary btn-sm "><i class="fas fa-plus" ></i></a>
+                                
                                 </div>
                                 <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered" width="100%" cellspacing="0">
-                                            <thead>
-                                                <tr>
-                                                    <th>Sidang/Rapat</th>
-                                                    <th>Hari/Tanggal</th>
-                                                    <th>Jam Panggilan</th>
-                                                    <th>Jam Sidang</th>
-                                                    <th>Acara</th>
-                                                    <th>Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Rapat rapat</td>
-                                                    <td>11/29/2023</td>
-                                                </tr>
-                                                <!-- Add more rows as needed -->
-                                            </tbody>
-                                        </table>
-                            </div>
+                                <form action="/formKegiatan" method="POST"> <!-- Replace "/submitForm" with your form submission URL -->
+                                    <div class="card-body">
+                    <div class="form-group row">
+                        <label for="kegiatan" class="col-sm-4 col-form-label">Sidang/Rapat</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="kegiatan" name="kegiatan">
                         </div>
                     </div>
+                    
+                    <div class="form-group row">
+                        <label for="tanggal" class="col-sm-4 col-form-label">Hari/Tanggal</label>
+                        <div class="col-sm-8">
+                            <input type="date" class="form-control" id="tanggal" name="tanggal">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="pukul" class="col-sm-4 col-form-label">Jam Panggilan</label>
+                        <div class="col-sm-8">
+                            <input type="time" class="form-control" id="pukul" name="pukul">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="pukul" class="col-sm-4 col-form-label">Jam Sidang/Rapat</label>
+                        <div class="col-sm-8">
+                            <input type="time" class="form-control" id="pukul" name="pukul">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="kegiatan" class="col-sm-4 col-form-label">Acara</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="kegiatan" name="kegiatan">
+                        </div>
+                    </div>
+                    
+                    <h6 class="m-0 font-weight-bold text-primary">Kegiatan Rapat</h6>
+                                
                 </div>
-            </div>    
-        </div>  
+                <!-- Card Body -->
+                <form action="/formKegiatan" method="POST"> <!-- Replace "/submitForm" with your form submission URL -->
+                    <div class="card-body">
+    <div class="form-group row">
+        <label for="kegiatan" class="col-sm-4 col-form-label">Sidang/Rapat</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="kegiatan" name="kegiatan">
+        </div>
+    </div>
+    
+    <div class="form-group row">
+        <label for="tanggal" class="col-sm-4 col-form-label">Hari/Tanggal</label>
+        <div class="col-sm-8">
+            <input type="date" class="form-control" id="tanggal" name="tanggal">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="pukul" class="col-sm-4 col-form-label">Jam Panggilan</label>
+        <div class="col-sm-8">
+            <input type="time" class="form-control" id="pukul" name="pukul">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="pukul" class="col-sm-4 col-form-label">Jam Sidang/Rapat</label>
+        <div class="col-sm-8">
+            <input type="time" class="form-control" id="pukul" name="pukul">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="kegiatan" class="col-sm-4 col-form-label">Acara</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="kegiatan" name="kegiatan">
+        </div>
+    </div>
+    
+    
+    <h6 class="m-0 font-weight-bold text-primary">Kegiatan Rapat</h6>
+                                
+                                </div>
+                                <!-- Card Body -->
+                                <form action="/formKegiatan" method="POST"> <!-- Replace "/submitForm" with your form submission URL -->
+                                    <div class="card-body">
+                    <div class="form-group row">
+                        <label for="kegiatan" class="col-sm-4 col-form-label">Sidang/Rapat</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="kegiatan" name="kegiatan">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label for="tanggal" class="col-sm-4 col-form-label">Hari/Tanggal</label>
+                        <div class="col-sm-8">
+                            <input type="date" class="form-control" id="tanggal" name="tanggal">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="pukul" class="col-sm-4 col-form-label">Jam Panggilan</label>
+                        <div class="col-sm-8">
+                            <input type="time" class="form-control" id="pukul" name="pukul">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="pukul" class="col-sm-4 col-form-label">Jam Sidang/Rapat</label>
+                        <div class="col-sm-8">
+                            <input type="time" class="form-control" id="pukul" name="pukul">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="kegiatan" class="col-sm-4 col-form-label">Acara</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="kegiatan" name="kegiatan">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row text-right">
+                        <div class="col-sm-4"></div> 
+                        <div class="col-sm-8">
+                            <button type="submit" class="btn btn-primary">Tambah</button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </form>
+</div>
+</form>
+ 
+                </div>
+            </form>
+            
+            
+                            </div>
+                            
+                        </div>
+                        
+
+                    </div>
+
+        
+                </div>
+                
+
+            </div>
+            
+        </div>
+        
     </div>
     
 
@@ -248,7 +352,7 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
- 
+
 
     <!-- Bootstrap core JavaScript-->
     <script src="asset/vendor/jquery/jquery.min.js"></script>

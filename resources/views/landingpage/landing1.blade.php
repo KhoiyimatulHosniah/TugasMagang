@@ -37,14 +37,16 @@
         </a>
       </h1>
       <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#layanan">Layanan</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-        </ul>
-        
+        <button class="nav-toggle">
+          <i class="bi bi-list"></i>
+        </button>
+        <div class="nav-container">
+          <ul class="nav-list">
+            <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+            <li><a class="nav-link scrollto" href="#layanan">Layanan</a></li>
+          </ul>
+        </div>
       </nav><!-- .navbar -->
-
     </div>
   </header><!-- End Header -->
 
@@ -59,7 +61,7 @@
           
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero" data-aos="zoom-in" data-aos-delay="200">
-          <img src="assets/img/hero.png" class="img-fluid animated" alt="">
+          <img src="assets/img/why-us.png" class="img-fluid animated" alt="">
         </div>
       </div>
     </div>

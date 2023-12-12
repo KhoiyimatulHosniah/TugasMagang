@@ -40,24 +40,20 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
-
+  <section id="hero" class="d-flex align-items-center" style="background-image: url('/assets/img/hero2.jpg'); background-size: cover; background-position: center; position: relative;">
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: inherit; filter: blur(2px);"></div>
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200" style="position: relative; z-index: 1;">
           <h1>Selamat Datang di</h1>
           <h1>Dinas Komunikasi dan Informasi</h1>
           <div id="button" class="d-flex justify-content-center justify-content-lg-start">
             <a href="/form" class="btn-get-started scrollto ">Daftar Tamu</a>
             <a href="/login" class="btn-get-started scrollto">Resepsionis</a>
-           </div>
-        </div>
-        <div class="col-lg-6 order-1 order-lg-2 hero" data-aos="zoom-in" data-aos-delay="200">
-          <img src="assets/img/hero.png" class="img-fluid animated" alt="">
+          </div>
         </div>
       </div>
     </div>
-
   </section><!-- End Hero -->
 
   
