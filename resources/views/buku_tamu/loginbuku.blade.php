@@ -44,10 +44,10 @@
 
     </div>
 </header><!-- End Header -->
-<section class="vh-4 gradient-custom">
+<section class="vh-3 gradient-custom">
     <div class="container py-0 vh-90">
         <div class="row d-flex justify-content-center align-items-center h-90">
-            <div class="col-10 col-md-7 col-lg-4 col-xl-5">
+            <div class="col-3 col-md-6 col-lg-3 col-xl-5">
                 <h3 class="text-gray-900 mb-4">Selamat Datang sebagai Resepsionis</h3>
                 <div class="card bg-form-login text-white" style="margin-top:0;">
                     <div class="card-body back-login p-5 text-center">

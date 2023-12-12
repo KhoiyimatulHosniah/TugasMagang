@@ -113,28 +113,29 @@
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
 
-                    <!-- Nav Item - Pencarian
+                    <!-- Nav Item - Pencarian -->
                     <li class="nav-item dropdown no-arrow d-sm-none">
                         <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-search fa-fw"></i>
                         </a>
+
                         <!-- Dropdown - Messages -->
-                    <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                         aria-labelledby="searchDropdown">
-                        <form class="form-inline mr-auto w-100 navbar-search">
-                            <div class="input-group">
-                                <input type="text" class="form-control bg-light border-0 small"
-                                       placeholder="Search for..." aria-label="Search"
-                                       aria-describedby="basic-addon2">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary" type="button">
-                                        <i class="fas fa-search fa-sm"></i>
-                                    </button>
+                        <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                             aria-labelledby="searchDropdown">
+                            <form class="form-inline mr-auto w-100 navbar-search">
+                                <div class="input-group">
+                                    <input type="text" class="form-control bg-light border-0 small"
+                                           placeholder="Search for..." aria-label="Search"
+                                           aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary" type="button">
+                                            <i class="fas fa-search fa-sm"></i>
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
-                    </div>
+                            </form>
+                        </div>
                     </li>
 
                     <!-- Nav Item - Alerts -->
@@ -228,7 +229,7 @@
                                     <td>
                                         <a href="{{ route('datatamu.hapus', ['id' => $item->id]) }}"
                                            class="btn btn-danger btn-circle"
-                                           onclick="confirmModal('{{ route('datatamu.hapus', ['id' => $item['id']]) }}'))">
+                                           onclick="confirmModal('{{ route('datatamu.hapus', ['id' => $item['id']]) }}')">
                                             <i class='fas fa-trash-alt'></i>
                                         </a>
                                     </td>
@@ -264,24 +265,26 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
 
 
-        <!-- Bootstrap core JavaScript-->
-        <script src="asset/vendor/jquery/jquery.min.js"></script>
-        <script src="asset/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap core JavaScript-->
+<script src="asset/vendor/jquery/jquery.min.js"></script>
+<script src="asset/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        <!-- Core plugin JavaScript-->
-        <script src="asset/vendor/jquery-easing/jquery.easing.min.js"></script>
+<!-- Core plugin JavaScript-->
+<script src="asset/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-        <!-- Custom scripts for all pages-->
-        <script src="asset/js/sb-admin-2.min.js"></script>
+<!-- Custom scripts for all pages-->
+<script src="asset/js/sb-admin-2.min.js"></script>
 
-        <!-- Page level plugins -->
-        <script src="asset/vendor/chart.js/Chart.min.js"></script>
+<!-- Page level plugins -->
+<script src="asset/vendor/chart.js/Chart.min.js"></script>
 
-        <!-- Page level custom scripts -->
-        <script src="asset/js/demo/chart-area-demo.js"></script>
-        <script src="asset/js/demo/chart-pie-demo.js"></script>
+<!-- Page level custom scripts -->
+<script src="asset/js/demo/chart-area-demo.js"></script>
+<script src="asset/js/demo/chart-pie-demo.js"></script>
 
 </body>
 
