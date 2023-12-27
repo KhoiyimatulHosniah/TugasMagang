@@ -151,7 +151,7 @@
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Resepsionis</span>
                             <img class="img-profile rounded-circle"
                                  src="">
                         </a>
@@ -175,8 +175,8 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Buku Tamu</h1>
+                <div class="d-flex align-items-center justify-content-between mb-0">
+                    <h5 class="h5 mb-0 text-gray-800">Daftar Tamu</h5>
                 </div>
 
                 <!-- DataTales Example -->
@@ -203,6 +203,10 @@
                                 @endif
                             });
                         </script>
+                        <div class="mt-2 ml-3">
+                            <a href="" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i></a>
+                        </div>
+                        <br>
                         <table id="dataTable" class="table table-bordered" style="width:100%">
                             <thead>
                             <tr>
@@ -213,7 +217,6 @@
                                 <th>Nama Instansi</th>
                                 <th>Tujuan</th>
                                 <th>Telepon</th>
-                                <th>Aksi</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -226,18 +229,10 @@
                                     <td>{{ $item->nama_instansi }}</td>
                                     <td>{{ $item->tujuan }}</td>
                                     <td>{{ $item->no_telp }}</td>
-                                    <td>
-                                        <a href="{{ route('datatamu.hapus', ['id' => $item->id]) }}"
-                                           class="btn btn-danger btn-circle"
-                                           onclick="confirmModal('{{ route('datatamu.hapus', ['id' => $item['id']]) }}')">
-                                            <i class='fas fa-trash-alt'></i>
-                                        </a>
-                                    </td>
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
-                        <a href="{{ route ('form') }}" type="submit" name="form" class="btn btn-primary">Tambah</a>
                     </div>
                 </div>
 
@@ -252,12 +247,12 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Yakin mau keluar ?</h5>
                         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
                     </div>
-                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-body">Kllik "Logout" apabila Anda ingin keluar.</div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" href="{{ route ('landing1') }}">Logout</a>

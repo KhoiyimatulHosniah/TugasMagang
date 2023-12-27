@@ -45,6 +45,8 @@
 
     </div>
 </header><!-- End Header -->
+<br>
+
 <div class="container">
 
     <!-- Outer Row -->
@@ -78,15 +80,12 @@
                                             <option>Pilih Jenis Kelamin</option>
                                             <option>Laki-laki</option>
                                             <option>Perempuan</option>
-
                                         </select>
                                     </div>
-
                                     <div class="form-group">
                                         <input type="date" class="form-control" name="tanggal"
                                                id="exampleInputTanggal" aria-describedby="nameHelp" placeholder="">
                                     </div>
-
                                     <div class="form-group">
                                         <input type="text" class="form-control" name="tujuan"
                                                id="exampleInputName" aria-describedby="nameHelp"

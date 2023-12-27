@@ -28,6 +28,19 @@
     <!-- Custom styles for this template-->
     <link href="asset/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
+
+    {{--    Show password--}}
+    <script>
+        function showPassword() {
+            var passwordInput = document.getElementById('password');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+            } else {
+                passwordInput.type = 'password';
+            }
+        }
+    </script>
+
 </head>
 
 <body class="bg-primary">
@@ -44,6 +57,7 @@
 
     </div>
 </header><!-- End Header -->
+<br>
 <section class="vh-3 gradient-custom">
     <div class="container py-0 vh-90">
         <div class="row d-flex justify-content-center align-items-center h-90">
@@ -93,23 +107,16 @@
 
                                 <script>
                                     $(document).ready(function () {
-                                        // Sembunyikan notifikasi setelah 5 detik
+                                        // Sembunyikan notifikasi setelah 3 detik
                                         setTimeout(function () {
                                             $('#notification').fadeOut('fast');
-                                        }, 3000); // 5000 milidetik (3 detik)
+                                        }, 3000); // 3000 milidetik (3 detik)
                                     });
                                 </script>
                             @endif
 
                             <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
                         </form>
-
-                        <script>
-                            function togglePassword() {
-                                var passwordInput = document.getElementById('password');
-                                passwordInput.type = (passwordInput.type === 'password') ? 'text' : 'password';
-                            }
-                        </script>
 
                     </div>
                 </div>

@@ -37,13 +37,13 @@ class LoginBukuTamuController extends Controller
                     break;
 
                 case 'notulen':
-                    return redirect('dashboardNotulen')->with('success', 'Login berhasil. Selamat datang, ' . $user->nama);
+                    return redirect('dashboardNotulen')->with('success', 'Login berhasil. Selamat datang, ' . $user->role);
                     break;
 
                 default:
-                    return redirect('landing1'); 
+                    return redirect('landing1');
             }
-      
+
         }else {
             return redirect()->back()->withErrors(['error' => 'Username atau Password yang dimasukkan tidak sesuai'])->withInput();
         }
