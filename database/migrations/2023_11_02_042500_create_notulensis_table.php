@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('notulensis', function (Blueprint $table) {
             $table->id();
             $table->string('sidang_rapat');
-            $table->date('hari_tanggal');
+            $table->string('hari');
+            $table->date('tanggal');
             $table->time('jam_panggilan');
             $table->time('jam_sidang_rapat');
             $table->string('acara');

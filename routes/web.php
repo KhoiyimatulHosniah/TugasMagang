@@ -16,7 +16,7 @@ use App\Http\Controllers\FormNotulenController;
 use App\Http\Controllers\FormKegiatanController;
 use App\Http\Controllers\TambahRapatController;
 use App\Http\Controllers\JadwalPegawaiController;
-
+use App\Http\Controllers\TambahNotulensiController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -60,10 +60,24 @@ Route::get('/dashboardTamu', [DashboardTamuController::class, 'index'])->name('d
 
 //Dashboard Notulensi
 Route::get('/dashboardNotulen', [DashboardNotulenController::class, 'index2'])->name('dashboardNotulen');
-Route::get('/formNotulen', [FormNotulenController::class, 'index'])->name('formNotulen');
-Route::get('/formKegiatan', [FormKegiatanController::class, 'index'])->name('formKegiatan');
+Route::get('/formNotulen', [FormNotulenController::class, 'tabelNotulensi'])->name('formNotulen');
+Route::get('/formNotulen/create', [FormNotulenController::class, 'create'])->name('formNotulen.create');
+Route::post('/formNotulen/store', [FormNotulenController::class, 'store'])->name('formoNotulen.store');
+Route::get('/formNotulen/{id}/hapus', [FormNotulenController::class, 'hapus'])->name('formNotulen.hapus');
+Route::get('/formKegiatan', [FormKegiatanController::class, 'tabelRapat'])->name('formKegiatan');
+Route::get('/formKegiatan/create', [FormKegiatanController::class, 'create'])->name('formKegiatan.create');
+Route::post('/formKegiatan/store', [FormKegiatanController::class, 'store'])->name('formKegiatan.store');
+Route::get('/formKegiatan/{id}/hapus', [FormKegiatanController::class, 'hapus'])->name('formKegiatan.hapus');
 Route::get('/tambahRapat', [TambahRapatController::class, 'index'])->name('tambahRapat');
+Route::get('/tambahNotulensi', [TambahNotulensiController::class, 'index'])->name('tambahNotulensi');
 
+// tambah rapat
+Route::get('/formrapat', [TamuController::class, 'showForm'])->name('form');
+Route::post('/formrapat', [TamuController::class, 'processForm']);
+
+// tambah notulensi
+Route::get('/formnotulensi', [TambahNotulensiController::class, 'showForm'])->name('formnotulensi');
+Route::post('/formnotulensi', [TambahNotulensiController::class, 'processForm']);
 // Data Tamu
 Route::get('/datatamu', [DataTamuController::class, 'tabelTamu'])->name('datatamu');
 Route::get('/datatamu/create', [DataTamuController::class, 'create'])->name('datatamu.create');

@@ -93,61 +93,17 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                        <!-- Nav Item - Pencarian
-                        <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
-                            </a>
-                            <-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                                aria-labelledby="searchDropdown">
-                                <form class="form-inline mr-auto w-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
-                                            aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </li>
-
-                        <!-- Nav Item - Alerts -->
-                        <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-bell fa-fw"></i>
-                                <!-- Counter - Alerts -->
-                                <span class="badge badge-danger badge-counter"></span>
-                            </a>
-
+                     
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
@@ -180,12 +136,11 @@
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="landingPage">Logout</a>
+                <a class="btn btn-primary" href="/landing1">Logout</a>
             </div>
         </div>
     </div>
 </div>
-
                 <!-- End of Topbar -->
 
 
@@ -199,142 +154,54 @@
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Kegiatan Rapat</h6>
-                                
+                                    <h6 class="m-0 font-weight-bold text-primary">Notulensi </h6>
+                                </div>
+                                <div class="mt-2 ml-3">
+                                    <a href="/tambahNotulensi" class="btn btn-primary btn-sm "><i class="fas fa-plus" ></i></a>
                                 </div>
                                 <!-- Card Body -->
-                                <form action="/formKegiatan" method="POST"> <!-- Replace "/submitForm" with your form submission URL -->
-                                    <div class="card-body">
-                    <div class="form-group row">
-                        <label for="kegiatan" class="col-sm-4 col-form-label">Sidang/Rapat</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="kegiatan" name="kegiatan">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group row">
-                        <label for="tanggal" class="col-sm-4 col-form-label">Hari/Tanggal</label>
-                        <div class="col-sm-8">
-                            <input type="date" class="form-control" id="tanggal" name="tanggal">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="pukul" class="col-sm-4 col-form-label">Jam Panggilan</label>
-                        <div class="col-sm-8">
-                            <input type="time" class="form-control" id="pukul" name="pukul">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="pukul" class="col-sm-4 col-form-label">Jam Sidang/Rapat</label>
-                        <div class="col-sm-8">
-                            <input type="time" class="form-control" id="pukul" name="pukul">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="kegiatan" class="col-sm-4 col-form-label">Acara</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="kegiatan" name="kegiatan">
-                        </div>
-                    </div>
-                    
-                    <h6 class="m-0 font-weight-bold text-primary">Kegiatan Rapat</h6>
-                                
-                </div>
-                <!-- Card Body -->
-                <form action="/formKegiatan" method="POST"> <!-- Replace "/submitForm" with your form submission URL -->
-                    <div class="card-body">
-    <div class="form-group row">
-        <label for="kegiatan" class="col-sm-4 col-form-label">Sidang/Rapat</label>
-        <div class="col-sm-8">
-            <input type="text" class="form-control" id="kegiatan" name="kegiatan">
-        </div>
-    </div>
-    
-    <div class="form-group row">
-        <label for="tanggal" class="col-sm-4 col-form-label">Hari/Tanggal</label>
-        <div class="col-sm-8">
-            <input type="date" class="form-control" id="tanggal" name="tanggal">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="pukul" class="col-sm-4 col-form-label">Jam Panggilan</label>
-        <div class="col-sm-8">
-            <input type="time" class="form-control" id="pukul" name="pukul">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="pukul" class="col-sm-4 col-form-label">Jam Sidang/Rapat</label>
-        <div class="col-sm-8">
-            <input type="time" class="form-control" id="pukul" name="pukul">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="kegiatan" class="col-sm-4 col-form-label">Acara</label>
-        <div class="col-sm-8">
-            <input type="text" class="form-control" id="kegiatan" name="kegiatan">
-        </div>
-    </div>
-    
-    
-    <h6 class="m-0 font-weight-bold text-primary">Kegiatan Rapat</h6>
-                                
-                                </div>
-                                <!-- Card Body -->
-                                <form action="/formKegiatan" method="POST"> <!-- Replace "/submitForm" with your form submission URL -->
-                                    <div class="card-body">
-                    <div class="form-group row">
-                        <label for="kegiatan" class="col-sm-4 col-form-label">Sidang/Rapat</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="kegiatan" name="kegiatan">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group row">
-                        <label for="tanggal" class="col-sm-4 col-form-label">Hari/Tanggal</label>
-                        <div class="col-sm-8">
-                            <input type="date" class="form-control" id="tanggal" name="tanggal">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="pukul" class="col-sm-4 col-form-label">Jam Panggilan</label>
-                        <div class="col-sm-8">
-                            <input type="time" class="form-control" id="pukul" name="pukul">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="pukul" class="col-sm-4 col-form-label">Jam Sidang/Rapat</label>
-                        <div class="col-sm-8">
-                            <input type="time" class="form-control" id="pukul" name="pukul">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="kegiatan" class="col-sm-4 col-form-label">Acara</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="kegiatan" name="kegiatan">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group row text-right">
-                        <div class="col-sm-4"></div> 
-                        <div class="col-sm-8">
-                            <button type="submit" class="btn btn-primary">Tambah</button>
-                        </div>
-                    </div>
-                    
-                </div>
-            </form>
-</div>
-</form>
- 
-                </div>
-            </form>
-            
-            
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table id="tabelNotulensi" class="table table-bordered" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Sidang / Rapat</th>
+                                                    <th>Tanggal</th>
+                                                    <th>Acara</th>
+                                                    <th>Ketua</th>
+                                                    <th>Sekretaris</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach($items as $item)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $item->sidang_rapat }}</td>
+                                    <td>{{ $item->tanggal }}</td>
+                                    <td>{{ $item->acara }}</td>
+                                    <td>{{ $item->ketua; }}</td>
+                                    <td>{{ $item->sekretaris }}</td>
+                                    <td>
+                                        <a href="{{ route('formNotulensi.hapus', ['id' => $item->id]) }}"
+                                           class="btn btn-danger btn-circle"
+                                           onclick="confirmModal('{{ route('formNotulensi.hapus', ['id' => $item['id']]) }}')">
+                                            <i class='fas fa-trash-alt'></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                                                <!-- Add more rows as needed -->
+                                            </tbody>
+                                            
+                                        </table>
                             </div>
-                            
                         </div>
                         
-
+                        <div class="pagination">
+                            {{ $items->links() }}
+                        </div>
                     </div>
 
         
@@ -352,7 +219,7 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
-
+ 
 
     <!-- Bootstrap core JavaScript-->
     <script src="asset/vendor/jquery/jquery.min.js"></script>

@@ -98,7 +98,7 @@
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                     
+
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
@@ -141,11 +141,12 @@
         </div>
     </div>
 </div>
+
                 <!-- End of Topbar -->
 
 
                     <!-- Content Row -->
-
+                    
                     <div class="row mx-3">
 
                         <!-- Area Chart -->
@@ -154,49 +155,125 @@
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Kegiatan Rapat</h6>
-                                </div>
-                                <div class="mt-2 ml-3">
-                                    <a href="/tambahRapat" class="btn btn-primary btn-sm "><i class="fas fa-plus" ></i></a>
+                                    <h6 class="m-0 font-weight-bold text-primary">PELAKSANAAN SIDANG / RAPAT</h6>
+                                
+                            </div>
+                                <!-- Card Body -->
+                                <form action="/formKegiatan" method="POST"> <!-- Replace "/submitForm" with your form submission URL -->
+                                    <div class="card-body">
+                    <div class="form-group row">
+                        <label for="kegiatan" class="col-sm-4 col-form-label">Sidang/Rapat</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="kegiatan" name="kegiatan">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label for="tanggal" class="col-sm-4 col-form-label">Hari/Tanggal</label>
+                        <div class="col-sm-8">
+                            <input type="date" class="form-control" id="tanggal" name="tanggal">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="pukul" class="col-sm-4 col-form-label">Jam Panggilan</label>
+                        <div class="col-sm-8">
+                            <input type="time" class="form-control" id="pukul" name="pukul">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="pukul" class="col-sm-4 col-form-label">Jam Sidang/Rapat</label>
+                        <div class="col-sm-8">
+                            <input type="time" class="form-control" id="pukul" name="pukul">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="kegiatan" class="col-sm-4 col-form-label">Acara</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="kegiatan" name="kegiatan">
+                        </div>
+                    </div>
+                    
+                    <h6 class="m-0 font-weight-bold text-primary">PIMPINAN SIDANG / RAPAT</h6>
+                                
+                </div>
+                <!-- Card Body -->
+                <form action="/formKegiatan" method="POST"> <!-- Replace "/submitForm" with your form submission URL -->
+                <div class="card-body">
+                <div class="form-group row">
+                    <label for="ketua" class="col-sm-4 col-form-label">Ketua</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="kegiatan" name="kegiatan">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="sekretaris" class="col-sm-4 col-form-label">Sekretaris</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="kegiatan" name="kegiatan">
+                    </div>
+                </div><div class="form-group row">
+                    <label for="pencatat" class="col-sm-4 col-form-label">Pencatat</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="kegiatan" name="kegiatan">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="peserta" class="col-sm-4 col-form-label">Peserta Sidang / Rapat</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="kegiatan" name="kegiatan">
+                    </div>
+                    
+                </div>
+                        <h6 class="m-0 font-weight-bold text-primary">KEGIATAN SIDANG / RAPAT</h6>
+                                
                                 </div>
                                 <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table id="tabelRapat" class="table table-bordered" width="100%" cellspacing="0">
-                                            <thead>
-                                                <tr>
-                                                    <th>No</th>
-                                                    <th>Kegiatan</th>
-                                                    <th>Hari/Tanggal</th>
-                                                    <th>Pukul</th>
-                                                    <th>Tempat</th>
-                                                    <th>Undangan Rapat</th>
-                                                    <th>Aksi</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach($items as $item)
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $item->kegiatan }}</td>
-                                    <td>{{ $item->hari }}</td>
-                                    <td>{{ $item->tanggal }}</td>
-                                    <td>{{ $item->puku; }}</td>
-                                    <td>{{ $item->tempat }}</td>
-                                    <td>{{ $item->undangan_rapat }}</td>
-                                    <td>
-                                        <a href="{{ route('formKegiatan.hapus', ['id' => $item->id]) }}"
-                                           class="btn btn-danger btn-circle"
-                                           onclick="confirmModal('{{ route('formKegiatan.hapus', ['id' => $item['id']]) }}')">
-                                            <i class='fas fa-trash-alt'></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                                                <!-- Add more rows as needed -->
-                                            </tbody>
-                                        </table>
+                                <form action="/formKegiatan" method="POST"> <!-- Replace "/submitForm" with your form submission URL -->
+                                    <div class="card-body">
+                                        <div class="form-group row">
+                                            <label for="kegiatan" class="col-sm-4 col-form-label">Kegiatan Sidang/Rapat</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="kegiatan" name="kegiatan">
+                                            </div>
+                                        </div>
+                                            <div class="form-group row">
+                                                <label for="pembuka" class="col-sm-4 col-form-label">Kata Pembuka</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" id="kegiatan" name="kegiatan">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label for="pembahasan" class="col-sm-4 col-form-label">Pembahasan</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" id="tanggal" name="tanggal">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="keputusan" class="col-sm-4 col-form-label">Keputusan</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" id="pukul" name="pukul">
+                                                </div>
+                                            </div>
+
+
+                                            <div class="form-group row text-right">
+                                                <div class="col-sm-4"></div> 
+                                                <div class="col-sm-8">
+                                                    <button type="submit" class="btn btn-primary">Tambah</button>
+                                                </div>
+                                            </div>
+                    
+                </div>
+            </form>
+</div>
+</form>
+ 
+                </div>
+            </form>
+            
+            
                             </div>
+                            
                         </div>
                         
 
@@ -217,7 +294,7 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
- 
+
 
     <!-- Bootstrap core JavaScript-->
     <script src="asset/vendor/jquery/jquery.min.js"></script>

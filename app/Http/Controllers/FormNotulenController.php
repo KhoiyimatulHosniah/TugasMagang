@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\formkegiatan;
+use App\Models\formnotulensi;
 
 class FormNotulenController extends Controller
 {
@@ -11,10 +13,11 @@ class FormNotulenController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function tabelNotulensi()
     {
-        return view('notulensi.formNotulen');    }
-
+        $items = formnotulensi::paginate(10); 
+        return view('notulensi.formNotulen', compact('items'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -22,7 +25,7 @@ class FormNotulenController extends Controller
      */
     public function create()
     {
-        //
+        return view('notulensi.formNotulen');
     }
 
     /**
@@ -33,8 +36,27 @@ class FormNotulenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'sidang_rapat' => 'required',
+            'hari' => 'required',
+            'tanggal' => 'required',
+            'jam_panggilan' => 'required',
+            'jam_sidang_rapat' => 'required',
+            'acara' => 'required',
+            'ketua' => 'required',
+            'sekretaris' => 'required',
+            'pencatat' => 'required',
+            'pecerta_sidang' => 'required',
+            'kata_pembuka' => 'required',
+            'pembahasan' => 'required',
+            'keputusan' => 'required',
+        ]);
+
+        formnotulensi::create($request->all());
+        return redirect()->route('formNotulen')->with('success', 'Kegiatan Rapat Berhasil Ditambahkan!');
     }
+
+    
 
     /**
      * Display the specified resource.
@@ -44,7 +66,7 @@ class FormNotulenController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('notulensi.formNotulen');
     }
 
     /**
@@ -55,7 +77,9 @@ class FormNotulenController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = formnotulensi::find($id);
+
+        return view('formnotulensi.edit', compact('item'));
     }
 
     /**
@@ -78,6 +102,13 @@ class FormNotulenController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = formnotulensi::find($id);
+
+        if ($item) {
+            $item->delete();
+            return redirect()->back()->with('success', 'Data berhasil dihapus.');
+        } else {
+            return redirect()->back()->with('error', ' Data gagal dihapus');
+        }
     }
 }

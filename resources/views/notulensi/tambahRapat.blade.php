@@ -93,55 +93,12 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-
+                    
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                        <!-- Nav Item - Pencarian
-                        <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
-                            </a>
-                            <-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                                aria-labelledby="searchDropdown">
-                                <form class="form-inline mr-auto w-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
-                                            aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </li>
-
-                        <!-- Nav Item - Alerts -->
-                        <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-bell fa-fw"></i>
-                                <!-- Counter - Alerts -->
-                                <span class="badge badge-danger badge-counter"></span>
-                            </a>
+                        
+                        
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
@@ -166,6 +123,7 @@
                     </ul>
 
                 </nav>
+                
                 <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
@@ -180,7 +138,7 @@
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="landingPage">Logout</a>
+                <a class="btn btn-primary" href="/landing1">Logout</a>
             </div>
         </div>
     </div>
@@ -202,7 +160,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Kegiatan Rapat</h6>
                                 </div>
                                 <!-- Card Body -->
-                                <form action="/formKegiatan" method="POST"> <!-- Replace "/submitForm" with your form submission URL -->
+                                <form class="rapat" action="{{ route('formKegiatan.store') }}" method="POST"> <!-- Replace "/submitForm" with your form submission URL -->
                                     <div class="card-body">
                     <div class="form-group row">
                         <label for="kegiatan" class="col-sm-4 col-form-label">Kegiatan</label>
@@ -210,13 +168,29 @@
                             <input type="text" class="form-control" id="kegiatan" name="kegiatan">
                         </div>
                     </div>
-                    
                     <div class="form-group row">
                         <label for="tanggal" class="col-sm-4 col-form-label">Hari/Tanggal</label>
                         <div class="col-sm-8">
-                            <input type="date" class="form-control" id="tanggal" name="tanggal">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="hariDisplay">Hari</span>
+                                </div>
+                                <input type="date" class="form-control" id="tanggal" name="tanggal">
+                                <input type="hidden" id="selectedDay" name="selectedDay">
+                            </div>
                         </div>
                     </div>
+                    
+                    <script>
+                        document.getElementById('tanggal').addEventListener('change', function() {
+                            var selectedDate = new Date(this.value);
+                            var options = { weekday: 'long' };
+                            var hari = selectedDate.toLocaleDateString('id-ID', options);
+                            
+                            document.getElementById('selectedDay').value = hari;
+                            document.getElementById('hariDisplay').textContent = hari ;
+                        });
+                    </script>
                     <div class="form-group row">
                         <label for="pukul" class="col-sm-4 col-form-label">Pukul</label>
                         <div class="col-sm-8">
@@ -357,7 +331,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                    
+                                    
                                                 <!-- Add more rows as needed -->
                                             </tbody>
                                         </table>

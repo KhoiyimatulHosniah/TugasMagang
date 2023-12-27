@@ -38,15 +38,15 @@ class LoginNotulensiController extends Controller
                     break;
 
                 case 'operator':
-                    return redirect('landingpage1');
+                    return redirect('landing1');
                     break;
 
                 case 'notulen':
-                    return redirect('dashboardNotu');
+                    return redirect('dashboardNotulen');
                     break;
 
                 default:
-                    return redirect('landingpage1'); 
+                    return redirect('landing1'); 
             }
       
         }else {

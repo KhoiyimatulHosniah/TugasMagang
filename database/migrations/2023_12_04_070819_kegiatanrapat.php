@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('kegiatanrapats', function (Blueprint $table) {
             $table->id();
             $table->string('kegiatan');
-            $table->date('hari');
+            $table->string('hari');
             $table->date('tanggal');
             $table->time('pukul');
             $table->string('tempat');
-            $table->string('undangan_rapat');
+            $table->text('undangan_rapat');
             $table->timestamps();
         });
     }
