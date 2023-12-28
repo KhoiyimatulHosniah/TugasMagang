@@ -1,24 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\opd;
 use App\Models\tamu;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 
-class DataTamuController extends Controller
+class TambahTamuController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function tabelTamu()
+    public function index()
     {
         $items = tamu::all(); // Mengambil semua data pengguna dari tabel tamus
-        return view('buku_tamu.dataTamu', compact('items'));
+        return view('buku_tamu.tambahTamu', compact('items'));
     }
 
     /**
@@ -26,11 +22,9 @@ class DataTamuController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
-    // create data
     public function create()
     {
-        return view('buku_tamu.dataTamu');
+        return view('buku_tamu.tambahTamu');
     }
 
     /**
@@ -47,7 +41,9 @@ class DataTamuController extends Controller
             'tanggal' => 'required',
             'tujuan' => 'required',
             'nama_instansi' => 'required',
+            'id_OPD' => 'required',
             'no_telp' => 'required',
+
         ]);
 
         tamu::create($request->all());
@@ -60,10 +56,9 @@ class DataTamuController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id, Request $request)
+    public function show($id)
     {
-        $items = opd::findOrdfail($id);
-        return view('buku_tamu.dataTamu', compact('items'));
+        //
     }
 
     /**
@@ -74,9 +69,7 @@ class DataTamuController extends Controller
      */
     public function edit($id)
     {
-        $item = tamu::find($id);
-
-        return view('tamu.edit', compact('item'));
+        //
     }
 
     /**
@@ -97,18 +90,8 @@ class DataTamuController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function hapus($id)
+    public function destroy($id)
     {
-        $item = tamu::find($id);
-
-        if ($item) {
-            $item->delete();
-            return redirect()->back()->with('success', 'Data berhasil dihapus.');
-        } else {
-            return redirect()->back()->with('error', ' Data tidak ditemukan');
-        }
+        //
     }
-
-
 }
-

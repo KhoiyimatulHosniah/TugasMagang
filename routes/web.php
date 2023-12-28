@@ -17,6 +17,8 @@ use App\Http\Controllers\FormKegiatanController;
 use App\Http\Controllers\TambahRapatController;
 use App\Http\Controllers\JadwalPegawaiController;
 use App\Http\Controllers\TambahNotulensiController;
+use App\Http\Controllers\TambahTamuController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -86,6 +88,13 @@ Route::get('/datatamu/{id}/hapus', [DataTamuController::class, 'hapus'])->name('
 
 //Jadwal Pegawai
 Route::get('/jadwalPegawai', [JadwalPegawaiController::class, 'jadwal'])->name('jadwalPegawai');
+
+//Tambah Tamu
+Route::get('/tambahTamu', [TambahTamuController::class, 'index'])->name('tambahTamu');
+Route::get('/tambahTamu/create', [TambahTamuController::class, 'create'])->name('tambahTamu.create');
+Route::post('/tambahTamu/store', [TambahTamuController::class, 'store'])->name('tambahTamu.store');
+
+
 
 
 //Button Logout

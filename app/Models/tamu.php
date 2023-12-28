@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
 
 class tamu extends Model
 {
@@ -19,5 +21,13 @@ class tamu extends Model
         'nama_instansi',
         'tujuan',
         'no_telp',
+        'id_OPD',
     ];
+
+    protected $with = ['opd'];
+
+    public function opd(): BelongsTo
+    {
+        return $this->belongsTo(opd::class, 'id_OPD');
+    }
 }

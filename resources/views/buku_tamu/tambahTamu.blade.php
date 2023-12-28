@@ -21,10 +21,6 @@
     <!-- Custom styles for this template-->
     <link href="asset/css/sb-admin-2.min.css" rel="stylesheet">
 
-    <!-- Timer Notifikasi-->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-
 </head>
 
 <body id="page-top">
@@ -123,6 +119,7 @@
             </nav>
             <!-- End of Topbar -->
 
+
             <div class="row mx-3">
 
                 <!-- Area Chart -->
@@ -131,83 +128,81 @@
                         <!-- Card Header - Dropdown -->
                         <div
                             class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-primary">Daftar Tamu</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Tambah Tamu</h6>
                         </div>
-                <!-- DataTales Example -->
-                    <div class="card-body">
-                        <script>
-                            document.addEventListener('DOMContentLoaded', function () {
-                                @if(session('success'))
-                                Swal.fire({
-                                    icon: 'success',
-                                    title: 'Berhasil!',
-                                    text: '{{ session('success') }}',
-                                    timer: 2000, // waktu dalam milidetik (2 detik)
-                                    showConfirmButton: false
-                                });
-                                @elseif(session('error'))
-                                Swal.fire({
-                                    icon: 'error',
-                                    title: 'Error!',
-                                    text: '{{ session('error') }}',
-                                    timer: 2000, // waktu dalam milidetik (2 detik)
-                                    showConfirmButton: false
-                                });
-                                @endif
-                            });
-                        </script>
-                        <div class="mt-2 ml-3">
-                            <a href="/tambahTamu" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i></a>
-                        </div>
-                        <br>
-                        <table id="dataTable" class="table table-bordered" style="width:100%">
-                            <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Nama</th>
-                                <th>Jenis Kelamin</th>
-                                <th>Tanggal</th>
-                                <th>Nama Instansi</th>
-                                <th>Tujuan</th>
-                                <th>Telepon</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($items as $item)
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $item->nama }}</td>
-                                    <td>{{ $item->jenis_kelamin }}</td>
-                                    <td>{{ \Carbon\Carbon::parse($item->tanggal)->isoFormat('DD-MM-YYYY') }}</td>
-                                    <td>{{ $item->opd->nama_instansi}}</td>
-                                    <td>{{ $item->tujuan }}</td>
-                                    <td>{{ $item->no_telp }}</td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
+                        <!-- Card Body -->
+                        <form class="tamu" action="{{ route('tambahTamu.store') }}" method="POST">
+                            @csrf
+
+                            <div class="card-body">
+                                <div class="form-group row">
+                                    <label for="nama" class="col-sm-4 col-form-label">Nama</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="nama" name="nama">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="jenis_kelamin" class="col-sm-4 col-form-label">Jenis Kelamin</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="jenis_kelamin" name="jenis_kelamin"
+                                                onchange="checkOther()">
+                                            <option value="" disabled selected>Pilih Jenis Kelamin</option>
+                                            <option>Laki-laki</option>
+                                            <option >Perempuan</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="tanggal" class="col-sm-4 col-form-label">Tanggal</label>
+                                    <div class="col-sm-8">
+                                            <input type="date" class="form-control" id="tanggal" name="tanggal">
+                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="tujuan" class="col-sm-4 col-form-label">Tujuan</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="tujuan" name="tujuan">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="nama_instansi" class="col-sm-4 col-form-label">Nama Instansi</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="nama_instansi" name="nama_instansi">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="no_telp" class="col-sm-4 col-form-label">Telepon</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="no_telp" name="no_telp">
+                                    </div>
+                                </div>
+                                <hr>
+
+                                <div class="container">
+                                    <button type="submit" class="btn btn-primary btn-user btn-sm">KIRIM</button>
+                                </div>
+                            </form>
                     </div>
                 </div>
             </div>
 
 
-        </div>
-
-        <!-- Logout Modal-->
-        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-             aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Yakin mau keluar ?</h5>
-                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">Kllik "Logout" apabila Anda ingin keluar.</div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" href="{{ route ('landing1') }}">Logout</a>
+            <!-- Logout Modal-->
+            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Yakin mau keluar ?</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">Kllik "Logout" apabila Anda ingin keluar.</div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                            <a class="btn btn-primary" href="{{ route ('landing1') }}">Logout</a>
+                        </div>
                     </div>
                 </div>
             </div>
