@@ -33,22 +33,22 @@ class LoginNotulensiController extends Controller
             $user = Auth::user();
 
             switch ($user->role) {
-                case 'admin':
+                case 'Resepsionis':
                     return redirect('dashboardAdmin');
                     break;
 
-                case 'operator':
+                case 'Operator':
                     return redirect('landing1');
                     break;
 
-                case 'notulen':
+                case 'Notulensi':
                     return redirect('dashboardNotulen');
                     break;
 
                 default:
-                    return redirect('landing1'); 
+                    return redirect('landing1');
             }
-      
+
         }else {
             return redirect()->back()->withErrors('Username atau Password yang dimasukkan tidak sesuai')->withInput();
         }

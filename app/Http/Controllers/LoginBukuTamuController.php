@@ -28,15 +28,15 @@ class LoginBukuTamuController extends Controller
             $user = Auth::user();
 
             switch ($user->role) {
-                case 'admin':
+                case 'Resepsionis':
                     return redirect('dashboardTamu');
                     break;
 
-                case 'operator':
+                case 'Operator':
                     return redirect('landing1');
                     break;
 
-                case 'notulen':
+                case 'Notulensi':
                     return redirect('dashboardNotulen')->with('success', 'Login berhasil. Selamat datang, ' . $user->role);
                     break;
 

@@ -19,19 +19,19 @@ class LoginSeeder extends Seeder
             [
                 'username'=>'Desi',
                 'email'=>'desi@gmail.com',
-                'role'=>'operator',
+                'role'=>'Operator',
                 'password'=>bcrypt('123456')
             ],
             [
                 'username'=>'Nia',
                 'email'=>'nia@gmail.com',
-                'role'=>'admin',
+                'role'=>'Resepsionis',
                 'password'=>bcrypt('123456')
             ],
             [
                 'username'=>'Andriana',
                 'email'=>'andriana@gmail.com',
-                'role'=>'notulen',
+                'role'=>'Notulensi',
                 'password'=>bcrypt('123456')
             ]
         ];
