@@ -103,7 +103,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><h7>{{ Auth::user()->username }} | {{ Auth::user()->role }}</h7></span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
@@ -219,7 +219,7 @@
                 <div class="form-group row">
                     <label for="peserta" class="col-sm-4 col-form-label">Peserta Sidang / Rapat</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="kegiatan" name="kegiatan">
+                        <textarea type="text" class="form-control" id="kegiatan" name="kegiatan"></textarea>
                     </div>
                     
                 </div>
@@ -232,26 +232,26 @@
                                         <div class="form-group row">
                                             <label for="kegiatan" class="col-sm-4 col-form-label">Kegiatan Sidang/Rapat</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="kegiatan" name="kegiatan">
+                                                <textarea type="text" class="form-control" id="kegiatan" name="kegiatan"></textarea>
                                             </div>
                                         </div>
                                             <div class="form-group row">
                                                 <label for="pembuka" class="col-sm-4 col-form-label">Kata Pembuka</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="kegiatan" name="kegiatan">
+                                                    <textarea type="text" class="form-control" id="kegiatan" name="kegiatan"></textarea>
                                                 </div>
                                             </div>
 
                                             <div class="form-group row">
                                                 <label for="pembahasan" class="col-sm-4 col-form-label">Pembahasan</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="tanggal" name="tanggal">
+                                                    <textarea type="text" class="form-control" id="tanggal" name="tanggal"></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="keputusan" class="col-sm-4 col-form-label">Keputusan</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="pukul" name="pukul">
+                                                    <textarea type="text" class="form-control" id="pukul" name="pukul"></textarea>
                                                 </div>
                                             </div>
 
