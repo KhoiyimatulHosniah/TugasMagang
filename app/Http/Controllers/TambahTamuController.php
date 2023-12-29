@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\tamu;
+use App\Models\opd;
 use Illuminate\Http\Request;
 
 class TambahTamuController extends Controller
@@ -13,8 +14,8 @@ class TambahTamuController extends Controller
      */
     public function index()
     {
-        $items = tamu::all(); // Mengambil semua data pengguna dari tabel tamus
-        return view('buku_tamu.tambahTamu', compact('items'));
+        $opd=opd::all(); // Mengambil semua data pengguna dari tabel tamus
+        return view('buku_tamu.tambahTamu', compact('opd'));
     }
 
     /**
@@ -24,6 +25,7 @@ class TambahTamuController extends Controller
      */
     public function create()
     {
+
         return view('buku_tamu.tambahTamu');
     }
 

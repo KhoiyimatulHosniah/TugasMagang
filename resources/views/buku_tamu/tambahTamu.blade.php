@@ -167,7 +167,12 @@
                                 <div class="form-group row">
                                     <label for="nama_instansi" class="col-sm-4 col-form-label">Nama Instansi</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="nama_instansi" name="nama_instansi">
+                                        <select name="id_OPD" class="form-control" required>
+                                            <option value="">Pilih Nama Instansi</option>
+                                            @foreach($opd as $instansi)
+                                                <option value="{{$instansi->id_OPD}}">{{$instansi->nama_instansi}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group row">
