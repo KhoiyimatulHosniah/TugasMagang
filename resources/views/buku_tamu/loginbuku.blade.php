@@ -62,13 +62,15 @@
     <div class="container py-0 vh-90">
         <div class="row d-flex justify-content-center align-items-center h-90">
             <div class="col-3 col-md-6 col-lg-3 col-xl-5">
-                <h3 class="text-gray-900 mb-4">Selamat Datang sebagai Resepsionis</h3>
                 <div class="card bg-form-login text-white" style="margin-top:0;">
                     <div class="card-body back-login p-5 text-center">
 
-                        <div class="mb-md-2 mt-0 vh-4" style="height: 150px;">
-                            <img src="asset/images/logoAd1.png" alt="Logo">
-                            <h4 class="text-gray-900 mb-4">LOGIN</h4>
+                        <div class="mb-md-2 mt-0 vh-4" style="height: 150px; display: flex; align-items: center; justify-content: center;">
+                            <img src="asset/images/login1.png" alt="Logo" style="margin-right: 20px;">
+                            <div>
+                                <h3 class="text-gray-900 mb-1">Login Resepsionis</h3>
+                                <p class="text-gray-900 mb-0">Masukkan Username dan Password Anda</p>
+                            </div>
                         </div>
 
                         @if(session('success'))
