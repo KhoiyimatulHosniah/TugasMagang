@@ -15,18 +15,14 @@ use App\Http\Controllers\DashboardNotulenController;
 use App\Http\Controllers\DashboardOperatorController;
 use App\Http\Controllers\FormDataTamuController;
 use App\Http\Controllers\FormJadwalPegawaiController;
-use App\Http\Controllers\FormJawalPegawaiController;
 use App\Http\Controllers\FormNotulenController;
 use App\Http\Controllers\FormKegiatanController;
 use App\Http\Controllers\TambahRapatController;
 use App\Http\Controllers\JadwalPegawaiController;
 use App\Http\Controllers\TambahNotulensiController;
-<<<<<<< Updated upstream
 use App\Http\Controllers\TambahTamuController;
-
-=======
 use App\Http\Controllers\LoginOperatorController;
->>>>>>> Stashed changes
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
