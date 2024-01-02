@@ -57,7 +57,7 @@
                                         <div class="form-group">
                                             <input type="name" class="form-control form-control-user"
                                                 id="exampleInputName" aria-describedby="nameHelp"
-                                                placeholder="Nama Intansi">
+                                                placeholder="Nama Instansi">
                                         </div>
                                         <div class="form-group">
                                             <input type="name" class="form-control form-control-user"

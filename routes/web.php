@@ -12,13 +12,21 @@ use App\Http\Controllers\DashboardTamuController;
 use App\Http\Controllers\DataTamuController;
 use App\Http\Controllers\LoginNotulensiController;
 use App\Http\Controllers\DashboardNotulenController;
+use App\Http\Controllers\DashboardOperatorController;
+use App\Http\Controllers\FormDataTamuController;
+use App\Http\Controllers\FormJadwalPegawaiController;
+use App\Http\Controllers\FormJawalPegawaiController;
 use App\Http\Controllers\FormNotulenController;
 use App\Http\Controllers\FormKegiatanController;
 use App\Http\Controllers\TambahRapatController;
 use App\Http\Controllers\JadwalPegawaiController;
 use App\Http\Controllers\TambahNotulensiController;
+<<<<<<< Updated upstream
 use App\Http\Controllers\TambahTamuController;
 
+=======
+use App\Http\Controllers\LoginOperatorController;
+>>>>>>> Stashed changes
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -101,3 +109,13 @@ Route::post('/tambahTamu/store', [TambahTamuController::class, 'store'])->name('
 Route::get('/landingpage', function () {
     return view('landingpage');
 })->name('landingpage');
+
+//Dashboard Operator
+Route::get('/dashboardOperator', [DashboardOperatorController::class, 'index'])->name('dashboardOperator');
+Route::get('/formDataTamu', [FormDataTamuController::class, 'index'])->name('formDataTamu');
+Route::get('/formJadwalPegawai', [FormJadwalPegawaiController::class, 'index'])->name('formJadwalPegawai'); 
+
+//Login Operator
+Route::get('/loginOperator', [LoginOperatorController::class, 'showLoginOperator'])->name('loginOperator');
+Route::post('/loginOperator', [LoginOperatorController::class, 'login']);
+Route::post('/logout', [LoginOperatorController::class, 'logout'])->name('logout');
