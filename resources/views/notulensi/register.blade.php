@@ -67,7 +67,7 @@
                     <div class="card-body back-login p-5 text-center">
 
                         <div class="mb-md-2 mt-0 vh-4" style="height: 150px; display: flex; align-items: center; justify-content: center;">
-                            <img src="asset/images/register (1).png" alt="Logo" style="margin-right: 20px;">
+                            <img src="asset/images/register1.png" alt="Logo" style="margin-right: 20px;">
                             <div>
                                 <h3 class="text-gray-900 mb-1">Register</h3>
                                 <p class="text-gray-900 mb-0">Daftarkan Akun untuk Menghadiri Rapat</p>
