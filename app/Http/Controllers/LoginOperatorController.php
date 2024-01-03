@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class LoginNotulensiController extends Controller
+class LoginOperatorController extends Controller
 {
 
-    public function showLoginNotulensi()
+    public function showLoginOperator()
     {
-        return view('notulensi.loginnotulen');
+        return view('Operator.loginOperator');
     }
 
     public function login(Request $request)
@@ -38,7 +38,7 @@ class LoginNotulensiController extends Controller
                     break;
 
                 case 'Operator':
-                    return redirect('landing1');
+                    return redirect('dashboardOperator');
                     break;
 
                 case 'Notulensi':
@@ -52,7 +52,6 @@ class LoginNotulensiController extends Controller
         }else {
             return redirect()->back()->withErrors('Username atau Password yang dimasukkan tidak sesuai')->withInput();
         }
-        
     }
 
     public function logout()

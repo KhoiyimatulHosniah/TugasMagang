@@ -101,12 +101,11 @@
                      
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                            <i class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><h7>{{ Auth::user()->username }} | {{ Auth::user()->role }}</h7></span>
-                                <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
-                            </a>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 "><h7>{{ Auth::user()->username }} | {{ Auth::user()->role }}</h7></span>
+                                <i class="fas fa-user"></i>
+                        </i>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
@@ -128,15 +127,15 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Yakin untuk Keluar?</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-body">Klik "Logout" apabila Anda ingin keluar.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="/landing1">Logout</a>
+                <a class="btn btn-primary" href="{{ route ('landing1') }}">Logout</a>
             </div>
         </div>
     </div>
@@ -156,6 +155,7 @@
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-primary">Notulensi </h6>
                                 </div>
+                                
                                 <div class="mt-2 ml-3">
                                     <a href="/tambahNotulensi" class="btn btn-primary btn-sm "><i class="fas fa-plus" ></i></a>
                                 </div>
@@ -167,6 +167,7 @@
                                                 <tr>
                                                     <th>No</th>
                                                     <th>Sidang / Rapat</th>
+                                                    <th>Hari</th>
                                                     <th>Tanggal</th>
                                                     <th>Acara</th>
                                                     <th>Ketua</th>
@@ -179,7 +180,7 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->sidang_rapat }}</td>
-                                    <td>{{ $item->tanggal }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($item->tanggal)->isoFormat('DD-MM-YYYY') }}</td>
                                     <td>{{ $item->acara }}</td>
                                     <td>{{ $item->ketua; }}</td>
                                     <td>{{ $item->sekretaris }}</td>

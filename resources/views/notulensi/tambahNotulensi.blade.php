@@ -101,12 +101,11 @@
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                            <i class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><h7>{{ Auth::user()->username }} | {{ Auth::user()->role }}</h7></span>
-                                <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
-                            </a>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 "><h7>{{ Auth::user()->username }} | {{ Auth::user()->role }}</h7></span>
+                                <i class="fas fa-user"></i>
+                        </i>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
@@ -128,20 +127,19 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Yakin untuk Keluar?</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-body">Klik "Logout" apabila Anda ingin keluar.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="/landing1">Logout</a>
+                <a class="btn btn-primary" href="{{ route ('landing1') }}">Logout</a>
             </div>
         </div>
     </div>
 </div>
-
                 <!-- End of Topbar -->
 
 
@@ -159,7 +157,8 @@
                                 
                             </div>
                                 <!-- Card Body -->
-                                <form action="/formKegiatan" method="POST"> <!-- Replace "/submitForm" with your form submission URL -->
+                                <form class="user" action="{{ route('formNotulen.store') }}" method="POST">
+                                    @csrf
                                     <div class="card-body">
                     <div class="form-group row">
                         <label for="kegiatan" class="col-sm-4 col-form-label">Sidang/Rapat</label>
@@ -167,13 +166,28 @@
                             <input type="text" class="form-control" id="kegiatan" name="kegiatan">
                         </div>
                     </div>
-                    
                     <div class="form-group row">
-                        <label for="tanggal" class="col-sm-4 col-form-label">Hari/Tanggal</label>
+                        <label for="hari" class="col-sm-4 col-form-label">Hari</label>
                         <div class="col-sm-8">
-                            <input type="date" class="form-control" id="tanggal" name="tanggal">
+                            <select class="form-control" id="hari" name="hari" onchange="checkOther()">
+                                <option value=""disabled selected>Pilih Hari</option>
+                                <option value="hari 1">Senin</option>
+                                <option value="hari 1">Selasa</option>
+                                <option value="hari 1">Rabu</option>
+                                <option value="hari 1">Kamis</option>
+                                <option value="hari 1">Jumat</option>
+                            </select>
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <label for="tanggal" class="col-sm-4 col-form-label">Tanggal</label>
+                        <div class="col-sm-8">
+                                <input type="date" class="form-control" id="tanggal" name="tanggal">
+                            
+                        </div>
+                    </div>
+                    
+                    
                     <div class="form-group row">
                         <label for="pukul" class="col-sm-4 col-form-label">Jam Panggilan</label>
                         <div class="col-sm-8">
@@ -197,7 +211,6 @@
                                 
                 </div>
                 <!-- Card Body -->
-                <form action="/formKegiatan" method="POST"> <!-- Replace "/submitForm" with your form submission URL -->
                 <div class="card-body">
                 <div class="form-group row">
                     <label for="ketua" class="col-sm-4 col-form-label">Ketua</label>
@@ -227,8 +240,7 @@
                                 
                                 </div>
                                 <!-- Card Body -->
-                                <form action="/formKegiatan" method="POST"> <!-- Replace "/submitForm" with your form submission URL -->
-                                    <div class="card-body">
+                                <div class="card-body">
                                         <div class="form-group row">
                                             <label for="kegiatan" class="col-sm-4 col-form-label">Kegiatan Sidang/Rapat</label>
                                             <div class="col-sm-8">

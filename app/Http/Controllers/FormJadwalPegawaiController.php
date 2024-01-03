@@ -1,29 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Controllers\Controller;
+use App\Models\Jadwal;
 use Illuminate\Http\Request;
 
-use App\Models\tambahrapat;
-use App\Models\opd;
-
-class TambahRapatController extends Controller
+class FormJadwalPegawaiController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function tabelJadwal()
     {
-        return view('notulensi.tambahRapat');    }
+        $items = jadwal::all();
+        return view('operator.formJadwalPegawai', compact('items'));    }
 
-        public function showTable()
-    {
-        $opd = OPD::all();
-
-        return view('notulensi.tambahRapat', ['opd' => $opd]);
-    }
     /**
      * Show the form for creating a new resource.
      *
@@ -31,7 +23,7 @@ class TambahRapatController extends Controller
      */
     public function create()
     {
-        return view('notulensi.formNotulen');
+        return view('Operator.formJadwalPegawai');
     }
 
     /**
@@ -42,19 +34,18 @@ class TambahRapatController extends Controller
      */
     public function store(Request $request)
     {
-    $request->validate([
-        'kegiatan' => 'required',
-        'hari' => 'required',
-        'tanggal' => 'required',
-        'pukul' => 'required',
-        'tempat' => 'required',
-        'undangan_rapat' => 'required',
+        $request->validate([
+            'nama' => 'required',
+            'bidang' => 'required',
+            'tanggal_berangkat' => 'required',
+            'tanggal_pulang' => 'required',
+            'tujuan' => 'required',
+            'notlp' => 'required',
+        ]);
+        jadwal::create($request->all());
+        return redirect()->route('formJadwalPegawai')->with('success', 'Tamu berhasil ditambahkan!');
+    }
 
-    ]);
-
-    tambahrapat::create($request->all());
-    return redirect()->route('tambahRapat')->with('success', 'Kegiatan Rapat Berhasil Ditambahkan!');
-}
     /**
      * Display the specified resource.
      *
@@ -63,7 +54,7 @@ class TambahRapatController extends Controller
      */
     public function show($id)
     {
-        return view('notulensi.formKegiatan');
+        //
     }
 
     /**
@@ -74,6 +65,9 @@ class TambahRapatController extends Controller
      */
     public function edit($id)
     {
+        $item = jadwal::find($id);
+
+        return view('formJadwalPegawai.edit', compact('item'));
     }
 
     /**
@@ -94,8 +88,15 @@ class TambahRapatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function hapus($id)
     {
-        //
+        $item = jadwal::find($id);
+
+        if ($item) {
+            $item->delete();
+            return redirect()->back()->with('success', 'Data berhasil dihapus.');
+        } else {
+            return redirect()->back()->with('error', ' Data tidak ditemukan');
+        }
     }
 }

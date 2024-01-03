@@ -29,33 +29,82 @@
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
+
       <h1 class="logo me-auto">
         <a href="/landing1" style="display: flex; align-items: center;">
           <img src="asset\images/logo2.png" alt="Logo" style="height: 40px; margin-right: 10px;">
           Pemerintah Kabupaten Situbondo
         </a>
       </h1>
-
+      <nav id="navbar" class="navbar">
+        <button class="nav-toggle">
+          <i class="bi bi-list"></i>
+        </button>
+        <div class="nav-container">
+          <ul class="nav-list">
+            <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+            <li><a class="nav-link scrollto" href="#layanan">Layanan</a></li>
+          </ul>
+        </div>
+      </nav><!-- .navbar -->
     </div>
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center" style="background-image: url('/assets/img/hero3.jpg'); background-size: cover; background-position: center; position: relative;">
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: inherit; filter: blur(2px);"></div>
+  <section id="hero" class="d-flex align-items-center">
+
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200" style="position: relative; z-index: 1;">
+        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
           <h1>Selamat Datang di</h1>
-          <h1>Notulensi Aplikasi</h1>
-          <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="/login" class="btn-get-started scrollto">Daftar Hadir</a>
-            <a href="/loginnotulensi" class="btn-get-started scrollto">Notulensi</a>
-           </div>
+          <h1>BUTANOL APPLICATION</h1>
+          
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero" data-aos="zoom-in" data-aos-delay="200">
+          <img src="assets/img/why-us.png" class="img-fluid animated" alt="">
         </div>
       </div>
     </div>
 
   </section><!-- End Hero -->
+
+  <main id="main">
+
+
+    <!-- ======= Layanan Section ======= -->
+    <section id="layanan" class="services section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Layanan</h2>
+          </div>
+          <div class="row justify-content-center">
+            <a href="/landing3" class="col-lg-4 mt-3" data-aos="zoom-in" data-aos-delay="100">
+              <div class="icon-box">
+                <div class="icon"><i class="bx bxl-dribbble"></i></div>
+                <h4>Notulensi</h4>
+              </div>
+            </a>
+          
+            <a href="/landing2" class="col-lg-4 mt-3" data-aos="zoom-in" data-aos-delay="200">
+              <div class="icon-box">
+                <div class="icon"><i class="bx bx-file"></i></div>
+                <h4>Resepsionis</h4>
+              </div>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+   
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+      <div class="copyright">&copy; {{ date('Y') }} PKLpolije. Dinas Komunikasi dan Informatika.</div>
+      
+  </footer><!-- End Footer -->
 
   
   <!-- Vendor JS Files -->

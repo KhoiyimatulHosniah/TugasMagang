@@ -16,4 +16,6 @@ class opd extends Model
     protected $fillable = [
         'nama_instansi',
     ];
+
+    
 }

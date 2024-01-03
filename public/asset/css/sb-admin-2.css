@@ -388,6 +388,7 @@ h5, .h5 {
 
 h6, .h6 {
   font-size: 1rem;
+  
 }
 
 .lead {
@@ -2277,6 +2278,10 @@ textarea.form-control {
     width: auto;
     vertical-align: middle;
   }
+  .form-group label {
+    display: block;
+    margin-bottom: 5px; /* Sesuaikan dengan kebutuhan */
+}
   .form-inline .form-control-plaintext {
     display: inline-block;
   }
@@ -11279,5 +11284,6 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
 }
+
 
 

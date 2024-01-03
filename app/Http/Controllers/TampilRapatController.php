@@ -1,29 +1,22 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Controllers\Controller;
+use App\Models\tampilrapat;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
-use App\Models\tambahrapat;
-use App\Models\opd;
-
-class TambahRapatController extends Controller
+class TampilRapatController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function tampilrapathariini()
     {
-        return view('notulensi.tambahRapat');    }
-
-        public function showTable()
-    {
-        $opd = OPD::all();
-
-        return view('notulensi.tambahRapat', ['opd' => $opd]);
+        
     }
+   
     /**
      * Show the form for creating a new resource.
      *
@@ -31,7 +24,7 @@ class TambahRapatController extends Controller
      */
     public function create()
     {
-        return view('notulensi.formNotulen');
+        //
     }
 
     /**
@@ -42,19 +35,9 @@ class TambahRapatController extends Controller
      */
     public function store(Request $request)
     {
-    $request->validate([
-        'kegiatan' => 'required',
-        'hari' => 'required',
-        'tanggal' => 'required',
-        'pukul' => 'required',
-        'tempat' => 'required',
-        'undangan_rapat' => 'required',
+        //
+    }
 
-    ]);
-
-    tambahrapat::create($request->all());
-    return redirect()->route('tambahRapat')->with('success', 'Kegiatan Rapat Berhasil Ditambahkan!');
-}
     /**
      * Display the specified resource.
      *
@@ -63,7 +46,7 @@ class TambahRapatController extends Controller
      */
     public function show($id)
     {
-        return view('notulensi.formKegiatan');
+        //
     }
 
     /**
@@ -74,6 +57,7 @@ class TambahRapatController extends Controller
      */
     public function edit($id)
     {
+        //
     }
 
     /**

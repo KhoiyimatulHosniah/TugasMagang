@@ -1,29 +1,25 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Controllers\Controller;
+
+use App\Models\opd;
+use App\Models\tamu;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
-use App\Models\tambahrapat;
-use App\Models\opd;
-
-class TambahRapatController extends Controller
+class FormDataTamuController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function tabelTamu()
     {
-        return view('notulensi.tambahRapat');    }
+        $items = tamu::all(); // Mengambil semua data pengguna dari tabel tamus
+        return view('Operator.formDataTamu', compact('items'));
+     }
 
-        public function showTable()
-    {
-        $opd = OPD::all();
-
-        return view('notulensi.tambahRapat', ['opd' => $opd]);
-    }
     /**
      * Show the form for creating a new resource.
      *
@@ -31,7 +27,7 @@ class TambahRapatController extends Controller
      */
     public function create()
     {
-        return view('notulensi.formNotulen');
+        return view('Operator.formDataTamu');
     }
 
     /**
@@ -42,19 +38,9 @@ class TambahRapatController extends Controller
      */
     public function store(Request $request)
     {
-    $request->validate([
-        'kegiatan' => 'required',
-        'hari' => 'required',
-        'tanggal' => 'required',
-        'pukul' => 'required',
-        'tempat' => 'required',
-        'undangan_rapat' => 'required',
+        //
+    }
 
-    ]);
-
-    tambahrapat::create($request->all());
-    return redirect()->route('tambahRapat')->with('success', 'Kegiatan Rapat Berhasil Ditambahkan!');
-}
     /**
      * Display the specified resource.
      *
@@ -63,7 +49,7 @@ class TambahRapatController extends Controller
      */
     public function show($id)
     {
-        return view('notulensi.formKegiatan');
+        //
     }
 
     /**
@@ -74,6 +60,7 @@ class TambahRapatController extends Controller
      */
     public function edit($id)
     {
+        //
     }
 
     /**

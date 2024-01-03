@@ -32,11 +32,11 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboardNotulen">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboardOperator">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-tasks" style="font-size:25px;"></i>
+                    <i class="fas fa-clipboard-list" style="font-size:25px;"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">NOTULENSI</div>
+                <div class="sidebar-brand-text mx-3">Operator</div>
             </a>
             
             <!-- Divider -->
@@ -44,7 +44,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="/dashboardNotulen">
+                <a class="nav-link" href="/dashboardOperator">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -56,16 +56,22 @@
 
             <!-- Nav Item - Data Tamu -->
             <li class="nav-item">
-                <a class="nav-link" href="/formNotulen">
+                <a class="nav-link" href="/formDataTamu">
                     <i class="	fas fa-file-alt"></i>
-                    <span>Form Notulensi</span></a>
+                    <span>Form Data Tamu</span></a>
             </li>
 
             <!-- Nav Item - Jadwal -->
             <li class="nav-item">
-                <a class="nav-link" href="/formKegiatan">
+                <a class="nav-link" href="/formJadwalPegawai">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Form Kegiatan</span></a>
+                    <span>Form Jadwal Pegawai</span></a>
+            </li>
+             <!-- Nav Item - opd -->
+             <li class="nav-item">
+                <a class="nav-link" href="/formopd">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Form Instansi</span></a>
             </li>
 
             <!-- Divider -->
@@ -79,8 +85,8 @@
         </ul>
         <!-- End of Sidebar -->
 
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
+         <!-- Content Wrapper -->
+         <div id="content-wrapper" class="d-flex flex-column">
 
             <!-- Main Content -->
             <div id="content">
@@ -98,7 +104,7 @@
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                     
+                        
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <i class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
@@ -121,81 +127,27 @@
                     </ul>
 
                 </nav>
-                <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Yakin untuk Keluar?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">Klik "Logout" apabila Anda ingin keluar.</div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="{{ route ('landing1') }}">Logout</a>
-            </div>
-        </div>
-    </div>
-</div>
                 <!-- End of Topbar -->
 
 
                     <!-- Content Row -->
 
-                    <div class="row mx-3">
+                    <div class="row">
 
                         <!-- Area Chart -->
-                        <div class="col-12">
+                        <div class="col-xl-8 col-lg-7">
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Kegiatan Rapat</h6>
-                                </div>
-                                <div class="mt-2 ml-3">
-                                    <a href="/tambahRapat" class="btn btn-primary btn-sm "><i class="fas fa-plus" ></i></a>
+                                    <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table id="tabelRapat" class="table table-bordered" width="100%" cellspacing="0">
-                                            <thead>
-                                                <tr>
-                                                    <th>No</th>
-                                                    <th>Kegiatan</th>
-                                                    <th>Hari</th>
-                                                    <th>Tanggal</th>
-                                                    <th>Pukul</th>
-                                                    <th>Tempat</th>
-                                                    <th>Undangan Rapat</th>
-                                                    <th>Aksi</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach($items as $item)
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $item->kegiatan }}</td>
-                                    <td>{{ $item->hari }}</td>
-                                    <td>{{ \Carbon\Carbon::parse($item->tanggal)->isoFormat('DD-MM-YYYY') }}</td>
-                                    <td>{{ $item->puku; }}</td>
-                                    <td>{{ $item->tempat }}</td>
-                                    <td>{{ $item->undangan_rapat }}</td>
-                                    <td>
-                                        <a href="{{ route('formKegiatan.hapus', ['id' => $item->id]) }}"
-                                           class="btn btn-danger btn-circle"
-                                           onclick="confirmModal('{{ route('formKegiatan.hapus', ['id' => $item['id']]) }}')">
-                                            <i class='fas fa-trash-alt'></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                                                <!-- Add more rows as needed -->
-                                            </tbody>
-                                        </table>
+                                    <div class="chart-area">
+                                        <canvas id="myAreaChart"></canvas>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         
@@ -217,7 +169,7 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
- 
+
 
     <!-- Bootstrap core JavaScript-->
     <script src="asset/vendor/jquery/jquery.min.js"></script>
