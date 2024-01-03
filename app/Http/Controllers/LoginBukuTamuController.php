@@ -29,7 +29,7 @@ class LoginBukuTamuController extends Controller
 
             switch ($user->role) {
                 case 'Resepsionis':
-                    return redirect('dashboardTamu');
+                    return redirect('dashboardTamu')->with('success', 'Login berhasil. Selamat datang, ' . $user->role);
                     break;
 
                 case 'Operator':

@@ -34,7 +34,6 @@
 
                                 <div class="mb-md-2 mt-0 vh-4" style="height: 150px;">
                                     <img src="asset/images/logoAd1.png" alt="Logo">
-                                    <h4 class="text-gray-900 mb-4">LOGIN</h4>
                                 </div>
 
                                     <form class="user" action="{{ url('/loginNotulensi') }}" method="POST">
@@ -54,10 +53,10 @@
                                          <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
-                                        
+
                                         <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
                                     </form>
-                                                                    
+
                             </div>
                         </div>
                     </div>

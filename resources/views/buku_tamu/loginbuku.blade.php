@@ -29,6 +29,7 @@
     <link href="asset/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
 
+
     {{--    Show password--}}
     <script>
         function showPassword() {
@@ -68,7 +69,6 @@
 
                         <div class="mb-md-2 mt-0 vh-4" style="height: 150px;">
                             <img src="asset/images/logoAd1.png" alt="Logo">
-                            <h4 class="text-gray-900 mb-4">LOGIN</h4>
                         </div>
 
                         @if(session('success'))
@@ -103,7 +103,6 @@
                                 <div id="notification" class="alert alert-danger">
                                     {{ $errors->first() }}
                                 </div>
-
 
                                 <script>
                                     $(document).ready(function () {

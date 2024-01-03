@@ -58,7 +58,7 @@
 
 
         <!-- Nav Item - Data Tamu -->
-        <li class="nav-item">
+        <li class="nav-item active">
             <a class="nav-link" href="/datatamu">
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>Data Tamu</span></a>
@@ -156,6 +156,7 @@
                                 @endif
                             });
                         </script>
+
                         <div class="mt-2 ml-3">
                             <a href="/tambahTamu" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i></a>
                         </div>
@@ -189,8 +190,7 @@
                     </div>
                 </div>
             </div>
-
-
+        </div>
         </div>
 
         <!-- Logout Modal-->

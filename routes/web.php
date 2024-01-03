@@ -81,6 +81,7 @@ Route::post('/formrapat', [TamuController::class, 'processForm']);
 Route::get('/formnotulensi', [TambahNotulensiController::class, 'showForm'])->name('formnotulensi');
 Route::post('/formnotulensi', [TambahNotulensiController::class, 'processForm']);
 // Data Tamu
+Route::get('/datatamu', [DataTamuController::class, 'index'])->name('datatamu');
 Route::get('/datatamu', [DataTamuController::class, 'tabelTamu'])->name('datatamu');
 Route::get('/datatamu/create', [DataTamuController::class, 'create'])->name('datatamu.create');
 Route::post('/datatamu/store', [DataTamuController::class, 'store'])->name('datatamu.store');
