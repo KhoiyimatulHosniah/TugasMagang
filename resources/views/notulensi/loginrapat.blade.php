@@ -29,7 +29,6 @@
     <link href="asset/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
 
-
     {{--    Show password--}}
     <script>
         function showPassword() {
@@ -67,10 +66,10 @@
                     <div class="card-body back-login p-5 text-center">
 
                         <div class="mb-md-2 mt-0 vh-4" style="height: 150px; display: flex; align-items: center; justify-content: center;">
-                            <img src="asset/images/register1.png" alt="Logo" style="margin-right: 20px;">
+                            <img src="asset/images/users1.png" alt="Logo" style="margin-right: 20px;">
                             <div>
-                                <h3 class="text-gray-900 mb-1">Register</h3>
-                                <p class="text-gray-900 mb-0">Daftarkan Akun untuk Menghadiri Rapat</p>
+                                <h3 class="text-gray-900 mb-1">Login User</h3>
+                                <p class="text-gray-900 mb-0">Masukkan Username dan Password Anda</p>
                             </div>
                         </div>
 
@@ -86,7 +85,7 @@
                             </div>
                         @endif
 
-                        <form class="user" action="{{ route('register.store') }}" method="POST">
+                        <form class="user" action="{{ url('/loginNotulensi') }}" method="POST">
                             @csrf
 
                             <div class="form-group">
@@ -95,48 +94,13 @@
                                        aria-describedby="usernameHelp" placeholder="Username"
                                        value="{{ old('username') }}">
                             </div>
-                            <div class="form-group">
-                                <input type="text" name="email" class="form-control form-control-user"
-                                       id="exampleInputEmail"
-                                        placeholder="Email">
-                            </div>
-                            <div class="form-group">
-                                <select class="form-control form-control-user" id="jenis_kelamin" name="jenis_kelamin" >
-                                    <option value="" disabled selected>Jenis Kelamin</option>
-                                    <option value="lakilaki">Laki-laki</option>
-                                    <option value="perempuan">Perempuan</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                        <select name="id_OPD" class="form-control form-control-user" required>
-                                            <option value=""disabled selected>Nama Instansi</option>
-                                            @foreach($opd as $instansi)
-                                                <option value="{{$instansi->id_OPD}}">{{$instansi->nama_instansi}}</option>
-                                            @endforeach
-                                        </select>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" name="jabatan" class="form-control form-control-user"
-                                       id="exampleInputjabatan"
-                                        placeholder="Jabatan">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" name="notlp" class="form-control form-control-user"
-                                       id="exampleInputnotlp"
-                                        placeholder="No Telepon">
-                            </div>
+
                             <div class="form-group">
                                 <input type="password" name="password" class="form-control form-control-user"
                                        id="exampleInputPassword"
                                        placeholder="Password">
                             </div>
-                            <div class="form-group">
-                                <input type="password" name="passwordconfirmation" class="form-control form-control-user"
-                                       id="exampleInputPassword"
-                                       placeholder="Confirmation Password ">
-                            </div>
-                           
-                            
+
                             @if ($errors->any())
                                 <div id="notification" class="alert alert-danger">
                                     {{ $errors->first() }}
@@ -153,17 +117,11 @@
                                 </script>
                             @endif
 
-                            <button type="submit" class="btn btn-primary btn-user btn-block">Register</button>
+                            <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
                         </form>
                         <div class="mt-3">
-                            <p class="text-gray-900 mb-0">Sudah punya akun? <a href="/loginRapat">Login</a></p>
+                            <p class="text-gray-900 mb-0">Belum punya akun? <a href="/register">Login</a></p>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        
                     </div>
                 </div>
             </div>
@@ -178,8 +136,6 @@
 
 <!-- Core plugin JavaScript-->
 <script src="asset/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-
 
 <!-- Custom scripts for all pages-->
 <script src="asset/js/sb-admin-2.min.js"></script>

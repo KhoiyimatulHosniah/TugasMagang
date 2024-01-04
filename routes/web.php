@@ -26,6 +26,7 @@ use App\Http\Controllers\LoginOperatorController;
 use App\Http\Controllers\TambahjadwalController;
 use App\Http\Controllers\TambahOpdController;
 use App\Http\Controllers\FormOpdController;
+use App\Http\Controllers\LoginRapatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,11 @@ Route::post('/logout', [LoginBukuTamuController::class, 'logout'])->name('logout
 Route::get('/loginNotulensi', [LoginNotulensiController::class, 'showLoginNotulensi'])->name('loginNotulensi');
 Route::post('/loginNotulensi', [LoginNotulensiController::class, 'login']);
 Route::post('/logout', [LoginNotulensiController::class, 'logout'])->name('logout');
+
+/*Login Rapat*/
+Route::get('/loginRapat', [LoginRapatController::class, 'showloginRapat'])->name('loginRapat');
+Route::post('/loginRapat', [LoginRapatController::class, 'login']);
+Route::post('/logout', [LoginRapatController::class, 'logout'])->name('logout');
 
 /*LandingPage*/
 Route::get('/landing2', [Landing2Controller::class, 'index'])->name('landing2');
