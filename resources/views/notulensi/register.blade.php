@@ -108,7 +108,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                        <select name="id_OPD" class="form-control form-control-user" required>
+                                        <select name="id_OPD" class="form-control form-control-user" required onchange="checkOther()">
                                             <option value=""disabled selected>Nama Instansi</option>
                                             @foreach($opd as $instansi)
                                                 <option value="{{$instansi->id_OPD}}">{{$instansi->nama_instansi}}</option>

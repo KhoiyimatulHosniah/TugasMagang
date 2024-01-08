@@ -128,12 +128,104 @@
 
                 </nav>
                 <!-- End of Topbar -->
-
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Yakin untuk Keluar?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        <div class="modal-body">Klik "Logout" apabila Anda ingin keluar.</div>
+        <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="{{ route ('landing1') }}">Logout</a>
+        </div>
+    </div>
+</div>
+</div>
+            <!-- End of Topbar -->
 
                     <!-- Content Row -->
 
                     <div class="row">
-
+                        <div class="container">
+                            <div class="row">
+                                <!-- First Card -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-primary shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    @php
+                                                        use App\Models\tamu;
+                                                        $cek = tamu::count();
+                                                    @endphp
+                                                    <p style="font-size: 20px;">{{ $cek }} Tamu</p>
+                                                    <a href="/formDataTamu">
+                                                        <p class="text-muted">Lihat Detail</p>
+                                                    </a>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="bx bxs-book"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Second Card -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-primary shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    @php
+                                                        use App\Models\tambahjadwal;
+                                                        $cek = tambahjadwal::count();
+                                                    @endphp
+                                                    <p style="font-size: 20px;">{{ $cek }} Pegawai Kosong</p>
+                                                    <a href="/formNJadwalPegawai">
+                                                        <p class="text-muted">Lihat Detail</p>
+                                                    </a>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="bx bxs-book"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Third Card -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-primary shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    @php
+                                                        use App\Models\opd;
+                                                        $cek = opd::count();
+                                                    @endphp
+                                                    <p style="font-size: 20px;">{{ $cek }} Instansi</p>
+                                                    <a href="/formIntansi">
+                                                        <p class="text-muted">Lihat Detail</p>
+                                                    </a>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="bx bxs-book"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                
                         <!-- Area Chart -->
                         <div class="col-xl-8 col-lg-7">
                             <div class="card shadow mb-4">

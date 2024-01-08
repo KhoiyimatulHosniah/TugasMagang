@@ -12,11 +12,23 @@ class TampilRapatController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function tampilrapathariini()
+    public function tampilrapat()
     {
-        
+        $items = tampilrapat::all();
+        return view('notulensi.tampilRapat', compact('items'));
     }
-   
+    public function searchRapat(Request $request)
+    {
+        $search = $request->input('search');
+        $items = tampilrapat::where('nama', 'LIKE', "%$search%")
+            ->orWhere('tanggal', 'LIKE', "%$search%")
+            ->orWhere('waktu', 'LIKE', "%$search%")
+            ->orWhere('tempat', 'LIKE', "%$search%")
+            ->get();
+    
+        return view('notulensi.tampilRapat')->with('items', $items);
+    }
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -24,7 +36,7 @@ class TampilRapatController extends Controller
      */
     public function create()
     {
-        //
+        return view('notulensi.tampilRapat');
     }
 
     /**
@@ -46,7 +58,8 @@ class TampilRapatController extends Controller
      */
     public function show($id)
     {
-        //
+        $items = tampilrapat::findOrdfail($id);
+        return view('notulensi.tampilRapat', compact('items'));
     }
 
     /**

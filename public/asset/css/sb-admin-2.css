@@ -4676,6 +4676,7 @@ input[type="button"].btn-block {
   .card-group > .card:not(:first-child) .card-footer {
     border-bottom-left-radius: 0;
   }
+  
 }
 
 .card-columns .card {
