@@ -69,7 +69,10 @@ Route::post('/daftarhadir/submit', [DaftarhadirController::class, 'submitForm'])
 
 // Form Tamu
 Route::get('/form', [TamuController::class, 'showForm'])->name('form');
-Route::post('/form', [TamuController::class, 'processForm']);
+Route::get('/formTamu', [TamuController::class, 'index'])->name('formTamu');
+Route::get('/formTamu/create', [TamuController::class, 'create'])->name('formTamu.create');
+Route::post('/formTamu/store', [TamuController::class, 'store'])->name('formTamu.store');
+
 
 //Dashboard Resepsionis
 Route::get('/dashboardTamu', [DashboardTamuController::class, 'index'])->name('dashboardTamu');
@@ -131,6 +134,8 @@ Route::get('/formJadwalPegawai', [FormJadwalPegawaiController::class, 'tabelJadw
 Route::get('/formJadwalPegawai/create', [FormJadwalPegawaiController::class, 'create'])->name('formJadwalPegawai.create');
 Route::post('/formJadwalPegawai/store', [FormJadwalPegawaiController::class, 'store'])->name('formJadwalPegawai.store');
 Route::get('/formJadwalPegawai/{id}/hapus', [FormJadwalPegawaiController::class, 'hapus'])->name('formJadwalPegawai.hapus');
+Route::get('/formDataTamu', [FormDataTamuController::class, 'index'])->name('formDataTamu');
+Route::get('/formJadwalPegawai', [FormJadwalPegawaiController::class, 'index'])->name('formJadwalPegawai');
 
 //Login Operator
 Route::get('/loginOperator', [LoginOperatorController::class, 'showLoginOperator'])->name('loginOperator');

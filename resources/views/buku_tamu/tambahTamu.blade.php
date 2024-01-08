@@ -138,13 +138,13 @@
                                 <div class="form-group row">
                                     <label for="nama" class="col-sm-4 col-form-label">Nama</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="nama" name="nama">
+                                        <input type="text" class="form-control" id="nama" name="nama" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="jenis_kelamin" class="col-sm-4 col-form-label">Jenis Kelamin</label>
                                     <div class="col-sm-8">
-                                        <select class="form-control" id="jenis_kelamin" name="jenis_kelamin"
+                                        <select class="form-control" id="jenis_kelamin" name="jenis_kelamin" required
                                                 onchange="checkOther()">
                                             <option value="" disabled selected>Pilih Jenis Kelamin</option>
                                             <option>Laki-laki</option>
@@ -155,13 +155,13 @@
                                 <div class="form-group row">
                                     <label for="tanggal" class="col-sm-4 col-form-label">Tanggal</label>
                                     <div class="col-sm-8">
-                                            <input type="date" class="form-control" id="tanggal" name="tanggal">
+                                            <input type="date" class="form-control" id="tanggal" name="tanggal" required>
                                         </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="tujuan" class="col-sm-4 col-form-label">Tujuan</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="tujuan" name="tujuan">
+                                        <input type="text" class="form-control" id="tujuan" name="tujuan" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -178,7 +178,7 @@
                                 <div class="form-group row">
                                     <label for="no_telp" class="col-sm-4 col-form-label">Telepon</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="no_telp" name="no_telp">
+                                        <input type="text" class="form-control" id="no_telp" name="no_telp" pattern="[0-9]{10}" required>
                                     </div>
                                 </div>
                                 <hr>

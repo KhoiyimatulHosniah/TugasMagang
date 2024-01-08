@@ -11,5 +11,5 @@ class TamuController extends Controller
     {
         return view('buku_tamu.tamu');
     }
-    
+
 }
