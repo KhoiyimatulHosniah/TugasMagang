@@ -127,7 +127,26 @@
 
                 </nav>
                 <!-- End of Topbar -->
-
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Yakin untuk Keluar?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        <div class="modal-body">Klik "Logout" apabila Anda ingin keluar.</div>
+        <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="{{ route ('landing1') }}">Logout</a>
+        </div>
+    </div>
+</div>
+</div>
+            <!-- End of Topbar -->
 
                 <div class="row mx-3">
 
@@ -160,23 +179,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $item->nama_instansi}}</td>
                                             <td>
-                                                <a href="{{ route('formopd.edit', ['id' => $item->id]) }}" class="btn btn-info btn-circle">
-                    
-        
-                                                    <i class='fas fa-pencil-alt'></i>
-                                                                    </a>
-                                                                    <!-- Delete Button -->
-                                                                    
-                                                        
-                                                    <a href="{{ route('formopd.edit', ['id' => $item->id]) }}"
-                                                                       class="btn btn-danger btn-circle"
-                                                                       onclick="confirmModal('{{ route('formopd.hapus', ['id' => $item->id]) }}')">
-                                                                       
-
-                                                    <i class='fas fa-trash-alt'></i>
-                                                                    
-                                                                 
-                                                    </a>
+                                                
                                                                 </td>
                                                             
                                                  

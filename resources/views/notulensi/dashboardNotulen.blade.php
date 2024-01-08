@@ -146,6 +146,57 @@
                     <!-- Content Row -->
 
                     <div class="row">
+                        <div class="container">
+                            <div class="row">
+                                <!-- First Card -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-primary shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    @php
+                                                        use App\Models\tambahrapat;
+                                                        $cek = tambahrapat::count();
+                                                    @endphp
+                                                    <p style="font-size: 20px;">{{ $cek }} Kegiatan Rapat</p>
+                                                    <a href="/formKegiatan">
+                                                        <p class="text-muted">Lihat Detail</p>
+                                                    </a>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="bx bxs-book"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Second Card -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-primary shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    @php
+                                                        use App\Models\notulensi;
+                                                        $cek = notulensi::count();
+                                                    @endphp
+                                                    <p style="font-size: 20px;">{{ $cek }} File Notulensi</p>
+                                                    <a href="/formNotulen">
+                                                        <p class="text-muted">Lihat Detail</p>
+                                                    </a>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="bx bxs-book"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+
 
                         <!-- Area Chart -->
                         <div class="col-xl-8 col-lg-7">

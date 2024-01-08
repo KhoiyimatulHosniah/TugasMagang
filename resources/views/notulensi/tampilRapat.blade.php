@@ -37,13 +37,10 @@
         </a>
       </h1>
       <nav id="navbar" class="navbar">
-        <button class="nav-toggle">
-          <i class="bi bi-list"></i>
-        </button>
+        
         <div class="nav-container">
           <ul class="nav-list">
-            <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-            <li><a class="nav-link scrollto" href="#layanan">Layanan</a></li>
+            <li><a class="nav-link scrollto active" href="/loginRapat">Login</a></li>
           </ul>
         </div>
       </nav><!-- .navbar -->
@@ -51,53 +48,86 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
-
+  <section id="hero3" class="d-flex flex-column justify-content-center align-items-center">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-          <h1>Selamat Datang di</h1>
-          <h1>BUTANOL APPLICATION</h1>
-          
-        </div>
-        <div class="col-lg-6 order-1 order-lg-2 hero" data-aos="zoom-in" data-aos-delay="200">
-          <img src="assets/img/why-us.png" class="img-fluid animated" alt="">
+        <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+          <h1>Daftar Hadir Rapat</h1>
+          <img src="asset/images/zoom1.png" alt="Your Image" class="img-fluid" />
+          <div class="d-flex justify-content-center justify-content-lg-start align-items-center">
+            <a href="#rapat" class="btn-get-started scrollto">Lihat Rapat <i class="bi bi-chevron-double-right"></i></a>
+          </div>
         </div>
       </div>
     </div>
-
-  </section><!-- End Hero -->
+  </section>
+  <!-- End Hero -->
 
   <main id="main">
 
 
     <!-- ======= Layanan Section ======= -->
-    <section id="layanan" class="services section-bg">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Layanan</h2>
-          </div>
-          <div class="row justify-content-center">
-            <a href="/landing3" class="col-lg-4 mt-3" data-aos="zoom-in" data-aos-delay="100">
-              <div class="icon-box">
-                <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                <h4>Notulensi</h4>
-              </div>
-            </a>
-          
-            <a href="/landing2" class="col-lg-4 mt-3" data-aos="zoom-in" data-aos-delay="200">
-              <div class="icon-box">
-                <div class="icon"><i class="bx bx-file"></i></div>
-                <h4>Resepsionis</h4>
-              </div>
-            </a>
-          </div>
-
-        </div>
-
+<section id="rapat" class="services section-bg">
+  <div class="container" data-aos="fade-up">
+      <div class="section-title">
+          <h2>Rapat Hari Ini</h2>
       </div>
-    </section><!-- End Services Section -->
+      <!-- Add a search form -->
+<div class="row justify-content-center mb-3">
+  <div class="col-lg-6">
+      
+ 
+<form action="/searchRapat" method="GET">
+          <div class="input-group">
+              
+ 
+<input type="text" class="form-control" placeholder="Cari Rapat" name="search">
+              <div class="input-group-append">
+                  
+              
+<button class="btn btn-primary" type="submit">Cari</button>
+              
+         
+</div>
+          </div>
+      </form>
+  
+  
+</div>
+</div>
+      <div class="row justify-content-center">
+          <div class="col-lg-12 mt-3" data-aos="zoom-in" data-aos-delay="100">
+              <table class="table">
+                  <thead>
+                      <tr>
+                        <th>No</th>
+                          <th>Nama Rapat</th>
+                          <th>Tanggal</th>
+                          <th>Waktu</th>
+                          <th>Tempat</th>
+                          <th>Actions</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      @foreach($items as $item)
+                      <tr>
+                        <td>{{ $loop->iteration }}</td>
+                          <td>{{ $item->nama }}</td>
+                          <td>{{ \Carbon\Carbon::parse($item->tanggal)->isoFormat('DD-MM-YYYY') }}</td>
+                          <td>{{ $item->waktu }}</td>
+                          <td>{{ $item->tempat }}</td>
+                          <td>
+                              <a href="/tampilRapat/{{ $item->id }}" class="btn btn-primary">Hadiri Rapat</a>
+                          </td>
+                      </tr>
+                      @endforeach
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- End Services Section -->
 
    
   <!-- ======= Footer ======= -->

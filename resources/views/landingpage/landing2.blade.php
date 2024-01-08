@@ -46,7 +46,8 @@
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200" style="position: relative; z-index: 1;">
           <h1>Selamat Datang di</h1>
-          <h1>Dinas Komunikasi dan Informasi</h1>
+          <h1>Dinas Komunikasi dan Informasi </h1>
+          <h1>Kabupaten Situbondo </h1>
           <div id="button" class="d-flex justify-content-center justify-content-lg-start">
             <a href="/form" class="btn-get-started scrollto ">Daftar Tamu</a>
             <a href="/login" class="btn-get-started scrollto">Resepsionis</a>

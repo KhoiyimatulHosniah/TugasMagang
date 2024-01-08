@@ -27,6 +27,7 @@ use App\Http\Controllers\TambahjadwalController;
 use App\Http\Controllers\TambahOpdController;
 use App\Http\Controllers\FormOpdController;
 use App\Http\Controllers\LoginRapatController;
+use App\Http\Controllers\TampilRapatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -119,8 +120,8 @@ Route::get('/register', 'App\Http\Controllers\RegisterController@showRegistratio
 Route::post('/register', 'App\Http\Controllers\RegisterController@register');
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register.show');
 Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
-
-
+//tampilrapat
+Route::get('/tampilRapat', [TampilRapatController::class, 'tampilrapat'])->name('tampilRapat');
 
 //Button Logout
 Route::get('/landingpage', function () {

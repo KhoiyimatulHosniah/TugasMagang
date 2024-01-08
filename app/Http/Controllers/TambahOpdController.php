@@ -19,5 +19,10 @@ class TambahOpdController extends Controller
         opd::create($request->all());
         return redirect()->route('formopd')->with('success', 'Instansi berhasil ditambahkan!');
     }
+    public function edit($id)
+    {
+        $item = opd::find($id);
 
+        return view('formopd.edit', compact('item'));
+    }
 }
