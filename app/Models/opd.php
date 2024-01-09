@@ -10,7 +10,7 @@ class opd extends Model
 {
     use HasFactory;
 
-    protected $table = 'opd';
+    protected $table = 'opds';
     protected $primaryKey = 'id_OPD';
 
     protected $fillable = [
