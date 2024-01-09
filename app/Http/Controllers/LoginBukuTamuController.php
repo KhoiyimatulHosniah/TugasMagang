@@ -33,7 +33,7 @@ class LoginBukuTamuController extends Controller
                     break;
 
                 case 'Operator':
-                    return redirect('landing1');
+                    return redirect('dashboardOperator')->with('success', 'Login berhasil. Selamat datang, ' . $user->role);
                     break;
 
                 case 'Notulensi':
