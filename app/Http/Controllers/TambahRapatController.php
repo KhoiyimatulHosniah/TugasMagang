@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -16,14 +17,16 @@ class TambahRapatController extends Controller
      */
     public function index()
     {
-        return view('notulensi.tambahRapat');    }
+        return view('notulensi.tambahRapat');
+    }
 
-        public function showTable()
+    public function showTable()
     {
         $opd = OPD::all();
 
         return view('notulensi.tambahRapat', ['opd' => $opd]);
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -37,28 +40,29 @@ class TambahRapatController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-    $request->validate([
-        'kegiatan' => 'required',
-        'hari' => 'required',
-        'tanggal' => 'required',
-        'pukul' => 'required',
-        'tempat' => 'required',
-        'undangan_rapat' => 'required',
+        $request->validate([
+            'kegiatan' => 'required',
+            'hari' => 'required',
+            'tanggal' => 'required',
+            'pukul' => 'required',
+            'tempat' => 'required',
+            'undangan_rapat' => 'required',
 
-    ]);
+        ]);
 
-    tambahrapat::create($request->all());
-    return redirect()->route('tambahRapat')->with('success', 'Kegiatan Rapat Berhasil Ditambahkan!');
-}
+        tambahrapat::create($request->all());
+        return redirect()->route('tambahRapat')->with('success', 'Kegiatan Rapat Berhasil Ditambahkan!');
+    }
+
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -69,7 +73,7 @@ class TambahRapatController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -79,8 +83,8 @@ class TambahRapatController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -91,7 +95,7 @@ class TambahRapatController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

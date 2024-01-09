@@ -166,7 +166,7 @@
                                 <div class="form-group row">
                                     <label for="nama" class="col-sm-4 col-form-label">Nama Instansi</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="nama" name="nama">
+                                        <input type="text" class="form-control" id="nama" name="nama_instansi">
                                     </div>
                                 </div>
 

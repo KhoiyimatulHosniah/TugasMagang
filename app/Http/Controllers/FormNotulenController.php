@@ -15,7 +15,7 @@ class FormNotulenController extends Controller
      */
     public function tabelNotulensi()
     {
-        $items = formnotulensi::paginate(10); 
+        $items = formnotulensi::paginate(10);
         return view('notulensi.formNotulen', compact('items'));
     }
     /**
@@ -56,7 +56,7 @@ class FormNotulenController extends Controller
         return redirect()->route('formNotulen')->with('success', 'Kegiatan Rapat Berhasil Ditambahkan!');
     }
 
-    
+
 
     /**
      * Display the specified resource.
@@ -100,7 +100,7 @@ class FormNotulenController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function hapus($id)
     {
         $item = formnotulensi::find($id);
 

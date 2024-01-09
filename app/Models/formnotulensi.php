@@ -13,7 +13,7 @@ class formnotulensi extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        
+
         'sidang_rapat',
         'hari',
         'tanggal',

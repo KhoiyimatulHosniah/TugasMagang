@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\formnotulensi;
 use Illuminate\Http\Request;
 
 class TambahNotulensiController extends Controller
@@ -13,7 +14,14 @@ class TambahNotulensiController extends Controller
      */
     public function index()
     {
-        return view('notulensi.tambahNotulensi');    }
+        return view('notulensi.tambahNotulensi');
+    }
+
+    public function table()
+    {
+        $notulen = formnotulensi::all();
+        return view('notulensi.tambahNotulensi', compact('notulen'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -22,24 +30,35 @@ class TambahNotulensiController extends Controller
      */
     public function create()
     {
-        //
+        return view('notulensi.tambahNotulensi');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'sidang_rapat' => 'required',
+            'hari' => 'required',
+            'tanggal' => 'required',
+            'acara' => 'required',
+            'ketua' => 'required',
+            'sekretaris' => 'required',
+
+        ]);
+
+        formnotulensi::create($request->only(['sidang_rapat', 'hari', 'tanggal', 'acara', 'ketua', 'sekretaris']));
+        return redirect()->route('formNotulen')->with('success', 'Notulensi Berhasil Ditambahkan!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -50,7 +69,7 @@ class TambahNotulensiController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -61,8 +80,8 @@ class TambahNotulensiController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -73,7 +92,7 @@ class TambahNotulensiController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

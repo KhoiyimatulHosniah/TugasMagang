@@ -25,305 +25,309 @@
 
 <body id="page-top">
 
-    <!-- Page Wrapper -->
-    <div id="wrapper">
+<!-- Page Wrapper -->
+<div id="wrapper">
 
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboardNotulen">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-tasks" style="font-size:25px;"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">NOTULENSI</div>
-            </a>
-            
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="/dashboardNotulen">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-
-
-            <!-- Nav Item - Data Tamu -->
-            <li class="nav-item">
-                <a class="nav-link" href="/formNotulen">
-                    <i class="	fas fa-file-alt"></i>
-                    <span>Form Notulensi</span></a>
-            </li>
-
-            <!-- Nav Item - Jadwal -->
-            <li class="nav-item">
-                <a class="nav-link" href="/formKegiatan">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Form Kegiatan</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        <!-- Sidebar - Brand -->
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboardNotulen">
+            <div class="sidebar-brand-icon rotate-n-15">
+                <i class="fas fa-tasks" style="font-size:25px;"></i>
             </div>
+            <div class="sidebar-brand-text mx-3">NOTULENSI</div>
+        </a>
 
-        </ul>
-        <!-- End of Sidebar -->
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
 
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item active">
+            <a class="nav-link" href="/dashboardNotulen">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dashboard</span></a>
+        </li>
 
-            <!-- Main Content -->
-            <div id="content">
-
-                <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
-                    </button>
-
-                    
-
-                    <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">
+        <!-- Divider -->
+        <hr class="sidebar-divider">
 
 
-                        <!-- Nav Item - User Information -->
-                        <li class="nav-item dropdown no-arrow">
-                            <i class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 "><h7>{{ Auth::user()->username }} | {{ Auth::user()->role }}</h7></span>
-                                <i class="fas fa-user"></i>
-                        </i>
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
-                                
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
-                            </div>
-                        </li>
+        <!-- Nav Item - Data Tamu -->
+        <li class="nav-item">
+            <a class="nav-link" href="/formNotulen">
+                <i class="	fas fa-file-alt"></i>
+                <span>Form Notulensi</span></a>
+        </li>
 
-                    </ul>
+        <!-- Nav Item - Jadwal -->
+        <li class="nav-item">
+            <a class="nav-link" href="/formKegiatan">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Form Kegiatan</span></a>
+        </li>
 
-                </nav>
-                <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Yakin untuk Keluar?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block">
+
+        <!-- Sidebar Toggler (Sidebar) -->
+        <div class="text-center d-none d-md-inline">
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                <!-- Sidebar Toggle (Topbar) -->
+                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <i class="fa fa-bars"></i>
                 </button>
+
+
+                <!-- Topbar Navbar -->
+                <ul class="navbar-nav ml-auto">
+
+
+                    <!-- Nav Item - User Information -->
+                    <li class="nav-item dropdown no-arrow">
+                        <i class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 "><h7>{{ Auth::user()->username }} | {{ Auth::user()->role }}</h7></span>
+                            <i class="fas fa-user"></i>
+                        </i>
+                        <!-- Dropdown - User Information -->
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                             aria-labelledby="userDropdown">
+
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </li>
+
+                </ul>
+
+            </nav>
+            <!-- Logout Modal-->
+            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Yakin untuk Keluar?</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">Klik "Logout" apabila Anda ingin keluar.</div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                            <a class="btn btn-primary" href="{{ route ('landing1') }}">Logout</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="modal-body">Klik "Logout" apabila Anda ingin keluar.</div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="{{ route ('landing1') }}">Logout</a>
-            </div>
-        </div>
-    </div>
-</div>
-                <!-- End of Topbar -->
+            <!-- End of Topbar -->
 
 
-                    <!-- Content Row -->
-                    
-                    <div class="row mx-3">
+            <!-- Content Row -->
 
-                        <!-- Area Chart -->
-                        <div class="col-12">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">PELAKSANAAN SIDANG / RAPAT</h6>
-                                
-                            </div>
-                                <!-- Card Body -->
-                                <form class="user" action="{{ route('formNotulen.store') }}" method="POST">
-                                    @csrf
-                                    <div class="card-body">
-                    <div class="form-group row">
-                        <label for="kegiatan" class="col-sm-4 col-form-label">Sidang/Rapat</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="kegiatan" name="kegiatan">
+            <div class="row mx-3">
+
+                <!-- Area Chart -->
+                <div class="col-12">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div
+                            class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">PELAKSANAAN SIDANG / RAPAT</h6>
+
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="hari" class="col-sm-4 col-form-label">Hari</label>
-                        <div class="col-sm-8">
-                            <select class="form-control" id="hari" name="hari" onchange="checkOther()">
-                                <option value=""disabled selected>Pilih Hari</option>
-                                <option value="hari 1">Senin</option>
-                                <option value="hari 1">Selasa</option>
-                                <option value="hari 1">Rabu</option>
-                                <option value="hari 1">Kamis</option>
-                                <option value="hari 1">Jumat</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="tanggal" class="col-sm-4 col-form-label">Tanggal</label>
-                        <div class="col-sm-8">
-                                <input type="date" class="form-control" id="tanggal" name="tanggal">
-                            
-                        </div>
-                    </div>
-                    
-                    
-                    <div class="form-group row">
-                        <label for="pukul" class="col-sm-4 col-form-label">Jam Panggilan</label>
-                        <div class="col-sm-8">
-                            <input type="time" class="form-control" id="pukul" name="pukul">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="pukul" class="col-sm-4 col-form-label">Jam Sidang/Rapat</label>
-                        <div class="col-sm-8">
-                            <input type="time" class="form-control" id="pukul" name="pukul">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="kegiatan" class="col-sm-4 col-form-label">Acara</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="kegiatan" name="kegiatan">
-                        </div>
-                    </div>
-                    
-                    <h6 class="m-0 font-weight-bold text-primary">PIMPINAN SIDANG / RAPAT</h6>
-                                
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                <div class="form-group row">
-                    <label for="ketua" class="col-sm-4 col-form-label">Ketua</label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" id="kegiatan" name="kegiatan">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="sekretaris" class="col-sm-4 col-form-label">Sekretaris</label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" id="kegiatan" name="kegiatan">
-                    </div>
-                </div><div class="form-group row">
-                    <label for="pencatat" class="col-sm-4 col-form-label">Pencatat</label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" id="kegiatan" name="kegiatan">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="peserta" class="col-sm-4 col-form-label">Peserta Sidang / Rapat</label>
-                    <div class="col-sm-8">
-                        <textarea type="text" class="form-control" id="kegiatan" name="kegiatan"></textarea>
-                    </div>
-                    
-                </div>
-                        <h6 class="m-0 font-weight-bold text-primary">KEGIATAN SIDANG / RAPAT</h6>
-                                
+                        <!-- Card Body -->
+                        <form class="user" action="{{ route('tambahNotulensi.store') }}" method="POST">
+                            @csrf
+                            <div class="card-body">
+                                <div class="form-group row">
+                                    <label for="kegiatan" class="col-sm-4 col-form-label">Sidang/Rapat</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="kegiatan" name="sidang_rapat">
+                                    </div>
                                 </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                        <div class="form-group row">
-                                            <label for="kegiatan" class="col-sm-4 col-form-label">Kegiatan Sidang/Rapat</label>
-                                            <div class="col-sm-8">
-                                                <textarea type="text" class="form-control" id="kegiatan" name="kegiatan"></textarea>
-                                            </div>
-                                        </div>
-                                            <div class="form-group row">
-                                                <label for="pembuka" class="col-sm-4 col-form-label">Kata Pembuka</label>
-                                                <div class="col-sm-8">
-                                                    <textarea type="text" class="form-control" id="kegiatan" name="kegiatan"></textarea>
-                                                </div>
-                                            </div>
+                                <div class="form-group row">
+                                    <label for="hari" class="col-sm-4 col-form-label">Hari</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="hari" name="hari" onchange="checkOther()">
+                                            <option value="" disabled selected>Pilih Hari</option>
+                                            <option>Senin</option>
+                                            <option>Selasa</option>
+                                            <option>Rabu</option>
+                                            <option>Kamis</option>
+                                            <option>Jumat</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="tanggal" class="col-sm-4 col-form-label">Tanggal</label>
+                                    <div class="col-sm-8">
+                                        <input type="date" class="form-control" id="tanggal" name="tanggal">
 
-                                            <div class="form-group row">
-                                                <label for="pembahasan" class="col-sm-4 col-form-label">Pembahasan</label>
-                                                <div class="col-sm-8">
-                                                    <textarea type="text" class="form-control" id="tanggal" name="tanggal"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="keputusan" class="col-sm-4 col-form-label">Keputusan</label>
-                                                <div class="col-sm-8">
-                                                    <textarea type="text" class="form-control" id="pukul" name="pukul"></textarea>
-                                                </div>
-                                            </div>
+                                    </div>
+                                </div>
 
 
-                                            <div class="form-group row text-right">
-                                                <div class="col-sm-4"></div> 
-                                                <div class="col-sm-8">
-                                                    <button type="submit" class="btn btn-primary">Tambah</button>
-                                                </div>
-                                            </div>
-                    
-                </div>
-            </form>
-</div>
-</form>
- 
-                </div>
-            </form>
-            
-            
+                                <div class="form-group row">
+                                    <label for="pukul" class="col-sm-4 col-form-label">Jam Panggilan</label>
+                                    <div class="col-sm-8">
+                                        <input type="time" class="form-control" id="pukul" name="jam_panggilan">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="pukul" class="col-sm-4 col-form-label">Jam Sidang/Rapat</label>
+                                    <div class="col-sm-8">
+                                        <input type="time" class="form-control" id="pukul" name="jam_sidang_rapat">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="kegiatan" class="col-sm-4 col-form-label">Acara</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="kegiatan" name="acara">
+                                    </div>
+                                </div>
+
+                                <h6 class="m-0 font-weight-bold text-primary">PIMPINAN SIDANG / RAPAT</h6>
+
                             </div>
-                            
-                        </div>
-                        
+                            <!-- Card Body -->
+                            <div class="card-body">
+                                <div class="form-group row">
+                                    <label for="ketua" class="col-sm-4 col-form-label">Ketua</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="kegiatan" name="ketua">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="sekretaris" class="col-sm-4 col-form-label">Sekretaris</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="kegiatan" name="sekretaris">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="pencatat" class="col-sm-4 col-form-label">Pencatat</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="kegiatan" name="pencatat">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="peserta_sidang" class="col-sm-4 col-form-label">Peserta Sidang / Rapat</label>
+                                    <div class="col-sm-8">
+                                        <textarea type="text" class="form-control" id="kegiatan"
+                                                  name="peserta_sidang"></textarea>
+                                    </div>
 
+                                </div>
+                                <h6 class="m-0 font-weight-bold text-primary">KEGIATAN SIDANG / RAPAT</h6>
+
+                            </div>
+                            <!-- Card Body -->
+                            <div class="card-body">
+                                <div class="form-group row">
+                                    <label for="kegiatan" class="col-sm-4 col-form-label">Kegiatan Sidang/Rapat</label>
+                                    <div class="col-sm-8">
+                                        <textarea type="text" class="form-control" id="kegiatan"
+                                                  name="kegiatan_sidang"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="pembuka" class="col-sm-4 col-form-label">Kata Pembuka</label>
+                                    <div class="col-sm-8">
+                                        <textarea type="text" class="form-control" id="kegiatan"
+                                                  name="kata_pembuka"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="pembahasan" class="col-sm-4 col-form-label">Pembahasan</label>
+                                    <div class="col-sm-8">
+                                        <textarea type="text" class="form-control" id="tanggal"
+                                                  name="pembahasan"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="keputusan" class="col-sm-4 col-form-label">Keputusan</label>
+                                    <div class="col-sm-8">
+                                        <textarea type="text" class="form-control" id="pukul"
+                                                  name="keputusan"></textarea>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group row text-right">
+                                    <div class="col-sm-4"></div>
+                                    <div class="col-sm-8">
+                                        <button type="submit" class="btn btn-primary">Tambah</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
                     </div>
+                    </form>
 
-        
                 </div>
-                
+                </form>
+
 
             </div>
-            
+
         </div>
-        
+
+
     </div>
-    
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
 
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="asset/vendor/jquery/jquery.min.js"></script>
-    <script src="asset/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</div>
 
-    <!-- Core plugin JavaScript-->
-    <script src="asset/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="asset/js/sb-admin-2.min.js"></script>
+</div>
 
-    <!-- Page level plugins -->
-    <script src="asset/vendor/chart.js/Chart.min.js"></script>
+</div>
 
-    <!-- Page level custom scripts -->
-    <script src="asset/js/demo/chart-area-demo.js"></script>
-    <script src="asset/js/demo/chart-pie-demo.js"></script>
+</div>
+
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+
+<!-- Bootstrap core JavaScript-->
+<script src="asset/vendor/jquery/jquery.min.js"></script>
+<script src="asset/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="asset/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="asset/js/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="asset/vendor/chart.js/Chart.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="asset/js/demo/chart-area-demo.js"></script>
+<script src="asset/js/demo/chart-pie-demo.js"></script>
 
 </body>
 

@@ -38,7 +38,7 @@
                 </div>
                 <div class="sidebar-brand-text mx-3">NOTULENSI</div>
             </a>
-            
+
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
@@ -93,12 +93,12 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    
+
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                        
+
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <i class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
@@ -109,7 +109,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                
+
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -170,7 +170,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <!-- Second Card -->
                                 <div class="col-xl-3 col-md-6 mb-4">
                                     <div class="card border-left-primary shadow h-100 py-2">
@@ -178,8 +178,8 @@
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col mr-2">
                                                     @php
-                                                        use App\Models\notulensi;
-                                                        $cek = notulensi::count();
+                                                        use App\Models\formnotulensi;
+                                                        $cek =formnotulensi::count();
                                                     @endphp
                                                     <p style="font-size: 20px;">{{ $cek }} File Notulensi</p>
                                                     <a href="/formNotulen">
@@ -195,7 +195,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
 
 
                         <!-- Area Chart -->
@@ -214,20 +214,20 @@
                                 </div>
                             </div>
                         </div>
-                        
+
 
                     </div>
 
-        
+
                 </div>
-                
+
 
             </div>
-            
+
         </div>
-        
+
     </div>
-    
+
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
