@@ -99,7 +99,7 @@
                     <li class="nav-item dropdown no-arrow">
                         <i class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600"><h7>{{ Auth::user()->role }}</h7></span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600"><h7>{{ Auth::user()->username }} | {{ Auth::user()->role }}</h7></span>
                             <i class="fas fa-user"></i>
                         </i>
 
@@ -121,6 +121,16 @@
 
 
             <div class="row mx-3">
+
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
 
                 <!-- Area Chart -->
                 <div class="col-12">
@@ -178,7 +188,7 @@
                                 <div class="form-group row">
                                     <label for="no_telp" class="col-sm-4 col-form-label">Telepon</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="no_telp" name="no_telp" pattern="[0-9]{10}" required>
+                                        <input type="text" class="form-control" id="no_telp" name="no_telp" required>
                                     </div>
                                 </div>
                                 <hr>
@@ -186,7 +196,8 @@
                                 <div class="container">
                                     <button type="submit" class="btn btn-primary btn-user btn-sm">KIRIM</button>
                                 </div>
-                            </form>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

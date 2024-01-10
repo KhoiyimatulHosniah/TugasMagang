@@ -14,7 +14,7 @@ class TambahTamuController extends Controller
      */
     public function index()
     {
-        $opd=opd::all(); // Mengambil semua data pengguna dari tabel tamus
+        $opd=opd::all(); // Mengambil semua data pengguna dari tabel opds
         return view('buku_tamu.tambahTamu', compact('opd'));
     }
 
@@ -37,16 +37,17 @@ class TambahTamuController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'nama' => 'required',
             'jenis_kelamin' => 'required',
             'tanggal' => 'required',
             'tujuan' => 'required',
-            'nama_instansi' => 'required',
             'id_OPD' => 'required',
-            'no_telp' => 'required',
+            'no_telp' => 'required|numeric',
 
         ]);
+
 
         tamu::create($request->all());
         return redirect()->route('datatamu')->with('success', 'Tamu berhasil ditambahkan!');

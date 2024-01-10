@@ -74,7 +74,6 @@ Route::get('/formTamu', [TamuController::class, 'index'])->name('formTamu');
 Route::get('/formTamu/create', [TamuController::class, 'create'])->name('formTamu.create');
 Route::post('/formTamu/store', [TamuController::class, 'store'])->name('formTamu.store');
 
-
 //Dashboard Resepsionis
 Route::get('/dashboardTamu', [DashboardTamuController::class, 'index'])->name('dashboardTamu');
 
@@ -94,7 +93,7 @@ Route::post('/tambahRapat/store', [TambahRapatController::class, 'store'])->name
 Route::get('/tambahNotulensi', [TambahNotulensiController::class, 'index'])->name('tambahNotulensi');
 
 // tambah rapat
-Route::get('/formrapat', [TamuController::class, 'showForm'])->name('form');
+Route::get('/formrapat', [TambahTamuController::class, 'showForm'])->name('form');
 Route::post('/formrapat', [TamuController::class, 'processForm']);
 
 // tambah notulensi

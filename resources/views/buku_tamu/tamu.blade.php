@@ -64,7 +64,7 @@
                                 <div class="text-center">
                                     <h1 class="h5 text-gray-900 mb-4">FORM TAMU</h1>
                                 </div>
-                                <form class="user" action="{{ route('datatamu.store') }}" method="POST">
+                                <form class="user" action="{{ route('formTamu.store') }}" method="POST">
                                     @csrf
 
                                     <div class="form-group">
@@ -95,6 +95,15 @@
                                         <input type="text" class="form-control" name="nama_instansi"
                                                id="exampleInputName" aria-describedby="nameHelp"
                                                placeholder="Nama Instansi">
+                                        <div class="col-sm-8">
+                                            <select name="id_OPD" class="form-control" required>
+                                                <option value="">Pilih Nama Instansi</option>
+                                                @foreach($opd as $instansi)
+                                                    <option
+                                                        value="{{$instansi->id_OPD}}">{{$instansi->nama_instansi}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <input type="text" class="form-control" name="no_telp"

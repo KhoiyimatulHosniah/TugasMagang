@@ -18,7 +18,6 @@ class tamu extends Model
         'nama',
         'jenis_kelamin',
         'tanggal',
-        'nama_instansi',
         'tujuan',
         'no_telp',
         'id_OPD',
