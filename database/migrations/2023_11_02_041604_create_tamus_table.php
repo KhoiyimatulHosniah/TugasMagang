@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('jenis_kelamin');
             $table->date('tanggal');
-            $table->string('nama_instansi');
+            $table->integer('id_OPD');
             $table->string('tujuan');
             $table->string('no_telp');
             $table->timestamps();

@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('registers', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
             $table->string('username');
             $table->string('email')->unique();
             $table->string('jenis_kelamin');
-            $table->string('nama_instansi');
+            $table->integer('id_OPD');
             $table->string('jabatan');
             $table->string('notlp');
             $table->string('password');
