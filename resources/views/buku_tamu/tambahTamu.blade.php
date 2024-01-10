@@ -158,15 +158,15 @@
                                                 onchange="checkOther()">
                                             <option value="" disabled selected>Pilih Jenis Kelamin</option>
                                             <option>Laki-laki</option>
-                                            <option >Perempuan</option>
+                                            <option>Perempuan</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="tanggal" class="col-sm-4 col-form-label">Tanggal</label>
                                     <div class="col-sm-8">
-                                            <input type="date" class="form-control" id="tanggal" name="tanggal" required>
-                                        </div>
+                                        <input type="date" class="form-control" id="tanggal" name="tanggal" required>
+                                    </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="tujuan" class="col-sm-4 col-form-label">Tujuan</label>
@@ -180,7 +180,8 @@
                                         <select name="id_OPD" class="form-control" required>
                                             <option value="">Pilih Nama Instansi</option>
                                             @foreach($opd as $instansi)
-                                                <option value="{{$instansi->id_OPD}}">{{$instansi->nama_instansi}}</option>
+                                                <option
+                                                    value="{{$instansi->id_OPD}}">{{$instansi->nama_instansi}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -193,8 +194,11 @@
                                 </div>
                                 <hr>
 
-                                <div class="container">
-                                    <button type="submit" class="btn btn-primary btn-user btn-sm">KIRIM</button>
+                                <div class="form-group row text-right">
+                                    <div class="col-sm-4"></div>
+                                    <div class="col-sm-8">
+                                        <button type="submit" class="btn btn-primary">Kirim</button>
+                                    </div>
                                 </div>
                             </div>
                         </form>
