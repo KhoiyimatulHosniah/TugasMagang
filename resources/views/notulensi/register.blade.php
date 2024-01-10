@@ -86,55 +86,53 @@
                             </div>
                         @endif
 
-                        <form class="user" action="{{ route('register.store') }}" method="POST">
+                        <form class="register" action="{{ route('register.store') }}" method="POST">
                             @csrf
 
                             <div class="form-group">
-                                <input type="text" name="username" class="form-control form-control-user"
+                                <input type="text" name="username" class="form-control"
                                        id="exampleInputUsername"
                                        aria-describedby="usernameHelp" placeholder="Username"
                                        value="{{ old('username') }}">
                             </div>
                             <div class="form-group">
-                                <input type="text" name="email" class="form-control form-control-user"
+                                <input type="text" name="email" class="form-control"
                                        id="exampleInputEmail"
                                         placeholder="Email">
                             </div>
+                            
                             <div class="form-group">
-                                <select class="form-control form-control-user" id="jenis_kelamin" name="jenis_kelamin" >
+                                <select name="jenis_kelamin" class="form-control ">
                                     <option value="" disabled selected>Jenis Kelamin</option>
                                     <option value="lakilaki">Laki-laki</option>
                                     <option value="perempuan">Perempuan</option>
+                                
                                 </select>
                             </div>
                             <div class="form-group">
-                                        <select name="id_OPD" class="form-control form-control-user" required onchange="checkOther()">
-                                            <option value=""disabled selected>Nama Instansi</option>
-                                            @foreach($opd as $instansi)
-                                                <option value="{{$instansi->id_OPD}}">{{$instansi->nama_instansi}}</option>
-                                            @endforeach
-                                        </select>
+                                <select name="nama_instansi" class="form-control">
+                                    <option value="" disabled selected>Nama Instansi</option>
+                                    @foreach($opd as $item)
+                                        <option value="{{ $item->id_OPD }}">{{ $item->nama_instansi }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-group">
-                                <input type="text" name="jabatan" class="form-control form-control-user"
+                                <input type="text" name="jabatan" class="form-control"
                                        id="exampleInputjabatan"
                                         placeholder="Jabatan">
                             </div>
                             <div class="form-group">
-                                <input type="text" name="notlp" class="form-control form-control-user"
+                                <input type="text" name="notlp" class="form-control"
                                        id="exampleInputnotlp"
                                         placeholder="No Telepon">
                             </div>
                             <div class="form-group">
-                                <input type="password" name="password" class="form-control form-control-user"
+                                <input type="password" name="password" class="form-control"
                                        id="exampleInputPassword"
-                                       placeholder="Password">
+                                       placeholder="Password" required>
                             </div>
-                            <div class="form-group">
-                                <input type="password" name="passwordconfirmation" class="form-control form-control-user"
-                                       id="exampleInputPassword"
-                                       placeholder="Confirmation Password ">
-                            </div>
+                            
                            
                             
                             @if ($errors->any())

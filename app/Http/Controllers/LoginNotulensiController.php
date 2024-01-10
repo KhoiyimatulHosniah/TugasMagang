@@ -38,7 +38,7 @@ class LoginNotulensiController extends Controller
                     break;
 
                 case 'Operator':
-                    return redirect('landing1');
+                    return redirect('dashboardOperator');
                     break;
 
                 case 'Notulensi':

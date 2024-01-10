@@ -22,7 +22,6 @@ return new class extends Migration
             $table->string('jabatan');
             $table->string('notlp');
             $table->string('password');
-            $table->rememberToken();
             $table->timestamps();
         });
     }

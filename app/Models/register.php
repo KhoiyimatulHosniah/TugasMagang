@@ -26,7 +26,6 @@ class register extends Model
     ];
     protected $hidden = [
         'password',
-        'remember_token',
     ];
     protected $with = ['opd'];
 
