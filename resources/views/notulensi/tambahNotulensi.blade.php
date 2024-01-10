@@ -248,6 +248,7 @@
                                                   name="kegiatan_sidang"></textarea>
                                     </div>
                                 </div>
+
                                 <div class="form-group row">
                                     <label for="pembuka" class="col-sm-4 col-form-label">Kata Pembuka</label>
                                     <div class="col-sm-8">
@@ -278,33 +279,14 @@
                                         <button type="submit" class="btn btn-primary">Tambah</button>
                                     </div>
                                 </div>
-
                             </div>
                         </form>
                     </div>
-                    </form>
-
                 </div>
-                </form>
-
-
             </div>
-
         </div>
-
-
     </div>
-
-
 </div>
-
-
-</div>
-
-</div>
-
-</div>
-
 
 <!-- Scroll to Top Button-->
 <a class="scroll-to-top rounded" href="#page-top">

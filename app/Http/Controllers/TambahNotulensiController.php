@@ -17,12 +17,6 @@ class TambahNotulensiController extends Controller
         return view('notulensi.tambahNotulensi');
     }
 
-    public function table()
-    {
-        $notulen = formnotulensi::all();
-        return view('notulensi.tambahNotulensi', compact('notulen'));
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -45,14 +39,22 @@ class TambahNotulensiController extends Controller
             'sidang_rapat' => 'required',
             'hari' => 'required',
             'tanggal' => 'required',
+            'jam_panggilan' => 'required',
+            'jam_sidang_rapat' => 'required',
             'acara' => 'required',
             'ketua' => 'required',
             'sekretaris' => 'required',
+            'pencatat' => 'required',
+            'peserta_sidang' => 'required',
+            'kegiatan_sidang'=> 'required',
+            'kata_pembuka' => 'required',
+            'pembahasan' => 'required',
+            'keputusan' => 'required',
 
         ]);
 
-        formnotulensi::create($request->only(['sidang_rapat', 'hari', 'tanggal', 'acara', 'ketua', 'sekretaris']));
-        return redirect()->route('formNotulen')->with('success', 'Notulensi Berhasil Ditambahkan!');
+        formnotulensi::create($request->all());
+        return redirect()->route('formNotulen')->with('success', 'Kegiatan Rapat Berhasil Ditambahkan!');
     }
 
     /**

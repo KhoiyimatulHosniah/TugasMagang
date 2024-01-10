@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('sekretaris');
             $table->string('pencatat');
             $table->string('peserta_sidang');
+            $table->string('kegiatan_sidang');
             $table->string('kata_pembuka');
             $table->string('pembahasan');
             $table->string('keputusan');
