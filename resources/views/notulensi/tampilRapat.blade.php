@@ -85,7 +85,7 @@
               <div class="input-group-append">
                   
               
-<button class="btn btn-primary" type="submit">Cari</button>
+<button id="btncari" class="btn btn-primary" type="submit">Cari</button>
               
          
 </div>
@@ -95,7 +95,7 @@
   
 </div>
 </div>
-      <div class="row justify-content-center">
+      <div id="tabeltampil" class="row justify-content-center">
           <div class="col-lg-12 mt-3" data-aos="zoom-in" data-aos-delay="100">
               <table class="table">
                   <thead>
@@ -117,7 +117,40 @@
                           <td>{{ $item->waktu }}</td>
                           <td>{{ $item->tempat }}</td>
                           <td>
-                              <a href="/tampilRapat/{{ $item->id }}" class="btn btn-primary">Hadiri Rapat</a>
+                            <a href="/tampilRapat/{{ $item->id }}" class="btn btn-primary" onclick="checkSchedule('{{ $item->tanggal }}', '{{ $item->waktu }}')">Hadiri Rapat</a>
+
+<script>
+  function checkSchedule(date, time) {
+    // Mendapatkan tanggal dan waktu saat ini
+    var now = new Date();
+    var currentDate = now.toISOString().split('T')[0]; // Mendapatkan tanggal saat ini dalam format YYYY-MM-DD
+    var currentTime = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); // Mendapatkan waktu saat ini dalam format HH:MM
+
+    // Menggabungkan tanggal dan waktu rapat ke dalam satu string dan membuat objek Date
+    var scheduleDateTime = new Date(date + 'T' + time);
+
+    // Mendapatkan waktu saat rapat dimulai
+    var scheduleTime = scheduleDateTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+    // Memeriksa apakah hari ini adalah hari rapat dan waktu rapat belum terlewati
+    if (currentDate === date && currentTime <= scheduleTime) {
+      // Membuat notifikasi
+      if (window.Notification && Notification.permission === "granted") {
+        new Notification("Notifikasi Anda", { body: "Anda berhasil menghadiri rapat" });
+      } else if (window.Notification && Notification.permission !== "denied") {
+        Notification.requestPermission().then(function(permission) {
+          if (permission === "granted") {
+            new Notification("Notifikasi Anda", { body: "Anda berhasil menghadiri rapat" });
+          }
+        });
+      }
+    } else {
+      alert("Rapat sudah berlalu atau belum dimulai!");
+    }
+  }
+</script>
+
+                            
                           </td>
                       </tr>
                       @endforeach

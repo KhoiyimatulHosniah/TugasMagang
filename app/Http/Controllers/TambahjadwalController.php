@@ -44,16 +44,7 @@ class TambahjadwalController extends Controller
         'notlp' => 'required',
     ]);
 
-    // Simpan data ke dalam database
-    $jadwalPegawai = new tambahjadwal();
-    $jadwalPegawai->nama = $validatedData['nama'];
-    $jadwalPegawai->bidang = $validatedData['bidang'];
-    $jadwalPegawai->tanggal_berangkat = $validatedData['tanggal_berangkat'];
-    $jadwalPegawai->tanggal_pulang = $validatedData['tanggal_pulang'];
-    $jadwalPegawai->tujuan = $validatedData['tujuan'];
-    $jadwalPegawai->notlp = $validatedData['notlp'];
-    $jadwalPegawai->save();
-
+    
         tambahjadwal::create($request->all());
         return redirect()->route('formJadwalPegawai')->with('success', 'Tamu berhasil ditambahkan!');
     }

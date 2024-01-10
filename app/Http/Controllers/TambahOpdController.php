@@ -9,8 +9,8 @@ class TambahOpdController extends Controller
 {
     public function tabelOpd()
     {
-        $items = opd::all();
-        return view('Operator.tambahopd', compact('items'));
+        $opd = opd::all();
+        return view('Operator.tambahopd',  ['opd' => $opd]);
     }
 
     public function create()

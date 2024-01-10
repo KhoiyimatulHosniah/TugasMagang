@@ -20,8 +20,7 @@
 
     <!-- Custom styles for this template-->
     <link href="asset/css/sb-admin-2.min.css" rel="stylesheet">
-<!-- Timer Notifikasi-->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body id="page-top">
@@ -33,19 +32,19 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboardNotulen">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboardOperator">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-tasks" style="font-size:25px;"></i>
+                    <i class="fas fa-clipboard-list" style="font-size:25px;"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">NOTULENSI</div>
+                <div class="sidebar-brand-text mx-3">Operator</div>
             </a>
-
+            
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="/dashboardNotulen">
+                <a class="nav-link" href="/dashboardOperator">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -57,17 +56,29 @@
 
             <!-- Nav Item - Data Tamu -->
             <li class="nav-item">
-                <a class="nav-link" href="/formNotulen">
+                <a class="nav-link" href="/formDataTamu">
                     <i class="	fas fa-file-alt"></i>
-                    <span>Form Notulensi</span></a>
+                    <span>Form Data Tamu</span></a>
             </li>
 
             <!-- Nav Item - Jadwal -->
             <li class="nav-item">
-                <a class="nav-link" href="/formKegiatan">
+                <a class="nav-link" href="/formJadwalPegawai">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Form Kegiatan</span></a>
+                    <span>Form Jadwal Pegawai</span></a>
             </li>
+            <!-- Nav Item - opd -->
+            <li class="nav-item">
+                <a class="nav-link" href="/formopd">
+                    <i class="far fa-building"></i>
+                    <span>Form Instansi</span></a>
+            </li>
+<!-- Nav Item - opd -->
+<li class="nav-item">
+    <a class="nav-link" href="/userregister">
+        <i class="far fa-address-card"></i>
+        <span>User Register</span></a>
+</li>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -80,8 +91,8 @@
         </ul>
         <!-- End of Sidebar -->
 
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
+         <!-- Content Wrapper -->
+         <div id="content-wrapper" class="d-flex flex-column">
 
             <!-- Main Content -->
             <div id="content">
@@ -94,12 +105,12 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-
+                    
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-
+                        
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <i class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
@@ -110,7 +121,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-
+                                
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -122,6 +133,7 @@
                     </ul>
 
                 </nav>
+                <!-- End of Topbar -->
                 <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
@@ -143,90 +155,53 @@
 </div>
                 <!-- End of Topbar -->
 
+            <div class="row mx-3">
 
-                    <!-- Content Row -->
-
-                    <div class="row">
-                        <div class="container">
-                            <div class="row">
-                                <!-- First Card -->
-                                <div class="col-xl-3 col-md-6 mb-4">
-                                    <div class="card border-left-primary shadow h-100 py-2">
-                                        <div class="card-body">
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col mr-2">
-                                                    @php
-                                                        use App\Models\tambahrapat;
-                                                        $cek = tambahrapat::count();
-                                                    @endphp
-                                                    <p style="font-size: 20px;">{{ $cek }} Kegiatan Rapat</p>
-                                                    <a href="/formKegiatan">
-                                                        <p class="text-muted">Lihat Detail</p>
-                                                    </a>
-                                                </div>
-                                                <div class="col-auto">
-                                                    <i class="bx bxs-book"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Second Card -->
-                                <div class="col-xl-3 col-md-6 mb-4">
-                                    <div class="card border-left-primary shadow h-100 py-2">
-                                        <div class="card-body">
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col mr-2">
-                                                    @php
-                                                        use App\Models\formnotulensi;
-                                                        $cek =formnotulensi::count();
-                                                    @endphp
-                                                    <p style="font-size: 20px;">{{ $cek }} File Notulensi</p>
-                                                    <a href="/formNotulen">
-                                                        <p class="text-muted">Lihat Detail</p>
-                                                    </a>
-                                                </div>
-                                                <div class="col-auto">
-                                                    <i class="bx bxs-book"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                <!-- Area Chart -->
+                <div class="col-12">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div
+                            class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Daftar Tamu</h6>
                         </div>
-
-
-
-                        <!-- Area Chart -->
-                        <div class="col-xl-8 col-lg-7">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
+                <!-- DataTales Example -->
+                    <div class="card-body">
+                        
+                        <table id="registerTable" class="table table-bordered" style="width:100%">
+                            <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>nama</th>
+                                <th>Username</th>
+                                <th>Nama Instansi</th>
+                                <th>Jabatan</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($items as $item)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $item->nama }}</td>
+                                    <td>{{ $item->username }}</td>
+                                    <td>{{ $item->opd->nama_instansi}}</td>
+                                    <td>{{ $item->jabatan }}</td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
                     </div>
-
-
                 </div>
-
-
             </div>
 
-        </div>
 
+        </div>
+                
+
+            </div>
+            
+        </div>
+        
     </div>
 
 
@@ -234,7 +209,7 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
-
+ 
 
     <!-- Bootstrap core JavaScript-->
     <script src="asset/vendor/jquery/jquery.min.js"></script>
@@ -252,7 +227,5 @@
     <!-- Page level custom scripts -->
     <script src="asset/js/demo/chart-area-demo.js"></script>
     <script src="asset/js/demo/chart-pie-demo.js"></script>
-
 </body>
-
 </html>

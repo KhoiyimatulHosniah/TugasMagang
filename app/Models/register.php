@@ -15,10 +15,10 @@ class register extends Model
     protected $table = 'registers';
     protected $primaryKey = 'id';
     protected $fillable = [
+        'nama',
         'username',
         'email',
         'jenis_kelamin',
-        'nama_instansi',
         'jabatan',
         'notlp',
         'password',

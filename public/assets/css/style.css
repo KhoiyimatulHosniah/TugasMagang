@@ -569,7 +569,7 @@ section {
 #hero3 .container {
   padding-top: 72px;
   padding: auto;
-  margin-left: 300px;
+  margin-left: 325px;
 }
 
 #hero3 h1 {
@@ -666,6 +666,16 @@ section {
     transform: translateY(-10px);
   }
   
+}
+/*tabeltampil*/
+#tabeltampil th,
+#tabeltampil td {
+  color: #37517e; 
+}
+
+#btncari {
+  background-color: #37517e;
+  color: #fff; 
 }
 /*services*/
 .services .icon-box {

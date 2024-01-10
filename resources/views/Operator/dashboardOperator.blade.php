@@ -70,10 +70,15 @@
              <!-- Nav Item - opd -->
              <li class="nav-item">
                 <a class="nav-link" href="/formopd">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="far fa-building"></i>
                     <span>Form Instansi</span></a>
             </li>
-
+<!-- Nav Item - opd -->
+<li class="nav-item">
+    <a class="nav-link" href="/userregister">
+        <i class="far fa-address-card"></i>
+        <span>User Register</span></a>
+</li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -211,6 +216,29 @@ aria-hidden="true">
                                                         $cek = opd::count();
                                                     @endphp
                                                     <p style="font-size: 20px;">{{ $cek }} Instansi</p>
+                                                    <a href="/formIntansi">
+                                                        <p class="text-muted">Lihat Detail</p>
+                                                    </a>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="bx bxs-book"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- fourth Card -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-primary shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    @php
+                                                        use App\Models\register;
+                                                        $cek = register::count();
+                                                    @endphp
+                                                    <p style="font-size: 20px;">{{ $cek }} User Register</p>
                                                     <a href="/formIntansi">
                                                         <p class="text-muted">Lihat Detail</p>
                                                     </a>

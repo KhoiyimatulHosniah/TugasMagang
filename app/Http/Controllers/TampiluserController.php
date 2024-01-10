@@ -1,20 +1,24 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\tambahjadwal;
+
+use App\Models\opd;
+use App\Models\register;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
-class FormJadwalPegawaiController extends Controller
+class TampiluserController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function tabelregister()
     {
-        $items = tambahjadwal::all();
-        return view('operator.formJadwalPegawai', compact('items'));    }
+        $items = register::all(); // Mengambil semua data pengguna dari tabel tamus
+        return view('Operator.tampilregister', compact('items'));
+     }
 
     /**
      * Show the form for creating a new resource.
@@ -23,7 +27,7 @@ class FormJadwalPegawaiController extends Controller
      */
     public function create()
     {
-        return view('Operator.formJadwalPegawai');
+        return view('Operator.tampilregiter');
     }
 
     /**
@@ -34,16 +38,7 @@ class FormJadwalPegawaiController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nama' => 'required',
-            'bidang' => 'required',
-            'tanggal_berangkat' => 'required',
-            'tanggal_pulang' => 'required',
-            'tujuan' => 'required',
-            'notlp' => 'required',
-        ]);
-        tambahjadwal::create($request->all());
-        return redirect()->route('formJadwalPegawai')->with('success', 'Tamu berhasil ditambahkan!');
+        //
     }
 
     /**
@@ -65,9 +60,7 @@ class FormJadwalPegawaiController extends Controller
      */
     public function edit($id)
     {
-        $item = tambahjadwal::find($id);
-
-        return view('formJadwalPegawai.edit', compact('item'));
+        //
     }
 
     /**
@@ -88,15 +81,8 @@ class FormJadwalPegawaiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function hapus($id)
+    public function destroy($id)
     {
-        $item = tambahjadwal::find($id);
-
-        if ($item) {
-            $item->delete();
-            return redirect()->back()->with('success', 'Data berhasil dihapus.');
-        } else {
-            return redirect()->back()->with('error', ' Data tidak ditemukan');
-        }
+        //
     }
 }

@@ -60,12 +60,22 @@ class FormOpdController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        $item = opd::find($id);
+    public function edit(Request $request, $id)
+{
+    $request->validate([
+        'nama_instansi' => 'required',
+    ]);
 
-        return view('formopd.edit', compact('item'));
+    $item = opd::find($id);
+
+    if ($item) {
+        $item->update($request->all());
+        return redirect()->route('tabelOpd')->with('success', 'Data berhasil diperbarui');
+    } else {
+        return redirect()->back()->with('error', 'Data tidak ditemukan');
     }
+}
+
 
     /**
      * Update the specified resource in storage.
@@ -96,4 +106,5 @@ class FormOpdController extends Controller
             return redirect()->back()->with('error', ' Data tidak ditemukan');
         }
     }
+    
 }

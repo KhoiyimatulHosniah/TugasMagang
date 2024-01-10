@@ -21,6 +21,9 @@
     <!-- Custom styles for this template-->
     <link href="asset/css/sb-admin-2.min.css" rel="stylesheet">
 
+    <!-- Timer Notifikasi-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body id="page-top">
@@ -70,8 +73,14 @@
 <!-- Nav Item - opd -->
 <li class="nav-item">
     <a class="nav-link" href="/formopd">
-        <i class="fas fa-fw fa-table"></i>
+        <i class="far fa-building"></i>
         <span>Form Instansi</span></a>
+</li>
+<!-- Nav Item - opd -->
+<li class="nav-item">
+<a class="nav-link" href="/userregister">
+<i class="far fa-address-card"></i>
+<span>User Register</span></a>
 </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -156,9 +165,30 @@ aria-hidden="true">
                             <!-- Card Header - Dropdown -->
                             <div
                                 class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Jadwal Pegawai </h6>
+                                <h6 class="m-0 font-weight-bold text-primary">Nama Instansi </h6>
                             </div>
-                            
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    @if(session('success'))
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Berhasil!',
+                                        text: '{{ session('success') }}',
+                                        timer: 2000, // waktu dalam milidetik (2 detik)
+                                        showConfirmButton: false
+                                    });
+                                    @elseif(session('error'))
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Error!',
+                                        text: '{{ session('error') }}',
+                                        timer: 2000, // waktu dalam milidetik (2 detik)
+                                        showConfirmButton: false
+                                    });
+                                    @endif
+                                });
+                            </script>
+    
                             <div class="mt-2 ml-3">
                                 <a href="/tambahopd" class="btn btn-primary btn-sm "><i class="fas fa-plus" ></i></a>
                             </div>
@@ -179,8 +209,13 @@ aria-hidden="true">
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $item->nama_instansi}}</td>
                                             <td>
+                                                <a href="/tambahopd/{{ $item->id_OPD }}/edit" class="btn btn-primary btn-sm">Edit</a>
+                <form action="/opd/{{ $item->id }}" method="POST" style="display: inline-block;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>
+                </form>
                                                 
-                                                                </td>
                                                             
                                                  
                                             </td>

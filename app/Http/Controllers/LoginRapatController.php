@@ -25,27 +25,10 @@ class LoginRapatController extends Controller
 
 
         if (Auth::attempt($credentials)) {
-            $user = Auth::user();
+            // Jika berhasil login
+            $request->session()->regenerate();
 
-            switch ($user->role) {
-                case 'Resepsionis':
-                    return redirect('dashboardTamu')->with('success', 'Login berhasil. Selamat datang, ' . $user->role);
-                    break;
-
-                case 'Operator':
-                    return redirect('dashboardOperator')->with('success', 'Login berhasil. Selamat datang, ' . $user->role);
-                    break;
-
-                case 'Notulensi':
-                    return redirect('dashboardNotulen')->with('success', 'Login berhasil. Selamat datang, ' . $user->role);
-                    break;
-
-                default:
-                    return redirect('landing1');
-            }
-
-        }else {
-            return redirect()->back()->withErrors(['error' => 'Username atau Password yang dimasukkan tidak sesuai'])->withInput();
+            return redirect()->intended('/tampilRapat');
         }
     }
 

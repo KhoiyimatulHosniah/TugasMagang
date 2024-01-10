@@ -69,9 +69,15 @@
         <!-- Nav Item - opd -->
         <li class="nav-item">
             <a class="nav-link" href="/formopd">
-                <i class="fas fa-fw fa-table"></i>
+                <i class="far fa-building"></i>
                 <span>Form Instansi</span></a>
         </li>
+<!-- Nav Item - opd -->
+<li class="nav-item">
+<a class="nav-link" href="/userregister">
+    <i class="far fa-address-card"></i>
+    <span>User Register</span></a>
+</li>
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
 

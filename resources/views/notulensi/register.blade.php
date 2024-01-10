@@ -88,7 +88,11 @@
 
                         <form class="register" action="{{ route('register.store') }}" method="POST">
                             @csrf
-
+                            <div class="form-group">
+                                <input type="text" name="nama" class="form-control"
+                                       id="exampleInputnama"
+                                        placeholder="Nama">
+                            </div>
                             <div class="form-group">
                                 <input type="text" name="username" class="form-control"
                                        id="exampleInputUsername"
@@ -110,7 +114,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <select name="nama_instansi" class="form-control">
+                                <select name="id_OPD" class="form-control">
                                     <option value="" disabled selected>Nama Instansi</option>
                                     @foreach($opd as $item)
                                         <option value="{{ $item->id_OPD }}">{{ $item->nama_instansi }}</option>
