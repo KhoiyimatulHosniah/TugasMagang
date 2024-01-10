@@ -92,18 +92,15 @@
                                                placeholder="Tujuan">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="nama_instansi"
-                                               id="exampleInputName" aria-describedby="nameHelp"
-                                               placeholder="Nama Instansi">
-                                        <div class="col-sm-8">
-                                            <select name="id_OPD" class="form-control" required>
-                                                <option value="">Pilih Nama Instansi</option>
-                                                @foreach($opd as $instansi)
-                                                    <option
-                                                        value="{{$instansi->id_OPD}}">{{$instansi->nama_instansi}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
+                                        <select type="text" placeholder="Pilih Nama Instansi"
+                                                class="form-control form-select" name="id_OPD"
+                                                aria-describedby="nameHelp" id="id_OPD">
+                                            <option>Nama Instansi</option>
+                                            @foreach($data as $instansi)
+                                                <option
+                                                    value="{{$instansi->id_OPD}}">{{$instansi->nama_instansi}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <input type="text" class="form-control" name="no_telp"
