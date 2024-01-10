@@ -24,7 +24,8 @@ class formnotulensi extends Model
         'sekretaris',
         'pencatat',
         'peserta_sidang',
-        'Kata_pembuka',
+        'kegiatan_sidang',
+        'kata_pembuka',
         'pembahasan',
         'keputusan',
     ];
