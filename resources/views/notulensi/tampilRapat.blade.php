@@ -36,15 +36,25 @@
           Pemerintah Kabupaten Situbondo
         </a>
       </h1>
-      <nav id="navbar" class="navbar">
-        
-        <div class="nav-container">
-          <ul class="nav-list">
-            <li><a class="nav-link scrollto active" href="/loginRapat">Login</a></li>
-          </ul>
-        </div>
-      </nav><!-- .navbar -->
+      <div class="user-info">
+        @auth <!-- Check if there's a logged-in user -->
+            <div class="user-welcome">{{ Auth::user()->username }}</div> <!-- Display the username of the logged-in user -->
+        @endauth
     </div>
+    
+    @auth <!-- Check if there's a logged-in user -->
+        <div class="logout">
+            <a href="{{ route('logout') }}"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                Logout
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+        </div>
+    @endauth
+    <!--navbar -->
+
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
@@ -75,9 +85,7 @@
       <!-- Add a search form -->
 <div class="row justify-content-center mb-3">
   <div class="col-lg-6">
-      
- 
-<form action="/searchRapat" method="GET">
+<form>
           <div class="input-group">
               
  
@@ -85,7 +93,7 @@
               <div class="input-group-append">
                   
               
-<button id="btncari" class="btn btn-primary" type="submit">Cari</button>
+<button id="btncari" class="btn btn-primary" onclick="searchTable()">Cari</button>
               
          
 </div>
@@ -95,6 +103,35 @@
   
 </div>
 </div>
+<!-- At the end of the body tag -->
+<script src="asset/vendor/jquery/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Function to filter data when search button is clicked
+        $("#searchButton").click(function () {
+            filterTable();
+        });
+
+        // Function to filter data based on search input
+        function filterTable() {
+            var value = $("#searchInput").val().toLowerCase();
+
+            $("#tabeltampil tbody tr").each(function () {
+                var rowText = $(this).text().toLowerCase();
+                var isVisible = rowText.indexOf(value) > -1;
+                $(this).toggle(isVisible);
+            });
+        }
+
+        // Show all data if search input is cleared
+        $("#searchInput").on("input", function () {
+            var value = $(this).val().trim().toLowerCase();
+            if (value === "") {
+                $("#tabeltampil tbody tr").show();
+            }
+        });
+    });
+</script>
       <div id="tabeltampil" class="row justify-content-center">
           <div class="col-lg-12 mt-3" data-aos="zoom-in" data-aos-delay="100">
               <table class="table">
