@@ -214,7 +214,7 @@ aria-hidden="true">
                                             <td>{{ $item->bidang }}</td>
                                             <td>{{ \Carbon\Carbon::parse($item->tanggal_berangkat)->isoFormat('DD-MM-YYYY') }}</td>
                                             <td>{{ \Carbon\Carbon::parse($item->tanggal_pulang)->isoFormat('DD-MM-YYYY') }}</td>
-                                            <td>{{ $item->tujuan; }}</td>
+                                            <td>{{ $item->tujuan }}</td>
                                             <td>{{ $item->notlp }}</td>
                                             <td>
                                                 <a href="{{ route('formJadwalPegawai.hapus', ['id' => $item->id]) }}"
@@ -229,6 +229,8 @@ aria-hidden="true">
                                         </tbody>
                                         
                                     </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
