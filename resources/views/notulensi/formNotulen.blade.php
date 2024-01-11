@@ -197,7 +197,7 @@ aria-hidden="true">
         function filterTable() {
             var value = $("#searchInput").val().toLowerCase();
 
-            $("#tabeltampil tbody tr").each(function () {
+            $("#tabelNotulensi tbody tr").each(function () {
                 var rowText = $(this).text().toLowerCase();
                 var isVisible = rowText.indexOf(value) > -1;
                 $(this).toggle(isVisible);
@@ -208,7 +208,7 @@ aria-hidden="true">
         $("#searchInput").on("input", function () {
             var value = $(this).val().trim().toLowerCase();
             if (value === "") {
-                $("#tabeltampil tbody tr").show();
+                $("#tabelNotulensi tbody tr").show();
             }
         });
     });
