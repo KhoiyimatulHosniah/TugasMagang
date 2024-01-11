@@ -18,6 +18,6 @@ class tambahjadwal extends Model
         'tanggal_berangkat',
         'tanggal_pulang',
         'tujuan',
-        'no_telp',
+        'notlp',
     ];
 }

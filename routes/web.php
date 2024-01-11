@@ -119,10 +119,9 @@ Route::get('/tambahTamu/create', [TambahTamuController::class, 'create'])->name(
 Route::post('/tambahTamu/store', [TambahTamuController::class, 'store'])->name('tambahTamu.store');
 
 //Register
-Route::get('/register', 'App\Http\Controllers\RegisterController@showRegistrationForm')->name('register');
-Route::post('/register', 'App\Http\Controllers\RegisterController@register');
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register.show');
 Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
+
 //tampilrapat
 Route::get('/tampilRapat', [TampilRapatController::class, 'tampilrapat'])->name('tampilRapat');
 
