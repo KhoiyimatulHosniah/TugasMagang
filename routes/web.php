@@ -28,6 +28,7 @@ use App\Http\Controllers\TambahOpdController;
 use App\Http\Controllers\FormOpdController;
 use App\Http\Controllers\LoginRapatController;
 use App\Http\Controllers\TampilRapatController;
+use App\Http\Controllers\TampiluserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -133,12 +134,13 @@ Route::get('/landingpage', function () {
 //Dashboard Operator
 Route::get('/dashboardOperator', [DashboardOperatorController::class, 'index'])->name('dashboardOperator');
 Route::get('/formDataTamu', [FormDataTamuController::class, 'tabelTamu'])->name('formDataTamu');
-Route::get('/formJadwalPegawai', [FormJadwalPegawaiController::class, 'tabelJadwal'])->name('formJadwalPegawai');
+Route::get('/formJadwalPegawai', [FormJadwalPegawaiController::class, 'index'])->name('formJadwalPegawai');
 Route::get('/formJadwalPegawai/create', [FormJadwalPegawaiController::class, 'create'])->name('formJadwalPegawai.create');
 Route::post('/formJadwalPegawai/store', [FormJadwalPegawaiController::class, 'store'])->name('formJadwalPegawai.store');
 Route::get('/formJadwalPegawai/{id}/hapus', [FormJadwalPegawaiController::class, 'hapus'])->name('formJadwalPegawai.hapus');
-Route::get('/formDataTamu', [FormDataTamuController::class, 'index'])->name('formDataTamu');
+Route::get('/formDataTamu', [FormDataTamuController::class, 'tabelTamu'])->name('formDataTamu');
 Route::get('/formJadwalPegawai', [FormJadwalPegawaiController::class, 'index'])->name('formJadwalPegawai');
+Route::get('/userregister', [TampiluserController::class, 'tabelregister'])->name('userregister');
 
 //Login Operator
 Route::get('/loginOperator', [LoginOperatorController::class, 'showLoginOperator'])->name('loginOperator');
@@ -158,6 +160,6 @@ Route::post('/formopd/store', [FormOpdController::class, 'store'])->name('formop
 Route::get('/formopd/{id}/hapus', [FormOpdController::class, 'hapus'])->name('formopd.hapus');
 Route::get('/tambahopd', [TambahOpdController::class, 'tabelOpd'])->name('tambahopd');
 Route::get('/tambahopd/create', [TambahOpdController::class, 'create'])->name('tambahopd.create');
-Route::get('/tambahopd/edit', [TambahOpdController::class, 'edit'])->name('tambahopd.edit');
+Route::put('/tambahopd/{id}', [FormOpdController::class, 'edit'])->name('tambahopd.edit');
 Route::post('/tambahopd/store', [TambahOpdController::class, 'store'])->name('tambahopd.store');
 Route::get('/tambahopd/{id}/hapus', [TambahOpdController::class, 'hapus'])->name('tambahopd.hapus');
