@@ -38,7 +38,7 @@
                 </div>
                 <div class="sidebar-brand-text mx-3">Operator</div>
             </a>
-            
+
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
@@ -105,12 +105,12 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    
+
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                        
+
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <i class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
@@ -121,7 +121,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                
+
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -167,7 +167,7 @@
                         </div>
                 <!-- DataTales Example -->
                     <div class="card-body">
-                        
+
                         <table id="dataTable" class="table table-bordered" style="width:100%">
                             <thead>
                             <tr>
@@ -178,6 +178,7 @@
                                 <th>Nama Instansi</th>
                                 <th>Tujuan</th>
                                 <th>Telepon</th>
+                                <th>Aksi</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -200,12 +201,12 @@
 
 
         </div>
-                
+
 
             </div>
-            
+
         </div>
-        
+
     </div>
 
 
@@ -213,7 +214,7 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
- 
+
 
     <!-- Bootstrap core JavaScript-->
     <script src="asset/vendor/jquery/jquery.min.js"></script>
