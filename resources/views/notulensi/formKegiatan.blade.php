@@ -20,7 +20,8 @@
 
     <!-- Custom styles for this template-->
     <link href="asset/css/sb-admin-2.min.css" rel="stylesheet">
-
+<!-- Timer Notifikasi-->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body id="page-top">
@@ -155,9 +156,65 @@
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-primary">Kegiatan Rapat</h6>
                                 </div>
-                                <div class="mt-2 ml-3">
-                                    <a href="/tambahRapat" class="btn btn-primary btn-sm "><i class="fas fa-plus" ></i></a>
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', function () {
+                                        @if(session('success'))
+                                        Swal.fire({
+                                            icon: 'success',
+                                            title: 'Berhasil!',
+                                            text: '{{ session('success') }}',
+                                            timer: 2000, // waktu dalam milidetik (2 detik)
+                                            showConfirmButton: false
+                                        });
+                                        @elseif(session('error'))
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'Error!',
+                                            text: '{{ session('error') }}',
+                                            timer: 2000, // waktu dalam milidetik (2 detik)
+                                            showConfirmButton: false
+                                        });
+                                        @endif
+                                    });
+                                </script>
+                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                    <a href="/tambahRapat" class="btn btn-primary btn-sm ml-4"><i class="fas fa-plus"></i></a>
+                                    <div class="input-group col-sm-4 mr-3">
+                                        <input type="text" id="searchInput" class="form-control form-control-sm" placeholder="Search...">
+                                        <div class="input-group-append">
+                                            <button id="searchButton" class="btn btn-primary btn-sm" type="button"><i class="fas fa-search"></i></button>
+                                        </div>
+                                    </div>
                                 </div>
+                                <!-- At the end of the body tag -->
+                                <script src="asset/vendor/jquery/jquery.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                // Function to filter data when search button is clicked
+                $("#searchButton").click(function () {
+                    filterTable();
+                });
+        
+                // Function to filter data based on search input
+                function filterTable() {
+                    var value = $("#searchInput").val().toLowerCase();
+        
+                    $("#tabelRapat tbody tr").each(function () {
+                        var rowText = $(this).text().toLowerCase();
+                        var isVisible = rowText.indexOf(value) > -1;
+                        $(this).toggle(isVisible);
+                    });
+                }
+        
+                // Show all data if search input is cleared
+                $("#searchInput").on("input", function () {
+                    var value = $(this).val().trim().toLowerCase();
+                    if (value === "") {
+                        $("#tabelRapat tbody tr").show();
+                    }
+                });
+            });
+        </script>
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -181,7 +238,7 @@
                                     <td>{{ $item->kegiatan }}</td>
                                     <td>{{ $item->hari }}</td>
                                     <td>{{ \Carbon\Carbon::parse($item->tanggal)->isoFormat('DD-MM-YYYY') }}</td>
-                                    <td>{{ $item->puku; }}</td>
+                                    <td>{{ $item->pukul; }}</td>
                                     <td>{{ $item->tempat }}</td>
                                     <td>{{ $item->undangan_rapat }}</td>
                                     <td>

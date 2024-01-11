@@ -20,7 +20,8 @@
 
     <!-- Custom styles for this template-->
     <link href="asset/css/sb-admin-2.min.css" rel="stylesheet">
-
+<!-- Timer Notifikasi-->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body id="page-top">
@@ -99,45 +100,27 @@
 
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
-                        <i class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 "><h7>{{ Auth::user()->username }} | {{ Auth::user()->role }}</h7></span>
-                            <i class="fas fa-user"></i>
-                        </i>
-                        <!-- Dropdown - User Information -->
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                             aria-labelledby="userDropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="mr-2 d-none d-lg-inline text-gray-600 "><h7>{{ Auth::user()->username }} | {{ Auth::user()->role }}</h7></span>
+        <i class="fas fa-user"></i>
+    </a>
+    <!-- Dropdown - User Information -->
+    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+        <!-- Your existing dropdown content -->
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="{{ route('history') }}">
+            <i class="fas fa-history fa-sm fa-fw mr-2 text-gray-400"></i>
+            View History
+        </a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+            Logout
+        </a>
+    </div>
+</li>
 
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Logout
-                            </a>
-                        </div>
-                    </li>
-
-                </ul>
-
-            </nav>
-            <!-- Logout Modal-->
-            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                 aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Yakin untuk Keluar?</h5>
-                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">Klik "Logout" apabila Anda ingin keluar.</div>
-                        <div class="modal-footer">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                            <a class="btn btn-primary" href="{{ route ('landing1') }}">Logout</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <!-- End of Topbar -->
 
 
@@ -153,10 +136,68 @@
                             class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                             <h6 class="m-0 font-weight-bold text-primary">Notulensi </h6>
                         </div>
-
-                        <div class="mt-2 ml-3">
-                            <a href="/tambahNotulensi" class="btn btn-primary btn-sm "><i class="fas fa-plus"></i></a>
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function () {
+                                @if(session('success'))
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Berhasil!',
+                                    text: '{{ session('success') }}',
+                                    timer: 2000, // waktu dalam milidetik (2 detik)
+                                    showConfirmButton: false
+                                });
+                                @elseif(session('error'))
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Error!',
+                                    text: '{{ session('error') }}',
+                                    timer: 2000, // waktu dalam milidetik (2 detik)
+                                    showConfirmButton: false
+                                });
+                                @endif
+                            });
+                        </script>
+                        <div class="d-flex justify-content-between align-items-center mt-2">
+                            <a href="/tambahNotulensi" class="btn btn-primary btn-sm ml-4"><i class="fas fa-plus"></i></a>
+                            <div class="input-group col-sm-4 mr-3">
+                                <input type="text" id="searchInput" class="form-control form-control-sm" placeholder="Search...">
+                                <div class="input-group-append">
+                                    <button id="searchButton" class="btn btn-primary btn-sm" type="button"><i class="fas fa-search"></i></button>
+                                </div>
+                            </div>
                         </div>
+                        <!-- At the end of the body tag -->
+                        <script src="asset/vendor/jquery/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Function to filter data when search button is clicked
+        $("#searchButton").click(function () {
+            filterTable();
+        });
+
+        // Function to filter data based on search input
+        function filterTable() {
+            var value = $("#searchInput").val().toLowerCase();
+
+            $("#tabeltampil tbody tr").each(function () {
+                var rowText = $(this).text().toLowerCase();
+                var isVisible = rowText.indexOf(value) > -1;
+                $(this).toggle(isVisible);
+            });
+        }
+
+        // Show all data if search input is cleared
+        $("#searchInput").on("input", function () {
+            var value = $(this).val().trim().toLowerCase();
+            if (value === "") {
+                $("#tabeltampil tbody tr").show();
+            }
+        });
+    });
+</script>
+
+                        
+
                         <!-- Card Body -->
                         <div class="card-body">
                             <div class="table-responsive">
