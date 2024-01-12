@@ -20,7 +20,6 @@ class tambahrapat extends Model
         'tanggal',
         'pukul',
         'tempat',
-        'undangan_rapat',
         'id_OPD',
     ];
     protected $with = ['opd'];

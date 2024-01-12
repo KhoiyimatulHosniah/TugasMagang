@@ -68,7 +68,12 @@
                     <i class="fas fa-fw fa-table"></i>
                     <span>Form Kegiatan</span></a>
             </li>
-
+<!-- Nav Item - rapat -->
+<li class="nav-item">
+    <a class="nav-link" href="/daftarhadir">
+        <i class="fas fa-id-card"></i>
+        <span>Daftar Hadir Rapat</span></a>
+</li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 

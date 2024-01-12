@@ -68,7 +68,12 @@
                     <i class="fas fa-fw fa-table"></i>
                     <span>Form Kegiatan</span></a>
             </li>
-
+<!-- Nav Item - rapat -->
+<li class="nav-item">
+    <a class="nav-link" href="/daftarhadir">
+        <i class="fas fa-id-card"></i>
+        <span>Daftar Hadir Rapat</span></a>
+</li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -227,7 +232,6 @@
                                                     <th>Tanggal</th>
                                                     <th>Pukul</th>
                                                     <th>Tempat</th>
-                                                    <th>Undangan Rapat</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
@@ -240,7 +244,6 @@
                                     <td>{{ \Carbon\Carbon::parse($item->tanggal)->isoFormat('DD-MM-YYYY') }}</td>
                                     <td>{{ $item->pukul; }}</td>
                                     <td>{{ $item->tempat }}</td>
-                                    <td>{{ $item->undangan_rapat }}</td>
                                     <td>
                                         <a href="{{ route('formKegiatan.hapus', ['id' => $item->id]) }}"
                                            class="btn btn-danger btn-circle"

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Models\tambahrapat;
+use App\Models\formkegiatan;
 use App\Models\opd;
 
 class TambahRapatController extends Controller
@@ -20,13 +20,7 @@ class TambahRapatController extends Controller
         return view('notulensi.tambahRapat');
     }
 
-    public function showTable()
-    {
-        $opd = OPD::all();
-
-        return view('notulensi.tambahRapat', ['opd' => $opd]);
-    }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -34,7 +28,7 @@ class TambahRapatController extends Controller
      */
     public function create()
     {
-        return view('notulensi.formNotulen');
+        return view('notulensi.tambahRapat');
     }
 
     /**
@@ -51,12 +45,11 @@ class TambahRapatController extends Controller
             'tanggal' => 'required',
             'pukul' => 'required',
             'tempat' => 'required',
-            'undangan_rapat' => 'required',
 
         ]);
 
-        tambahrapat::create($request->all());
-        return redirect()->route('tambahRapat')->with('success', 'Kegiatan Rapat Berhasil Ditambahkan!');
+        formkegiatan::create($request->all());
+        return redirect()->route('formKegiatan')->with('success', 'Kegiatan Rapat Berhasil Ditambahkan!');
     }
 
     /**
@@ -67,7 +60,7 @@ class TambahRapatController extends Controller
      */
     public function show($id)
     {
-        return view('notulensi.formKegiatan');
+        return view('notulensi.tambahRapat');
     }
 
     /**

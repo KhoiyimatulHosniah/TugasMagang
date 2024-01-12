@@ -36,24 +36,60 @@
           Pemerintah Kabupaten Situbondo
         </a>
       </h1>
-      <div class="user-info">
-        @auth <!-- Check if there's a logged-in user -->
-            <div class="user-welcome">{{ Auth::user()->username }}</div> <!-- Display the username of the logged-in user -->
-        @endauth
-    </div>
-    
-    @auth <!-- Check if there's a logged-in user -->
-        <div class="logout">
-            <a href="{{ route('logout') }}"
-                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                Logout
-            </a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-            </form>
-        </div>
-    @endauth
-    <!--navbar -->
+      <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+        <!-- Sidebar Toggle (Topbar) -->
+        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+        </button>
+
+
+        <!-- Topbar Navbar -->
+        <ul class="navbar-nav ml-auto">
+
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+                <i class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="mr-2 d-none d-lg-inline text-gray-600 "><h7>{{ Auth::user()->username }} | {{ Auth::user()->role }}</h7></span>
+                    <i class="fas fa-user"></i>
+            </i>
+                <!-- Dropdown - User Information -->
+                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                    aria-labelledby="userDropdown">
+                    
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Logout
+                    </a>
+                </div>
+            </li>
+
+        </ul>
+
+    </nav>
+    <!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Yakin untuk Keluar?</h5>
+    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">×</span>
+    </button>
+</div>
+<div class="modal-body">Klik "Logout" apabila Anda ingin keluar.</div>
+<div class="modal-footer">
+    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+    <a class="btn btn-primary" href="{{ route ('landing1') }}">Logout</a>
+</div>
+</div>
+</div>
+</div>
+
 
   </header><!-- End Header -->
 
@@ -72,6 +108,28 @@
     </div>
   </section>
   <!-- End Hero -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var scrollLinks = document.querySelectorAll('.scrollto');
+  
+      scrollLinks.forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+  
+          var targetId = this.getAttribute('href').substring(1);
+          var targetElement = document.getElementById(targetId);
+  
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    });
+  </script>
+  
 
   <main id="main">
 
@@ -79,99 +137,120 @@
     <!-- ======= Layanan Section ======= -->
 <section id="rapat" class="services section-bg">
   <div class="container" data-aos="fade-up">
-      <div class="section-title">
+      <div class="section-title mt-9">
           <h2>Rapat Hari Ini</h2>
       </div>
       <!-- Add a search form -->
 <div class="row justify-content-center mb-3">
   <div class="col-lg-6">
-<form>
-          <div class="input-group">
-              
- 
-<input type="text" class="form-control" placeholder="Cari Rapat" name="search">
-              <div class="input-group-append">
-                  
-              
-<button id="btncari" class="btn btn-primary" onclick="searchTable()">Cari</button>
-              
-         
+    <form>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Cari Rapat" name="search">
+          <div class="input-group-append">       
+          <button id="btncari" class="btn btn-primary" onclick="searchTable()">Cari</button>
+      </div>
+
+    </form>
+  </div>
 </div>
-          </div>
-      </form>
-  
-  
-</div>
-</div>
-<!-- At the end of the body tag -->
-<script src="asset/vendor/jquery/jquery.min.js"></script>
+<!-- ... (Your existing HTML code) ... -->
+
 <script>
-    $(document).ready(function () {
-        // Function to filter data when search button is clicked
-        $("#searchButton").click(function () {
-            filterTable();
-        });
+  function searchTable() {
+    // Get the input value
+    var input = document.querySelector('input[name="search"]').value.toLowerCase();
 
-        // Function to filter data based on search input
-        function filterTable() {
-            var value = $("#searchInput").val().toLowerCase();
+    // Get the table and its rows within the "Rapat Hari Ini" section
+    var table = document.getElementById('tabeltampil');
+    var rows = table.getElementsByTagName('tr');
 
-            $("#tabeltampil tbody tr").each(function () {
-                var rowText = $(this).text().toLowerCase();
-                var isVisible = rowText.indexOf(value) > -1;
-                $(this).toggle(isVisible);
-            });
+    // Loop through all table rows and compare each cell text with the search input
+    for (var i = 1; i < rows.length; i++) {
+      var cells = rows[i].getElementsByTagName('td');
+      var found = false;
+
+      for (var j = 0; j < cells.length; j++) {
+        var cellText = cells[j].textContent || cells[j].innerText;
+
+        // Check if the cell text contains the search input
+        if (cellText.toLowerCase().indexOf(input) > -1) {
+          found = true;
+          break;
         }
+      }
 
-        // Show all data if search input is cleared
-        $("#searchInput").on("input", function () {
-            var value = $(this).val().trim().toLowerCase();
-            if (value === "") {
-                $("#tabeltampil tbody tr").show();
-            }
-        });
-    });
+      // Toggle the visibility of the row based on the search result
+      rows[i].style.display = found ? '' : 'none';
+    }
+  }
 </script>
-      <div id="tabeltampil" class="row justify-content-center">
-          <div class="col-lg-12 mt-3" data-aos="zoom-in" data-aos-delay="100">
-              <table class="table">
-                  <thead>
-                      <tr>
-                        <th>No</th>
-                          <th>Nama Rapat</th>
-                          <th>Tanggal</th>
-                          <th>Waktu</th>
-                          <th>Tempat</th>
-                          <th>Actions</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      @foreach($items as $item)
-                      <tr>
-                        <td>{{ $loop->iteration }}</td>
-                          <td>{{ $item->nama }}</td>
-                          <td>{{ \Carbon\Carbon::parse($item->tanggal)->isoFormat('DD-MM-YYYY') }}</td>
-                          <td>{{ $item->waktu }}</td>
-                          <td>{{ $item->tempat }}</td>
-                          <td>
-                            <a href="/tampilRapat/{{ $item->id }}" class="btn btn-primary" onclick="checkSchedule('{{ $item->tanggal }}', '{{ $item->waktu }}')">Hadiri Rapat</a>
 
+<!-- ... (Your existing HTML code) ... -->
+
+<div id="tabeltampil" class="row justify-content-center">
+  <div class="col-lg-12 mt-3" data-aos="zoom-in" data-aos-delay="100">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Nama Rapat</th>
+          <th>Hari</th>
+          <th>Tanggal</th>
+          <th>Waktu</th>
+          <th>Tempat</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @php
+        $counter = 1;
+        $currentDate = now()->format('Y-m-d');
+        $currentTime = now()->format('H:i');
+        @endphp
+        @foreach($items as $item)
+        @php
+        $scheduleDateTime = \Carbon\Carbon::parse($item->tanggal . ' ' . $item->pukul);
+        $isPastDate = $scheduleDateTime->isPast();
+        $isFutureDate = $scheduleDateTime->isFuture();
+        $isSameDate = $scheduleDateTime->isSameDay(now());
+        @endphp
+        @if ($isPastDate)
+        @continue
+        @endif
+        <tr>
+          <td>{{ $counter }}</td>
+          <td>{{ $item->kegiatan }}</td>
+          <td>{{ $item->hari }}</td>
+          <td>{{ \Carbon\Carbon::parse($item->tanggal)->isoFormat('DD-MM-YYYY') }}</td>
+          <td>{{ $item->pukul }}</td>
+          <td>{{ $item->tempat }}</td>
+          <td>
+            @if ($isFutureDate || $isSameDate)
+            <button id="btnhadir" class="btn btn-primary" onclick="checkSchedule('{{ $item->tanggal }}', '{{ $item->pukul }}')">Hadiri Rapat</button>
+            @else
+            <button id="btnhadir" class="btn btn-secondary" disabled>Rapat Belum Dimulai</button>
+            @endif
+          </td>
+        </tr>
+        @php
+        $counter++;
+        @endphp
+        @endforeach
+      </tbody>
+    </table>
+  </div>
+</div>
 <script>
   function checkSchedule(date, time) {
-    // Mendapatkan tanggal dan waktu saat ini
     var now = new Date();
-    var currentDate = now.toISOString().split('T')[0]; // Mendapatkan tanggal saat ini dalam format YYYY-MM-DD
-    var currentTime = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); // Mendapatkan waktu saat ini dalam format HH:MM
+    var currentDate = now.toISOString().split('T')[0];
+    var currentTime = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-    // Menggabungkan tanggal dan waktu rapat ke dalam satu string dan membuat objek Date
-    var scheduleDateTime = new Date(date + 'T' + time);
+    var scheduleDateTime = new Date(date + ' ' + time);
 
-    // Mendapatkan waktu saat rapat dimulai
     var scheduleTime = scheduleDateTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-    // Memeriksa apakah hari ini adalah hari rapat dan waktu rapat belum terlewati
     if (currentDate === date && currentTime <= scheduleTime) {
-      // Membuat notifikasi
       if (window.Notification && Notification.permission === "granted") {
         new Notification("Notifikasi Anda", { body: "Anda berhasil menghadiri rapat" });
       } else if (window.Notification && Notification.permission !== "denied") {
@@ -187,14 +266,6 @@
   }
 </script>
 
-                            
-                          </td>
-                      </tr>
-                      @endforeach
-                  </tbody>
-              </table>
-          </div>
-      </div>
   </div>
 </section>
 <!-- End Services Section -->

@@ -13,7 +13,7 @@ class FormKegiatanController extends Controller
      */
     public function tabelRapat()
     {
-        $items = formkegiatan::all(); // Mengambil semua data pengguna dari tabel tamus
+        $items = formkegiatan::paginate(10); // Mengambil semua data pengguna dari tabel tamus
         return view('notulensi.formKegiatan', compact('items'));
     }
     /**
@@ -40,7 +40,6 @@ class FormKegiatanController extends Controller
             'tanggal' => 'required',
             'pukul' => 'required',
             'tempat' => 'required',
-            'undangan_rapat' => 'required',
 
         ]);
 
@@ -92,7 +91,7 @@ class FormKegiatanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function hapus($id)
     {
         $item = formkegiatan::find($id);
 

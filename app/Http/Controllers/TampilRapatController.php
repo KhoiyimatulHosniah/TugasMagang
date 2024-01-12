@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\tampilrapat;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-
+use App\Models\formkegiatan;
 class TampilRapatController extends Controller
 {
     /**
@@ -47,7 +47,17 @@ class TampilRapatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'kegiatan' => 'required',
+            'hari' => 'required',
+            'tanggal' => 'required',
+            'pukul' => 'required',
+            'tempat' => 'required',
+
+        ]);
+
+        formkegiatan::create($request->all());
+        return redirect()->route('tampilRapat')->with('success', 'Kegiatan Rapat Berhasil Ditambahkan!');
     }
 
     /**
@@ -58,7 +68,7 @@ class TampilRapatController extends Controller
      */
     public function show($id)
     {
-        $items = tampilrapat::findOrdfail($id);
+        $items = tampilrapat::find($id);
         return view('notulensi.tampilRapat', compact('items'));
     }
 

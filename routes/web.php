@@ -56,8 +56,8 @@ Route::post('/loginNotulensi', [LoginNotulensiController::class, 'login']);
 Route::post('/logout', [LoginNotulensiController::class, 'logout'])->name('logout');
 
 /*Login Rapat*/
-Route::get('/loginRapat', [LoginRapatController::class, 'showloginRapat'])->name('loginRapat');
-Route::post('/loginRapat', [LoginRapatController::class, 'login']);
+Route::get('/loginRapat', [LoginRapatController::class, 'showLoginRapat'])->name('loginRapat');
+Route::post('/loginRapat', [LoginRapatController::class, 'loginRapat']);
 Route::post('/logout', [LoginRapatController::class, 'logout'])->name('logout');
 
 /*LandingPage*/
@@ -66,7 +66,7 @@ Route::get('/landing3', [Landing3Controller::class, 'index'])->name('landing3');
 Route::get('/landing1', [Landing1Controller::class, 'index'])->name('landing1');
 
 /*daftar hadir*/
-Route::get('/daftarhadir', [DaftarhadirController::class, 'showForm']);
+Route::get('/daftarhadir', [DaftarhadirController::class, 'tabelDaftarhadir'])->name('daftarhadir');
 Route::post('/daftarhadir/submit', [DaftarhadirController::class, 'submitForm'])->name('daftar-hadir.submit');
 
 // Form Tamu
@@ -125,6 +125,8 @@ Route::post('/register', [RegisterController::class, 'store'])->name('register.s
 
 //tampilrapat
 Route::get('/tampilRapat', [TampilRapatController::class, 'tampilrapat'])->name('tampilRapat');
+Route::post('/tampilRapat/store', [TampilRapatController::class, 'store'])->name('tampilRapat.store');
+Route::post('/tampilRapat', [TampilRapatController::class, 'tampilrapat'])->name('tampilRapat');
 
 //Button Logout
 Route::get('/landingpage', function () {
@@ -163,3 +165,6 @@ Route::get('/tambahopd/create', [TambahOpdController::class, 'create'])->name('t
 Route::put('/tambahopd/{id}', [FormOpdController::class, 'edit'])->name('tambahopd.edit');
 Route::post('/tambahopd/store', [TambahOpdController::class, 'store'])->name('tambahopd.store');
 Route::get('/tambahopd/{id}/hapus', [TambahOpdController::class, 'hapus'])->name('tambahopd.hapus');
+
+//cetak
+Route::get('/printnotulen/{id}', 'NotulensiController@printNotulen')->name('printNotulen');
