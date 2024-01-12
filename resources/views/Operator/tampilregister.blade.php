@@ -163,7 +163,7 @@
                         <!-- Card Header - Dropdown -->
                         <div
                             class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-primary">Daftar Tamu</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">User Register Rapat</h6>
                         </div>
                 <!-- DataTales Example -->
                     <div class="card-body">
@@ -190,6 +190,21 @@
                             @endforeach
                             </tbody>
                         </table>
+                        <div class="pagination">
+                            <ul class="pagination">
+                                <li class="page-item {{ $items->previousPageUrl() ? '' : 'disabled' }}">
+                                    <a class="page-link" href="{{ $items->previousPageUrl() }}">Previous</a>
+                                </li>
+                                @foreach ($items->getUrlRange(1, $items->lastPage()) as $page => $url)
+                                <li class="page-item {{ $page == $items->currentPage() ? 'active' : '' }}">
+                                    <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                                </li>
+                                @endforeach
+                                <li class="page-item {{ $items->nextPageUrl() ? '' : 'disabled' }}">
+                                    <a class="page-link" href="{{ $items->nextPageUrl() }}">Next</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

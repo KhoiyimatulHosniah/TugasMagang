@@ -25,7 +25,7 @@ class LoginRapatController extends Controller
         
 
         if (Auth::attempt($credentials)) {
-            
+           
             // Jika berhasil login
             
             return redirect()->intended('/tampilRapat');

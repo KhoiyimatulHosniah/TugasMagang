@@ -248,7 +248,7 @@ aria-hidden="true">
                                             <td>{{ $item->notlp }}</td>
                                             <td> </td>
                                             <td>
-                                                <a href="#" class="btn btn-primary btn-circle" onclick="printNotulensi('{{ $item->id }}')">
+                                                <a href="/printNotulen" class="btn btn-primary btn-circle" onclick="printNotulensi('{{ $item->id }}')">
                                                     <i class='fas fa-print'></i>
                                                 </a>
                                                 <script>
@@ -271,6 +271,21 @@ aria-hidden="true">
                                     </tbody>
 
                                 </table>
+                                <div class="pagination">
+                                    <ul class="pagination">
+                                        <li class="page-item {{ $items->previousPageUrl() ? '' : 'disabled' }}">
+                                            <a class="page-link" href="{{ $items->previousPageUrl() }}">Previous</a>
+                                        </li>
+                                        @foreach ($items->getUrlRange(1, $items->lastPage()) as $page => $url)
+                                        <li class="page-item {{ $page == $items->currentPage() ? 'active' : '' }}">
+                                            <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                                        </li>
+                                        @endforeach
+                                        <li class="page-item {{ $items->nextPageUrl() ? '' : 'disabled' }}">
+                                            <a class="page-link" href="{{ $items->nextPageUrl() }}">Next</a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
 

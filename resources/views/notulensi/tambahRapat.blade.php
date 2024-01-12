@@ -228,6 +228,7 @@
                                 otherText.required = false;
                                 otherText.value = '';
                             }
+                            
                         }
                     </script>
                     

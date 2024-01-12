@@ -8,7 +8,7 @@ class DaftarhadirController extends Controller
 {
     public function tabelDaftarhadir()
     {
-        $items = daftarhadir::all(); // Mengambil semua data pengguna dari tabel daftar hadir
+        $items = daftarhadir::paginate(10); // Mengambil semua data pengguna dari tabel daftar hadir
         return view('notulensi.daftarHadir', compact('items'));
      }
 

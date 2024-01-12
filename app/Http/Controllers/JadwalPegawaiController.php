@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\tambahjadwal;
 use Illuminate\Http\Request;
 
 class JadwalPegawaiController extends Controller
@@ -13,7 +13,8 @@ class JadwalPegawaiController extends Controller
      */
     public function jadwal()
     {
-        return view('buku_tamu.jadwalPegawai');
+        $items = tambahjadwal::paginate(10);
+        return view('buku_tamu.jadwalPegawai', compact('items'));
     }
 
     /**
@@ -23,7 +24,7 @@ class JadwalPegawaiController extends Controller
      */
     public function create()
     {
-        //
+        return view('buku_tamu.jadwalPegawai');
     }
 
     /**
@@ -45,7 +46,7 @@ class JadwalPegawaiController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('buku_tamu.jadwalPegawai');
     }
 
     /**
@@ -56,7 +57,9 @@ class JadwalPegawaiController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = tambahjadwal::find($id);
+
+        return view('jadwalPegawai.edit', compact('item'));
     }
 
     /**

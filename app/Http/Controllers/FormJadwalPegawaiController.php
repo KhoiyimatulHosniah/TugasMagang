@@ -13,7 +13,7 @@ class FormJadwalPegawaiController extends Controller
      */
     public function index()
     {
-        $items = tambahjadwal::all();
+        $items = tambahjadwal::paginate(10);
         return view('operator.formJadwalPegawai', compact('items'));    }
 
     /**

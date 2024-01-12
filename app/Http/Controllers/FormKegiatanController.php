@@ -68,9 +68,9 @@ class FormKegiatanController extends Controller
      */
     public function edit($id)
     {
-        $item = formkegiatan::find($id);
+        $items = formkegiatan::find($id);
 
-        return view('formkegiatan.edit', compact('item'));
+        return view('formKegiatan.edit', compact('items'));
     }
 
     /**
@@ -82,7 +82,16 @@ class FormKegiatanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = FormKegiatan::find($id);
+        // Validasi data yang diterima dari formulir
+        // Simpan perubahan data ke dalam database
+        $data->title = $request->input('title');
+        $data->description = $request->input('description');
+        $data->save();
+
+        // Redirect ke halaman atau rute yang sesuai setelah berhasil mengupdate data
+        return redirect()->route('formKegiatan.index');
+    
     }
 
     /**

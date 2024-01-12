@@ -129,6 +129,47 @@
                             class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                             <h6 class="m-0 font-weight-bold text-primary">Jadwal Pegawai</h6>
                         </div>
+                        <div class="d-flex justify-content-end align-items-center mt-2">
+                            <div class="input-group col-sm-4 ml-3">
+                                <input type="text" id="searchInput" class="form-control form-control-sm" placeholder="Search...">
+                                <div class="input-group-append">
+                                    <button id="searchButton" class="btn btn-primary btn-sm" type="button"><i class="fas fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- At the end of the body tag -->
+                        <script src="asset/vendor/jquery/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Function to filter data when search button is clicked
+        $("#searchButton").click(function () {
+            filterTable();
+        });
+
+        // Function to filter data based on search input
+        function filterTable() {
+            var value = $("#searchInput").val().toLowerCase();
+
+            $("#tabelNotulensi tbody tr").each(function () {
+                var rowText = $(this).text().toLowerCase();
+                var isVisible = rowText.indexOf(value) > -1;
+                $(this).toggle(isVisible);
+            });
+        }
+
+        // Show all data if search input is cleared
+        $("#searchInput").on("input", function () {
+            var value = $(this).val().trim().toLowerCase();
+            if (value === "") {
+                $("#tabelNotulensi tbody tr").show();
+            }
+        });
+    });
+</script>
+
+                        
+
                 <!-- DataTales Example -->
                     <div class="card-body">
                         <table id="dataTable" class="table table-bordered" style="width:100%">
@@ -143,7 +184,22 @@
                                 <th>Telepon</th>
                             </tr>
                             </thead>
-
+                            <tbody>
+                                @foreach($items as $item)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $item->nama }}</td>
+                                            <td>{{ $item->bidang }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($item->tanggal_berangkat)->isoFormat('DD-MM-YYYY') }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($item->tanggal_pulang)->isoFormat('DD-MM-YYYY') }}</td>
+                                            <td>{{ $item->tujuan }}</td>
+                                            <td>{{ $item->notlp }}</td>
+                                       
+                                    </tr>
+                                @endforeach
+                                <!-- Add more rows as needed -->
+                            </tbody>
+                        </table>
                     </div>
 
                 </div>

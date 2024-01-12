@@ -182,6 +182,7 @@ aria-hidden="true">
                         </script>
                         <div class="d-flex justify-content-between align-items-center mt-2">
                             <a href="/tambahNotulensi" class="btn btn-primary btn-sm ml-4"><i class="fas fa-plus"></i></a>
+                            
                             <div class="input-group col-sm-4 mr-3">
                                 <input type="text" id="searchInput" class="form-control form-control-sm" placeholder="Search...">
                                 <div class="input-group-append">
@@ -248,7 +249,7 @@ aria-hidden="true">
                                             <td>{{ $item->ketua }}</td>
                                             <td>{{ $item->sekretaris }}</td>
                                             <td>
-                                                <a href="#" class="btn btn-primary btn-circle" onclick="printNotulensi('{{ $item->id }}')">
+                                                <a href="/printNotulen" class="btn btn-primary btn-circle" onclick="printNotulensi('{{ $item->id }}')">
                                                     <i class='fas fa-print'></i>
                                                 </a>
                                                 <script>
@@ -259,11 +260,15 @@ aria-hidden="true">
                                                     }
                                                 </script>
                                                 
-                                                <a href="{{ route('formNotulen.hapus', ['id' => $item->id]) }}"
-                                                   class="btn btn-danger btn-circle"
-                                                   onclick="confirmModal('{{ route('formNotulen.hapus', ['id' => $item['id']]) }}')">
-                                                    <i class='fas fa-trash-alt'></i>
-                                                </a>
+                                                <a href="{{ route('formKegiatan.edit', ['id' => $item->id]) }}"
+                                                    class="btn btn-primary btn-circle">
+                                                     <i class="fas fa-edit"></i>
+                                                 </a>
+                                                 <a href="{{ route('formKegiatan.hapus', ['id' => $item->id]) }}"
+                                                    class="btn btn-danger btn-circle"
+                                                    onclick="confirmModal('{{ route('formKegiatan.hapus', ['id' => $item->id]) }}')">
+                                                     <i class="fas fa-trash-alt"></i>
+                                                 </a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -271,12 +276,25 @@ aria-hidden="true">
                                     </tbody>
 
                                 </table>
+                                <div class="pagination">
+                            <ul class="pagination">
+                                <li class="page-item {{ $items->previousPageUrl() ? '' : 'disabled' }}">
+                                    <a class="page-link" href="{{ $items->previousPageUrl() }}">Previous</a>
+                                </li>
+                                @foreach ($items->getUrlRange(1, $items->lastPage()) as $page => $url)
+                                <li class="page-item {{ $page == $items->currentPage() ? 'active' : '' }}">
+                                    <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                                </li>
+                                @endforeach
+                                <li class="page-item {{ $items->nextPageUrl() ? '' : 'disabled' }}">
+                                    <a class="page-link" href="{{ $items->nextPageUrl() }}">Next</a>
+                                </li>
+                            </ul>
+                        </div>
                             </div>
                         </div>
 
-                        <div class="pagination">
-                            {{ $items->links() }}
-                        </div>
+                        
                     </div>
 
 

@@ -157,42 +157,96 @@
                             });
                         </script>
 
-                        <div class="mt-2 ml-3">
-                            <a href="/tambahTamu" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i></a>
-                        </div>
-                        <br>
-                        <table id="dataTable" class="table table-bordered" style="width:100%">
-                            <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Nama</th>
-                                <th>Jenis Kelamin</th>
-                                <th>Tanggal</th>
-                                <th>Nama Instansi</th>
-                                <th>Tujuan</th>
-                                <th>Telepon</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($items as $item)
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $item->nama }}</td>
-                                    <td>{{ $item->jenis_kelamin }}</td>
-                                    <td>{{ \Carbon\Carbon::parse($item->tanggal)->isoFormat('DD-MM-YYYY') }}</td>
-                                    <td>{{ $item->opd->nama_instansi}}</td>
-                                    <td>{{ $item->tujuan }}</td>
-                                    <td>{{ $item->no_telp }}</td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+<div class="d-flex justify-content-between align-items-center mt-2">
+    <a href="/tambahTamu" class="btn btn-primary btn-sm ml-4"><i class="fas fa-plus"></i></a>
+    <div class="input-group col-sm-4 mr-3">
+        <input type="text" id="searchInput" class="form-control form-control-sm" placeholder="Search...">
+        <div class="input-group-append">
+            <button id="searchButton" class="btn btn-primary btn-sm" type="button"><i class="fas fa-search"></i></button>
         </div>
-        </div>
+    </div>
+</div>
+<!-- At the end of the body tag -->
+<script src="asset/vendor/jquery/jquery.min.js"></script>
+<script>
+$(document).ready(function () {
+// Function to filter data when search button is clicked
+$("#searchButton").click(function () {
+filterTable();
+});
 
+// Function to filter data based on search input
+function filterTable() {
+var value = $("#searchInput").val().toLowerCase();
+
+$("#tabelRapat tbody tr").each(function () {
+var rowText = $(this).text().toLowerCase();
+var isVisible = rowText.indexOf(value) > -1;
+$(this).toggle(isVisible);
+});
+}
+
+// Show all data if search input is cleared
+$("#searchInput").on("input", function () {
+var value = $(this).val().trim().toLowerCase();
+if (value === "") {
+$("#tabelRapat tbody tr").show();
+}
+});
+});
+</script>
+<!-- Card Body -->
+<div class="card-body">
+    <div class="table-responsive">
+        <table id="tabelRapat" class="table table-bordered" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>Jenis Kelamin</th>
+                    <th>Tanggal</th>
+                    <th>Nama Instansi</th>
+                    <th>Tujuan</th>
+                    <th>Telepon</th>
+                    <th>Aksi</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($items as $item)
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $item->nama }}</td>
+                        <td>{{ $item->jenis_kelamin }}</td>
+                        <td>{{ \Carbon\Carbon::parse($item->tanggal)->isoFormat('DD-MM-YYYY') }}</td>
+                        <td>{{ $item->opd->nama_instansi}}</td>
+                        <td>{{ $item->tujuan }}</td>
+                        <td>{{ $item->no_telp }}</td>
+                        <td>
+                            <a href="{{ route('datatamu.edit', ['id' => $item->id]) }}"
+                                class="btn btn-primary btn-circle">
+                                 <i class="fas fa-edit"></i>
+                             </a>
+                        </td>
+                    </tr>
+                @endforeach
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+</div>
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
         <!-- Logout Modal-->
         <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
              aria-hidden="true">

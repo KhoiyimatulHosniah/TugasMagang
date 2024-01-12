@@ -16,7 +16,7 @@ class FormDataTamuController extends Controller
      */
     public function tabelTamu()
     {
-        $items = tamu::all(); // Mengambil semua data pengguna dari tabel tamus
+        $items = tamu::paginate(10); // Mengambil semua data pengguna dari tabel tamus
         return view('Operator.formDataTamu', compact('items'));
      }
 
