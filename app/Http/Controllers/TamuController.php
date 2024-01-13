@@ -48,7 +48,7 @@ class TamuController extends Controller
 
 
         tamu::create($request->all());
-        return redirect()->route('form')->with('success', 'Tamu berhasil ditambahkan!');
+        return redirect()->route('form')->with('success', 'Data anda berhasil ditambahkan!');
     }
 
     /**
