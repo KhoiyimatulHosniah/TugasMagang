@@ -43,7 +43,7 @@ class FormJadwalPegawaiController extends Controller
             'notlp' => 'required',
         ]);
         tambahjadwal::create($request->all());
-        return redirect()->route('formJadwalPegawai')->with('success', 'Tamu berhasil ditambahkan!');
+        return redirect()->route('formJadwalPegawai')->with('success', 'Jadwal Pegawai berhasil ditambahkan!');
     }
 
     /**

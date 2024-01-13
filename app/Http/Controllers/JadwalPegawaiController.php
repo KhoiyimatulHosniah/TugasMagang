@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\tambahjadwal;
 use Illuminate\Http\Request;
 
 class JadwalPegawaiController extends Controller
@@ -21,9 +22,19 @@ class JadwalPegawaiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function index()
+    {
+        $items = tambahjadwal::all();
+        return view('buku_tamu.jadwalPegawai', compact('items'));    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
-        //
+        return view('buku_tamu.jadwalPegawai');
     }
 
     /**
@@ -34,26 +45,19 @@ class JadwalPegawaiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama' => 'required',
+            'bidang' => 'required',
+            'tanggal_berangkat' => 'required',
+            'tanggal_pulang' => 'required',
+            'tujuan' => 'required',
+            'notlp' => 'required|numeric',
+        ]);
+        tambahjadwal::create($request->all());
+        return redirect()->route('jadwalPegawai')->with('success', 'Tamu berhasil ditambahkan!');
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
@@ -82,6 +86,6 @@ class JadwalPegawaiController extends Controller
         //
     }
 
-    
+
 }
 

@@ -70,10 +70,9 @@ Route::get('/daftarhadir', [DaftarhadirController::class, 'showForm']);
 Route::post('/daftarhadir/submit', [DaftarhadirController::class, 'submitForm'])->name('daftar-hadir.submit');
 
 // Form Tamu
-Route::get('/form', [TamuController::class, 'showForm'])->name('form');
-Route::get('/formTamu', [TamuController::class, 'index'])->name('formTamu');
-Route::get('/formTamu/create', [TamuController::class, 'create'])->name('formTamu.create');
-Route::post('/formTamu/store', [TamuController::class, 'store'])->name('formTamu.store');
+Route::get('/form', [TamuController::class, 'index'])->name('form');
+Route::get('/tamu/create', [TamuController::class, 'create'])->name('tamu.create');
+Route::post('/tamu/store', [TamuController::class, 'store'])->name('tamu.store');
 
 //Dashboard Resepsionis
 Route::get('/dashboardTamu', [DashboardTamuController::class, 'index'])->name('dashboardTamu');
@@ -93,9 +92,7 @@ Route::get('/tambahRapat/create', [TambahRapatController::class, 'create'])->nam
 Route::post('/tambahRapat/store', [TambahRapatController::class, 'store'])->name('tambahRapat.store');
 Route::get('/tambahNotulensi', [TambahNotulensiController::class, 'index'])->name('tambahNotulensi');
 
-// tambah rapat
-Route::get('/formrapat', [TambahTamuController::class, 'showForm'])->name('form');
-Route::post('/formrapat', [TamuController::class, 'processForm']);
+
 
 // tambah notulensi
 Route::get('/tambahNotulensi', [TambahNotulensiController::class, 'index'])->name('tambahNotulensi');
@@ -112,7 +109,9 @@ Route::post('/datatamu/store', [DataTamuController::class, 'store'])->name('data
 Route::get('/datatamu/{id}/hapus', [DataTamuController::class, 'hapus'])->name('datatamu.hapus');
 
 //Jadwal Pegawai
-Route::get('/jadwalPegawai', [JadwalPegawaiController::class, 'jadwal'])->name('jadwalPegawai');
+Route::get('/jadwalPegawai', [JadwalPegawaiController::class, 'index'])->name('jadwalPegawai');
+Route::get('/jadwalPegawai/create', [DataTamuController::class, 'create'])->name('jadwalPegawai.create');
+Route::post('/jadwalPegawai/store', [DataTamuController::class, 'store'])->name('jadwalPegawai.store');
 
 //Tambah Tamu
 Route::get('/tambahTamu', [TambahTamuController::class, 'index'])->name('tambahTamu');
@@ -153,6 +152,7 @@ Route::get('/tambahJadwal/create', [tambahJadwalController::class, 'create'])->n
 Route::post('/tambahJadwal/store', [tambahJadwalController::class, 'store'])->name('tambahJadwal.store');
 Route::get('/tambahJadwal/{id}/hapus', [tambahJadwalController::class, 'hapus'])->name('tambahJadwal.hapus');
 
+
 // tambah opd
 Route::get('/formopd', [FormOpdController::class, 'tabelOpd'])->name('formopd');
 Route::get('/formopd/create', [FormOpdController::class, 'create'])->name('formopd.create');
@@ -163,3 +163,7 @@ Route::get('/tambahopd/create', [TambahOpdController::class, 'create'])->name('t
 Route::put('/tambahopd/{id}', [FormOpdController::class, 'edit'])->name('tambahopd.edit');
 Route::post('/tambahopd/store', [TambahOpdController::class, 'store'])->name('tambahopd.store');
 Route::get('/tambahopd/{id}/hapus', [TambahOpdController::class, 'hapus'])->name('tambahopd.hapus');
+
+//print
+Route::get('//{id}/print', [FormNotulenController::class, 'print'])->name('formNotulen.print');
+

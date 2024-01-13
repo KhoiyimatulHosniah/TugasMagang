@@ -49,6 +49,12 @@
 
 <div class="container">
 
+    @if(Session::has('success'))
+        <div class="alert alert-success">
+            {{ Session::get('success') }}
+        </div>
+    @endif
+
     <!-- Outer Row -->
     <div class="row justify-content-center">
 
@@ -64,7 +70,7 @@
                                 <div class="text-center">
                                     <h1 class="h5 text-gray-900 mb-4">FORM TAMU</h1>
                                 </div>
-                                <form class="user" action="{{ route('formTamu.store') }}" method="POST">
+                                <form class="user" action="{{ route('tamu.store') }}" method="POST">
                                     @csrf
 
                                     <div class="form-group">
@@ -96,7 +102,7 @@
                                                 class="form-control form-select" name="id_OPD"
                                                 aria-describedby="nameHelp" id="id_OPD">
                                             <option>Nama Instansi</option>
-                                            @foreach($data as $instansi)
+                                            @foreach($tamu as $instansi)
                                                 <option
                                                     value="{{$instansi->id_OPD}}">{{$instansi->nama_instansi}}</option>
                                             @endforeach

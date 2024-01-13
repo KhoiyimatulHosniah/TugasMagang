@@ -8,15 +8,12 @@ use Illuminate\Http\Request;
 
 class TamuController extends Controller
 {
-    public function showForm()
-    {
-        return view('buku_tamu.tamu');
-    }
 
     public function index()
     {
-        $data = opd::all(); // Mengambil semua data pengguna dari tabel opds
-        return view('buku_tamu.tamu', compact('data'));
+
+        $tamu= opd::all(); // Mengambil semua data pengguna dari tabel opds
+        return view('buku_tamu.tamu', compact('tamu'));
     }
 
     /**
@@ -51,7 +48,7 @@ class TamuController extends Controller
 
 
         tamu::create($request->all());
-        return redirect()->route('datatamu')->with('success', 'Tamu berhasil ditambahkan!');
+        return redirect()->route('form')->with('success', 'Tamu berhasil ditambahkan!');
     }
 
     /**
