@@ -54,7 +54,7 @@ class TambahNotulensiController extends Controller
         ]);
 
         formnotulensi::create($request->all());
-        return redirect()->route('formNotulen')->with('success', 'Kegiatan Rapat Berhasil Ditambahkan!');
+        return redirect()->route('formNotulen')->with('success', 'Notulensi Berhasil Ditambahkan!');
     }
 
     /**

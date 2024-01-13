@@ -68,7 +68,12 @@
                     <i class="fas fa-fw fa-table"></i>
                     <span>Form Kegiatan</span></a>
             </li>
-
+<!-- Nav Item - rapat -->
+<li class="nav-item">
+    <a class="nav-link" href="/daftarhadir">
+        <i class="fas fa-id-card"></i>
+        <span>Daftar Hadir Rapat</span></a>
+</li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -227,7 +232,6 @@
                                                     <th>Tanggal</th>
                                                     <th>Pukul</th>
                                                     <th>Tempat</th>
-                                                    <th>Undangan Rapat</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
@@ -240,12 +244,15 @@
                                     <td>{{ \Carbon\Carbon::parse($item->tanggal)->isoFormat('DD-MM-YYYY') }}</td>
                                     <td>{{ $item->pukul; }}</td>
                                     <td>{{ $item->tempat }}</td>
-                                    <td>{{ $item->undangan_rapat }}</td>
                                     <td>
+                                        <a href="{{ route('formKegiatan.edit', ['id' => $item->id]) }}"
+                                           class="btn btn-primary btn-circle">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
                                         <a href="{{ route('formKegiatan.hapus', ['id' => $item->id]) }}"
                                            class="btn btn-danger btn-circle"
-                                           onclick="confirmModal('{{ route('formKegiatan.hapus', ['id' => $item['id']]) }}')">
-                                            <i class='fas fa-trash-alt'></i>
+                                           onclick="confirmModal('{{ route('formKegiatan.hapus', ['id' => $item->id]) }}')">
+                                            <i class="fas fa-trash-alt"></i>
                                         </a>
                                     </td>
                                 </tr>
@@ -253,6 +260,21 @@
                                                 <!-- Add more rows as needed -->
                                             </tbody>
                                         </table>
+                                        <div class="pagination">
+                                            <ul class="pagination">
+                                                <li class="page-item {{ $items->previousPageUrl() ? '' : 'disabled' }}">
+                                                    <a class="page-link" href="{{ $items->previousPageUrl() }}">Previous</a>
+                                                </li>
+                                                @foreach ($items->getUrlRange(1, $items->lastPage()) as $page => $url)
+                                                <li class="page-item {{ $page == $items->currentPage() ? 'active' : '' }}">
+                                                    <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                                                </li>
+                                                @endforeach
+                                                <li class="page-item {{ $items->nextPageUrl() ? '' : 'disabled' }}">
+                                                    <a class="page-link" href="{{ $items->nextPageUrl() }}">Next</a>
+                                                </li>
+                                            </ul>
+                                        </div>
                             </div>
                         </div>
                         

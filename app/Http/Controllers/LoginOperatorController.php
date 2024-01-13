@@ -33,20 +33,14 @@ class LoginOperatorController extends Controller
             $user = Auth::user();
 
             switch ($user->role) {
-                case 'Resepsionis':
-                    return redirect('dashboardAdmin');
-                    break;
-
+                
                 case 'Operator':
                     return redirect('dashboardOperator');
                     break;
 
-                case 'Notulensi':
-                    return redirect('dashboardNotulen');
-                    break;
 
                 default:
-                    return redirect('landing1');
+                    return redirect('loginOperator');
             }
 
         }else {

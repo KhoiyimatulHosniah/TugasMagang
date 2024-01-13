@@ -1,17 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\daftarhadir;
 use Illuminate\Http\Request;
 
 class DaftarhadirController extends Controller 
 {
-    public function showForm()
+    public function tabelDaftarhadir()
     {
-        return view('daftarhadir');
-    }
+        $items = daftarhadir::paginate(10); // Mengambil semua data pengguna dari tabel daftar hadir
+        return view('notulensi.daftarHadir', compact('items'));
+     }
 
-public function submitForm(Request $request)
+public function store(Request $request)
 {
     // Validasi form jika diperlukan
     $request->validate([

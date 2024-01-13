@@ -14,7 +14,7 @@ class FormOpdController extends Controller
      */
     public function tabelOpd()
     {
-        $items = opd::all(); // Mengambil semua data pengguna dari tabel tamus
+        $items = opd::paginate(10); // Mengambil semua data pengguna dari tabel tamus
         return view('Operator.formOpd', compact('items'));
      }
 
@@ -62,18 +62,10 @@ class FormOpdController extends Controller
      */
     public function edit(Request $request, $id)
 {
-    $request->validate([
-        'nama_instansi' => 'required',
-    ]);
-
     $item = opd::find($id);
 
-    if ($item) {
-        $item->update($request->all());
-        return redirect()->route('tabelOpd')->with('success', 'Data berhasil diperbarui');
-    } else {
-        return redirect()->back()->with('error', 'Data tidak ditemukan');
-    }
+        return view('formopd.edit', compact('item'));
+    
 }
 
 

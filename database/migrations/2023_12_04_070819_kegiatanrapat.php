@@ -20,7 +20,6 @@ return new class extends Migration
             $table->date('tanggal');
             $table->time('pukul');
             $table->string('tempat');
-            $table->text('undangan_rapat');
             $table->timestamps();
         });
     }

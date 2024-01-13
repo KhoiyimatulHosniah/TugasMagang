@@ -157,7 +157,7 @@ aria-hidden="true">
                         <!-- Card Header - Dropdown -->
                         <div
                             class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-primary">Notulensi </h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Daftar Hadir Rapat </h6>
                         </div>
                         <script>
                             document.addEventListener('DOMContentLoaded', function () {
@@ -180,16 +180,15 @@ aria-hidden="true">
                                 @endif
                             });
                         </script>
-                        <div class="d-flex justify-content-between align-items-center mt-2">
-                            <a href="/tambahNotulensi" class="btn btn-primary btn-sm ml-4"><i class="fas fa-plus"></i></a>
-                            
-                            <div class="input-group col-sm-4 mr-3">
+                        <div class="d-flex justify-content-end align-items-center mt-2">
+                            <div class="input-group col-sm-4 ml-3">
                                 <input type="text" id="searchInput" class="form-control form-control-sm" placeholder="Search...">
                                 <div class="input-group-append">
                                     <button id="searchButton" class="btn btn-primary btn-sm" type="button"><i class="fas fa-search"></i></button>
                                 </div>
                             </div>
                         </div>
+                        
                         <!-- At the end of the body tag -->
                         <script src="asset/vendor/jquery/jquery.min.js"></script>
 <script>
@@ -225,16 +224,16 @@ aria-hidden="true">
                         <!-- Card Body -->
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table id="tabelNotulensi" class="table table-bordered" width="100%" cellspacing="0">
+                                <table id="tabelDaftarhadir" class="table table-bordered" width="100%" cellspacing="0">
                                     <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Sidang / Rapat</th>
-                                        <th>Hari</th>
-                                        <th>Tanggal</th>
-                                        <th>Acara</th>
-                                        <th>Ketua</th>
-                                        <th>Sekretaris</th>
+                                        <th>Nama</th>
+                                        <th>Jenis Kelamin</th>
+                                        <th>Nama Instansi</th>
+                                        <th>Jabatan</th>
+                                        <th>No Telepon</th>
+                                        <th>Tanda Tangan</th>
                                         <th>Aksi</th>
                                     </tr>
                                     </thead>
@@ -242,12 +241,12 @@ aria-hidden="true">
                                     @foreach($items as $item)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $item->sidang_rapat }}</td>
-                                            <td>{{ $item->hari }}</td>
-                                            <td>{{ \Carbon\Carbon::parse($item->tanggal)->isoFormat('DD-MM-YYYY') }}</td>
-                                            <td>{{ $item->acara }}</td>
-                                            <td>{{ $item->ketua }}</td>
-                                            <td>{{ $item->sekretaris }}</td>
+                                            <td>{{ $item->nama }}</td>
+                                            <td>{{ $item->jenis_kelamin}}</td>
+                                            <td>{{ $item->nama_instansi }}</td>
+                                            <td>{{ $item->jabatan}}</td>
+                                            <td>{{ $item->notlp }}</td>
+                                            <td> </td>
                                             <td>
                                                 <a href="/printNotulen" class="btn btn-primary btn-circle" onclick="printNotulensi('{{ $item->id }}')">
                                                     <i class='fas fa-print'></i>
@@ -260,15 +259,11 @@ aria-hidden="true">
                                                     }
                                                 </script>
                                                 
-                                                <a href="{{ route('formKegiatan.edit', ['id' => $item->id]) }}"
-                                                    class="btn btn-primary btn-circle">
-                                                     <i class="fas fa-edit"></i>
-                                                 </a>
-                                                 <a href="{{ route('formKegiatan.hapus', ['id' => $item->id]) }}"
-                                                    class="btn btn-danger btn-circle"
-                                                    onclick="confirmModal('{{ route('formKegiatan.hapus', ['id' => $item->id]) }}')">
-                                                     <i class="fas fa-trash-alt"></i>
-                                                 </a>
+                                                <a href="{{ route('formNotulen.hapus', ['id' => $item->id]) }}"
+                                                   class="btn btn-danger btn-circle"
+                                                   onclick="confirmModal('{{ route('formNotulen.hapus', ['id' => $item['id']]) }}')">
+                                                    <i class='fas fa-trash-alt'></i>
+                                                </a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -277,20 +272,20 @@ aria-hidden="true">
 
                                 </table>
                                 <div class="pagination">
-                            <ul class="pagination">
-                                <li class="page-item {{ $items->previousPageUrl() ? '' : 'disabled' }}">
-                                    <a class="page-link" href="{{ $items->previousPageUrl() }}">Previous</a>
-                                </li>
-                                @foreach ($items->getUrlRange(1, $items->lastPage()) as $page => $url)
-                                <li class="page-item {{ $page == $items->currentPage() ? 'active' : '' }}">
-                                    <a class="page-link" href="{{ $url }}">{{ $page }}</a>
-                                </li>
-                                @endforeach
-                                <li class="page-item {{ $items->nextPageUrl() ? '' : 'disabled' }}">
-                                    <a class="page-link" href="{{ $items->nextPageUrl() }}">Next</a>
-                                </li>
-                            </ul>
-                        </div>
+                                    <ul class="pagination">
+                                        <li class="page-item {{ $items->previousPageUrl() ? '' : 'disabled' }}">
+                                            <a class="page-link" href="{{ $items->previousPageUrl() }}">Previous</a>
+                                        </li>
+                                        @foreach ($items->getUrlRange(1, $items->lastPage()) as $page => $url)
+                                        <li class="page-item {{ $page == $items->currentPage() ? 'active' : '' }}">
+                                            <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                                        </li>
+                                        @endforeach
+                                        <li class="page-item {{ $items->nextPageUrl() ? '' : 'disabled' }}">
+                                            <a class="page-link" href="{{ $items->nextPageUrl() }}">Next</a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
 

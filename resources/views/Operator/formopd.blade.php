@@ -188,10 +188,44 @@ aria-hidden="true">
                                     @endif
                                 });
                             </script>
-    
-                            <div class="mt-2 ml-3">
-                                <a href="/tambahopd" class="btn btn-primary btn-sm "><i class="fas fa-plus" ></i></a>
-                            </div>
+    <div class="d-flex justify-content-between align-items-center mt-2">
+        <a href="/tambahopd" class="btn btn-primary btn-sm ml-4"><i class="fas fa-plus"></i></a>
+        <div class="input-group col-sm-4 mr-3">
+            <input type="text" id="searchInput" class="form-control form-control-sm" placeholder="Search...">
+            <div class="input-group-append">
+                <button id="searchButton" class="btn btn-primary btn-sm" type="button"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </div>
+    <!-- At the end of the body tag -->
+    <script src="asset/vendor/jquery/jquery.min.js"></script>
+<script>
+$(document).ready(function () {
+// Function to filter data when search button is clicked
+$("#searchButton").click(function () {
+filterTable();
+});
+
+// Function to filter data based on search input
+function filterTable() {
+var value = $("#searchInput").val().toLowerCase();
+
+$("#tabelNotulensi tbody tr").each(function () {
+var rowText = $(this).text().toLowerCase();
+var isVisible = rowText.indexOf(value) > -1;
+$(this).toggle(isVisible);
+});
+}
+
+// Show all data if search input is cleared
+$("#searchInput").on("input", function () {
+var value = $(this).val().trim().toLowerCase();
+if (value === "") {
+$("#tabelNotulensi tbody tr").show();
+}
+});
+});
+</script>
                             <!-- Card Body -->
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -201,30 +235,52 @@ aria-hidden="true">
                                                 <th>No</th>
                                                 <th>Nama Instansi</th>
                                                 <th>Aksi</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        @foreach($items as $item)
-                                        <tr>
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $item->nama_instansi}}</td>
-                                            <td>
-                                                <a href="/tambahopd/{{ $item->id_OPD }}/edit" class="btn btn-primary btn-sm">Edit</a>
-                <form action="/opd/{{ $item->id }}" method="POST" style="display: inline-block;">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>
-                </form>
-                                                
-                                                            
-                                                 
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                            <!-- Add more rows as needed -->
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @php
+                                            $currentPage = $items->currentPage();
+                                            $perPage = $items->perPage();
+                                            $startNumber = ($currentPage - 1) * $perPage + 1;
+                                            @endphp
+                                            @foreach($items as $item)
+                                            <tr>
+                                                <td>{{ $startNumber++ }}</td>
+                                                <td>{{ $item->nama_instansi}}</td>
+                                                <td>
+                                                    <a href="{{ route('formopd.edit', ['id' => $item->id_OPD]) }}"
+                                                        class="btn btn-primary btn-circle">
+                                                         <i class="fas fa-edit"></i>
+                                                     </a>
+                                                     <a href="{{ route('formopd.hapus', ['id' => $item->id_OPD]) }}"
+                                                        class="btn btn-danger btn-circle"
+                                                        onclick="confirmModal('{{ route('formopd.hapus', ['id' => $item->id_OPD]) }}')">
+                                                         <i class="fas fa-trash-alt"></i>
+                                                     </a>
+                                                </td>
+                                            </tr>
+                                            @endforeach
                                         </tbody>
-                                        
                                     </table>
+                                    <div class="pagination">
+                                        <ul class="pagination">
+                                            <li class="page-item {{ $items->previousPageUrl() ? '' : 'disabled' }}">
+                                                <a class="page-link" href="{{ $items->previousPageUrl() }}">Previous</a>
+                                            </li>
+                                            @foreach ($items->getUrlRange(1, $items->lastPage()) as $page => $url)
+                                            <li class="page-item {{ $page == $items->currentPage() ? 'active' : '' }}">
+                                                <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                                            </li>
+                                            @endforeach
+                                            <li class="page-item {{ $items->nextPageUrl() ? '' : 'disabled' }}">
+                                                <a class="page-link" href="{{ $items->nextPageUrl() }}">Next</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     

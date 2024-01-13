@@ -158,51 +158,91 @@
                                 <!-- Add more rows as needed -->
                                 </tbody>
 
+                                <div class="d-flex justify-content-end align-items-center mt-2">
+                                    <div class="input-group col-sm-4 ml-3">
+                                        <input type="text" id="searchInput" class="form-control form-control-sm"
+                                               placeholder="Search...">
+                                        <div class="input-group-append">
+                                            <button id="searchButton" class="btn btn-primary btn-sm" type="button"><i
+                                                    class="fas fa-search"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- At the end of the body tag -->
+                                <script src="asset/vendor/jquery/jquery.min.js"></script>
+                                <script>
+                                    $(document).ready(function () {
+                                        // Function to filter data when search button is clicked
+                                        $("#searchButton").click(function () {
+                                            filterTable();
+                                        });
+
+                                        // Function to filter data based on search input
+                                        function filterTable() {
+                                            var value = $("#searchInput").val().toLowerCase();
+
+                                            $("#tabelNotulensi tbody tr").each(function () {
+                                                var rowText = $(this).text().toLowerCase();
+                                                var isVisible = rowText.indexOf(value) > -1;
+                                                $(this).toggle(isVisible);
+                                            });
+                                        }
+
+                                        // Show all data if search input is cleared
+                                        $("#searchInput").on("input", function () {
+                                            var value = $(this).val().trim().toLowerCase();
+                                            if (value === "") {
+                                                $("#tabelNotulensi tbody tr").show();
+                                            }
+                                        });
+                                    });
+                                </script>
+
+
+
+
+                        <!-- Logout Modal-->
+                        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+                             aria-labelledby="exampleModalLabel"
+                             aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">Select "Logout" below if you are ready to end your current
+                                        session.
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel
+                                        </button>
+                                        <a class="btn btn-primary" href="{{ route ('landing1') }}">Logout</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                    </div>
 
+                        <!-- Bootstrap core JavaScript-->
+                        <script src="asset/vendor/jquery/jquery.min.js"></script>
+                        <script src="asset/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-                </div>
+                        <!-- Core plugin JavaScript-->
+                        <script src="asset/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-                <!-- Logout Modal-->
-                <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                     aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">Select "Logout" below if you are ready to end your current session.
-                            </div>
-                            <div class="modal-footer">
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                                <a class="btn btn-primary" href="{{ route ('landing1') }}">Logout</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        <!-- Custom scripts for all pages-->
+                        <script src="asset/js/sb-admin-2.min.js"></script>
 
+                        <!-- Page level plugins -->
+                        <script src="asset/vendor/chart.js/Chart.min.js"></script>
 
-                <!-- Bootstrap core JavaScript-->
-                <script src="asset/vendor/jquery/jquery.min.js"></script>
-                <script src="asset/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-                <!-- Core plugin JavaScript-->
-                <script src="asset/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-                <!-- Custom scripts for all pages-->
-                <script src="asset/js/sb-admin-2.min.js"></script>
-
-                <!-- Page level plugins -->
-                <script src="asset/vendor/chart.js/Chart.min.js"></script>
-
-                <!-- Page level custom scripts -->
-                <script src="asset/js/demo/chart-area-demo.js"></script>
-                <script src="asset/js/demo/chart-pie-demo.js"></script>
+                        <!-- Page level custom scripts -->
+                        <script src="asset/js/demo/chart-area-demo.js"></script>
+                        <script src="asset/js/demo/chart-pie-demo.js"></script>
 
 </body>
 

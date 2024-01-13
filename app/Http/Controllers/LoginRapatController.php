@@ -9,11 +9,11 @@ class LoginRapatController extends Controller
 {
     public function showLoginRapat()
     {
-        return view('notulensi.loginrapat');
+        return view('notulensi.loginRapat');
     }
 
 
-    public function login(Request $request)
+    public function loginRapat(Request $request)
     {
         $credentials = $request->validate([
             'username' => 'required',
@@ -22,19 +22,24 @@ class LoginRapatController extends Controller
             'username.required' => 'Username wajib diisi',
             'password.required' => 'Password wajib diisi'
         ]);
-
+        
 
         if (Auth::attempt($credentials)) {
+           
             // Jika berhasil login
-            $request->session()->regenerate();
-
+            
             return redirect()->intended('/tampilRapat');
+        }else{
+            //jika gagal login 
+            return redirect()->back()->withErrors([
+                'email' => 'Email atau password salah.',
+            ]);
         }
     }
 
     public function logout(Request $request)
     {
         Auth::logout();
-        return redirect('/loginrapat')->with('success', 'Anda telah berhasil logout.');
+        return redirect('/loginRapat')->with('success', 'Anda telah berhasil logout.');
     }
 }

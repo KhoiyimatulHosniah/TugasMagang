@@ -16,7 +16,7 @@ class TampiluserController extends Controller
      */
     public function tabelregister()
     {
-        $items = register::all(); // Mengambil semua data pengguna dari tabel tamus
+        $items = register::paginate(10); // Mengambil semua data pengguna dari tabel tamus
         return view('Operator.tampilregister', compact('items'));
      }
 

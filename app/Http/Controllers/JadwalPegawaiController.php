@@ -14,7 +14,8 @@ class JadwalPegawaiController extends Controller
      */
     public function jadwal()
     {
-        return view('buku_tamu.jadwalPegawai');
+        $items = tambahjadwal::paginate(10);
+        return view('buku_tamu.jadwalPegawai', compact('items'));
     }
 
     /**
@@ -58,9 +59,28 @@ class JadwalPegawaiController extends Controller
 
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        return view('buku_tamu.jadwalPegawai');
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function edit($id)
     {
-        //
+        $item = tambahjadwal::find($id);
+
+        return view('jadwalPegawai.edit', compact('item'));
     }
 
     /**

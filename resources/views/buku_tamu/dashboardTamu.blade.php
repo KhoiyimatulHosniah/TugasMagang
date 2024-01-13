@@ -131,38 +131,67 @@
             <!-- Begin Page Content -->
             <div class="container-fluid">
 
-                <!-- Page Heading -->
-                <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                </div>
+                
 
 
                 <!-- Content Row -->
                 <div class="row">
+                    <div class="container">
+                        <div class="row">
+                            <!-- First Card -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-primary shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                @php
+                                                    use App\Models\tamu;
+                                                    $cek = tamu::count();
+                                                @endphp
+                                                <p style="font-size: 20px;">{{ $cek }} Tamu</p>
+                                                <a href="/datatamu">
+                                                    <p class="text-muted">Lihat Detail</p>
+                                                </a>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="bx bxs-book"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                    <!-- Earnings (Monthly) Card Example -->
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-primary shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        @php
-                                            use App\Models\tamu;
-                                            $cek = tamu::count();
-                                        @endphp
-                                        <p style="font-size: 20px;">{{ $cek }} Tamu</p>
-                                        <a href="/datatamu">
-                                            <p class="text-muted">Lihat Detail</p></a></div>
-                                    <div class="col-auto">
-                                        <i class="bx bxs-book"></i>
+                            <!-- Second Card -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-primary shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                @php
+                                                    use App\Models\tambahjadwal;
+                                                    $cek =tambahjadwal::count();
+                                                @endphp
+                                                <p style="font-size: 20px;">{{ $cek }} Jadwal Pegawai</p>
+                                                <a href="/jadwalPegawai">
+                                                    <p class="text-muted">Lihat Detail</p>
+                                                </a>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="bx bxs-book"></i>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
+
+
+                    
+
+
+                </div>
 
 <!-- Logout-->
 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
