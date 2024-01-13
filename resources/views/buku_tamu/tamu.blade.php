@@ -114,7 +114,7 @@
                                                placeholder="Telepon">
                                     </div>
                                     <hr>
-                                    <button type="submit" class="btn btn-primary btn-user btn-block">KIRIM</button>
+                                    <button type="submit" class="btn btn-primary btn-user btn-block">Kirim</button>
                                 </form>
                             </div>
                         </div>
