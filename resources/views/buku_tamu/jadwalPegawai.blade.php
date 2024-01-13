@@ -33,7 +33,7 @@
 <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordion">
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboardTamu">
@@ -58,7 +58,7 @@
 
 
         <!-- Nav Item - Data Tamu -->
-        <li class="nav-item">
+        <li class="nav-item active">
             <a class="nav-link" href="/datatamu">
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>Data Tamu</span></a>
@@ -91,6 +91,11 @@
             <!-- Topbar -->
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
+                <!-- Sidebar Toggle (Topbar) -->
+                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <i class="fa fa-bars"></i>
+                </button>
+
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
 
@@ -118,7 +123,6 @@
             </nav>
             <!-- End of Topbar -->
 
-
             <div class="row mx-3">
 
                 <!-- Area Chart -->
@@ -131,118 +135,165 @@
                         </div>
                         <!-- DataTales Example -->
                         <div class="card-body">
-                            <table id="dataTable" class="table table-bordered" style="width:100%">
-                                <thead>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Nama</th>
-                                    <th>Bidang</th>
-                                    <th>Tanggal Berangkat</th>
-                                    <th>Tanggal Pulang</th>
-                                    <th>Tujuan</th>
-                                    <th>Telepon</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($items as $item)
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->nama }}</td>
-                                        <td>{{ $item->bidang }}</td>
-                                        <td>{{ \Carbon\Carbon::parse($item->tanggal_berangkat)->isoFormat('DD-MM-YYYY') }}</td>
-                                        <td>{{ \Carbon\Carbon::parse($item->tanggal_pulang)->isoFormat('DD-MM-YYYY') }}</td>
-                                        <td>{{ $item->tujuan }}</td>
-                                        <td>{{ $item->notlp }}</td>
-                                    </tr>
-                                @endforeach
-                                <!-- Add more rows as needed -->
-                                </tbody>
-
-                                <div class="d-flex justify-content-end align-items-center mt-2">
-                                    <div class="input-group col-sm-4 ml-3">
-                                        <input type="text" id="searchInput" class="form-control form-control-sm"
-                                               placeholder="Search...">
-                                        <div class="input-group-append">
-                                            <button id="searchButton" class="btn btn-primary btn-sm" type="button"><i
-                                                    class="fas fa-search"></i></button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- At the end of the body tag -->
-                                <script src="asset/vendor/jquery/jquery.min.js"></script>
-                                <script>
-                                    $(document).ready(function () {
-                                        // Function to filter data when search button is clicked
-                                        $("#searchButton").click(function () {
-                                            filterTable();
-                                        });
-
-                                        // Function to filter data based on search input
-                                        function filterTable() {
-                                            var value = $("#searchInput").val().toLowerCase();
-
-                                            $("#tabelNotulensi tbody tr").each(function () {
-                                                var rowText = $(this).text().toLowerCase();
-                                                var isVisible = rowText.indexOf(value) > -1;
-                                                $(this).toggle(isVisible);
-                                            });
-                                        }
-
-                                        // Show all data if search input is cleared
-                                        $("#searchInput").on("input", function () {
-                                            var value = $(this).val().trim().toLowerCase();
-                                            if (value === "") {
-                                                $("#tabelNotulensi tbody tr").show();
-                                            }
-                                        });
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    @if(session('success'))
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Berhasil!',
+                                        text: '{{ session('success') }}',
+                                        timer: 2000, // waktu dalam milidetik (2 detik)
+                                        showConfirmButton: false
                                     });
-                                </script>
+                                    @elseif(session('error'))
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Error!',
+                                        text: '{{ session('error') }}',
+                                        timer: 2000, // waktu dalam milidetik (2 detik)
+                                        showConfirmButton: false
+                                    });
+                                    @endif
+                                });
+                            </script>
 
+<div class="d-flex justify-content-end align-items-center mt-2">
+    <div class="input-group col-sm-4 ml-3">
+        <input type="text" id="searchInput" class="form-control form-control-sm" placeholder="Search...">
+        <div class="input-group-append">
+            <button id="searchButton" class="btn btn-primary btn-sm" type="button"><i class="fas fa-search"></i></button>
+        </div>
+    </div>
+</div>
 
+<!-- At the end of the body tag -->
+<script src="asset/vendor/jquery/jquery.min.js"></script>
+<script>
+$(document).ready(function () {
+// Function to filter data when search button is clicked
+$("#searchButton").click(function () {
+filterTable();
+});
 
+// Function to filter data based on search input
+function filterTable() {
+var value = $("#searchInput").val().toLowerCase();
 
-                        <!-- Logout Modal-->
-                        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
-                             aria-labelledby="exampleModalLabel"
-                             aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">×</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">Select "Logout" below if you are ready to end your current
-                                        session.
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel
-                                        </button>
-                                        <a class="btn btn-primary" href="{{ route ('landing1') }}">Logout</a>
+$("#tabelRapat tbody tr").each(function () {
+var rowText = $(this).text().toLowerCase();
+var isVisible = rowText.indexOf(value) > -1;
+$(this).toggle(isVisible);
+});
+}
+
+// Show all data if search input is cleared
+$("#searchInput").on("input", function () {
+var value = $(this).val().trim().toLowerCase();
+if (value === "") {
+$("#tabelRapat tbody tr").show();
+}
+});
+});
+</script>
+                            <!-- Card Body -->
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="tabelRapat" class="table table-bordered" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Nama</th>
+                                                <th>Bidang</th>
+                                                <th>Tanggal Berangkat</th>
+                                                <th>Tanggal Pulang</th>
+                                                <th>Tujuan</th>
+                                                <th>Telepon</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach($items as $item)
+                                                <tr>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $item->nama }}</td>
+                                                    <td>{{ $item->bidang }}</td>
+                                                    <td>{{ \Carbon\Carbon::parse($item->tanggal_berangkat)->isoFormat('DD-MM-YYYY') }}</td>
+                                                    <td>{{ \Carbon\Carbon::parse($item->tanggal_pulang)->isoFormat('DD-MM-YYYY') }}</td>
+                                                    <td>{{ $item->tujuan }}</td>
+                                                    <td>{{ $item->notlp }}</td>
+                                                </tr>
+                                            @endforeach
+                                        <!-- Add more rows as needed -->
+                                        </tbody>
+                                    </table>
+                                    <div class="pagination">
+                                        <ul class="pagination">
+                                            <li class="page-item {{ $items->previousPageUrl() ? '' : 'disabled' }}">
+                                                <a class="page-link" href="{{ $items->previousPageUrl() }}">Previous</a>
+                                            </li>
+                                            @foreach ($items->getUrlRange(1, $items->lastPage()) as $page => $url)
+                                            <li class="page-item {{ $page == $items->currentPage() ? 'active' : '' }}">
+                                                <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                                            </li>
+                                            @endforeach
+                                            <li class="page-item {{ $items->nextPageUrl() ? '' : 'disabled' }}">
+                                                <a class="page-link" href="{{ $items->nextPageUrl() }}">Next</a>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
+
+
                         </div>
 
 
-                        <!-- Bootstrap core JavaScript-->
-                        <script src="asset/vendor/jquery/jquery.min.js"></script>
-                        <script src="asset/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                    </div>
 
-                        <!-- Core plugin JavaScript-->
-                        <script src="asset/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-                        <!-- Custom scripts for all pages-->
-                        <script src="asset/js/sb-admin-2.min.js"></script>
+                </div>
 
-                        <!-- Page level plugins -->
-                        <script src="asset/vendor/chart.js/Chart.min.js"></script>
+            </div>
 
-                        <!-- Page level custom scripts -->
-                        <script src="asset/js/demo/chart-area-demo.js"></script>
-                        <script src="asset/js/demo/chart-pie-demo.js"></script>
+        </div>
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Yakin mau keluar ?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Kllik "Logout" apabila Anda ingin keluar.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="{{ route ('landing1') }}">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Bootstrap core JavaScript-->
+<script src="asset/vendor/jquery/jquery.min.js"></script>
+<script src="asset/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="asset/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="asset/js/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="asset/vendor/chart.js/Chart.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="asset/js/demo/chart-area-demo.js"></script>
+<script src="asset/js/demo/chart-pie-demo.js"></script>
 
 </body>
 
