@@ -70,7 +70,7 @@ class FormKegiatanController extends Controller
     {
         $item = formkegiatan::find($id);
 
-        return view('formKegiatan.edit', compact('item'));
+        return view('notulensi.edit', compact('item'));
     }
 
     /**
@@ -82,15 +82,18 @@ class FormKegiatanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = FormKegiatan::find($id);
-        // Validasi data yang diterima dari formulir
-        // Simpan perubahan data ke dalam database
-        $data->title = $request->input('title');
-        $data->description = $request->input('description');
-        $data->save();
+        $item = formkegiatan::find($id);
+        
+        $item->kegiatan = $request->input('kegiatan');
+        $item->hari = $request->input('hari');
+        $item->tanggal = $request->input('tanggal');
+        $item->pukul = $request->input('pukul');
+        $item->tempat = $request->input('tempat');
+        
+        $item->save();
 
         // Redirect ke halaman atau rute yang sesuai setelah berhasil mengupdate data
-        return redirect()->route('formKegiatan.index');
+        return redirect()->route('formKegiatan')->with ('success', 'Data Kegiatas Berhasil Diperbaharui');
     
     }
 
