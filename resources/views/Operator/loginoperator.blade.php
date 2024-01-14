@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -41,8 +39,19 @@
         }
     </script>
 
-</head>
+    <style>
+        /* Responsiveness for small screens */
+        @media (max-width: 576px) {
+            h1.logo {
+                font-size: 18px;
+            }
 
+            .card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
 <body class="bg-primary">
 <!-- ======= Header ======= -->
 <header id="header" class="fixed-top ">
@@ -61,7 +70,7 @@
 <section class="vh-3 gradient-custom">
     <div class="container py-0 vh-90">
         <div class="row d-flex justify-content-center align-items-center h-90">
-            <div class="col-3 col-md-6 col-lg-3 col-xl-5">
+            <div class="col-12 col-md-6 col-lg-3 col-xl-5">
                 <div class="card bg-form-login text-white" style="margin-top:0;">
                     <div class="card-body back-login p-5 text-center">
 
@@ -89,7 +98,7 @@
                             @csrf
 
                             <div class="form-group">
-                                <input type="text" name="username" class="form-control form-control-user"
+                                <input type="text"name="username" class="form-control form-control-user"
                                        id="exampleInputUsername"
                                        aria-describedby="usernameHelp" placeholder="Username"
                                        value="{{ old('username') }}">
