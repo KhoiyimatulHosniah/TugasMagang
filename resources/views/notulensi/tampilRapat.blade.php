@@ -36,23 +36,56 @@
           Pemerintah Kabupaten Situbondo
         </a>
       </h1>
-      <div class="user-info">
-        @auth <!-- Check if there's a logged-in user -->
-            <div class="user-welcome">{{ Auth::user()->username }}</div> <!-- Display the username of the logged-in user -->
-        @endauth
-    </div>
+      <div class="navigation" style="display: flex; justify-content: space-between; align-items: center;">
+    <ul style="list-style: none; display: flex; background-color:transparent">
+        <li style="margin-right: 10px;">
+            <div class="">
+                <button class="user-info" onclick="toggleDropdown()">
+                    <h7>{{ Auth::user()->username }} | {{ Auth::user()->role }}</h7>
+                </button>
+                <div class="dropdown-content" id="dropdownContent">
+                    <a href="/history">History</a>
+                    <a href="/logout">Logout</a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<script>
+    function toggleDropdown() {
+        var dropdownContent = document.getElementById("dropdownContent");
+        dropdownContent.classList.toggle("show");
+    }
+</script>
+
+<style>
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 120px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #f1f1f1;
+        
+    }
+
+    .show {
+        display: block;
+    }
+</style>
     
-    @auth <!-- Check if there's a logged-in user -->
-        <div class="logout">
-            <a href="{{ route('logout') }}"
-                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                Logout
-            </a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-            </form>
-        </div>
-    @endauth
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
@@ -194,6 +227,35 @@
             @endif
           </td>
         </tr>
+        <div id="signatureOverlay" class="overlay">
+          <div id="signatureArea" class="signature-container">
+            <!-- Tempatkan kode HTML area tanda tangan di sini -->
+            <!-- Sebagai contoh: -->
+            <canvas id="signatureCanvas"></canvas>
+            <button id="btnSend" class="btn btn-primary">Kirim</button>
+          </div>
+        </div>
+        <style>
+          /* Tambahkan gaya CSS berikut ke file stylesheet Anda atau dalam tag <style> */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.signature-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+}
+          </style>
         @php
         $counter++;
         @endphp
@@ -204,28 +266,25 @@
 </div>
 <script>
   function checkSchedule(date, time) {
-    var now = new Date();
-    var currentDate = now.toISOString().split('T')[0];
-    var currentTime = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  var now = new Date();
+  var currentDate = now.toISOString().split('T')[0];
+  var currentTime = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-    var scheduleDateTime = new Date(date + ' ' + time);
+  var scheduleDateTime = new Date(date + ' ' + time);
+  var scheduleTime = scheduleDateTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-    var scheduleTime = scheduleDateTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  var twoHoursBefore = new Date(scheduleDateTime.getTime() - (2 * 60 * 60 * 1000));
+  var fiveHoursAfter = new Date(scheduleDateTime.getTime() + (5 * 60 * 60 * 1000));
 
-    if (currentDate === date && currentTime <= scheduleTime) {
-      if (window.Notification && Notification.permission === "granted") {
-        new Notification("Notifikasi Anda", { body: "Anda berhasil menghadiri rapat" });
-      } else if (window.Notification && Notification.permission !== "denied") {
-        Notification.requestPermission().then(function(permission) {
-          if (permission === "granted") {
-            new Notification("Notifikasi Anda", { body: "Anda berhasil menghadiri rapat" });
-          }
-        });
-      }
-    } else {
-      alert("Rapat sudah berlalu atau belum dimulai!");
-    }
+  if (currentDate === date && currentTime >= twoHoursBefore.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) && currentTime <= fiveHoursAfter.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })) {
+    // Menampilkan overlay area tanda tangan
+    var signatureOverlay = document.getElementById("signatureOverlay");
+    signatureOverlay.style.display = "flex";
+  } else {
+    alert("Rapat sudah berlalu atau belum dimulai!");
   }
+}
+}
 </script>
 
   </div>

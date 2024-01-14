@@ -249,7 +249,7 @@ aria-hidden="true">
                                             <td>{{ $item->ketua }}</td>
                                             <td>{{ $item->sekretaris }}</td>
                                             <td>
-                                                <a href="/printNotulen" class="btn btn-primary btn-circle" onclick="printNotulensi('{{ $item->id }}')">
+                                                <a href="/printNotulen" class="btn btn-primary btn-circle" onclick="printNotulensi">
                                                     <i class='fas fa-print'></i>
                                                 </a>
                                                 <script>

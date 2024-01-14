@@ -210,7 +210,7 @@ filterTable();
 function filterTable() {
 var value = $("#searchInput").val().toLowerCase();
 
-$("#tabelNotulensi tbody tr").each(function () {
+$("#tabelOpd tbody tr").each(function () {
 var rowText = $(this).text().toLowerCase();
 var isVisible = rowText.indexOf(value) > -1;
 $(this).toggle(isVisible);
@@ -221,7 +221,7 @@ $(this).toggle(isVisible);
 $("#searchInput").on("input", function () {
 var value = $(this).val().trim().toLowerCase();
 if (value === "") {
-$("#tabelNotulensi tbody tr").show();
+$("#tabelOpd tbody tr").show();
 }
 });
 });

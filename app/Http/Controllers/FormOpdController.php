@@ -14,7 +14,7 @@ class FormOpdController extends Controller
      */
     public function tabelOpd()
     {
-        $items = opd::paginate(10); // Mengambil semua data pengguna dari tabel tamus
+        $items = opd::paginate(5); // Mengambil semua data pengguna dari tabel tamus
         return view('Operator.formOpd', compact('items'));
      }
 
