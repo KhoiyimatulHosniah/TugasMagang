@@ -74,9 +74,7 @@ class DataTamuController extends Controller
      */
     public function edit($id)
     {
-        $item = tamu::find($id);
-
-        return view('tamu.edit', compact('item'));
+       //
     }
 
     /**

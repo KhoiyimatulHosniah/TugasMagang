@@ -225,7 +225,7 @@
                                                 <td>{{ $item->tujuan }}</td>
                                                 <td>{{ $item->no_telp }}</td>
                                                 <td>
-                                                    <a href="{{ route('datatamu.edit', ['id' => $item->id]) }}"
+                                                    <a href="{{ route('tamu.edit', ['id' => $item->id]) }}"
                                                        class="btn btn-primary btn-circle">
                                                         <i class="fas fa-edit"></i>
                                                     </a>

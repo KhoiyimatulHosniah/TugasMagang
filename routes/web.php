@@ -74,6 +74,10 @@ Route::get('/daftarhadir/{id}/hapus', [DaftarHadirController::class, 'hapus'])->
 Route::get('/form', [TamuController::class, 'index'])->name('form');
 Route::get('/tamu/create', [TamuController::class, 'create'])->name('tamu.create');
 Route::post('/tamu/store', [TamuController::class, 'store'])->name('tamu.store');
+Route::put('/tamu/{id}/update', [TamuController::class, 'update'])->name('tamu.update');
+Route::get('/tamu/{id}/edit', [TamuController::class, 'edit'])->name('tamu.edit');
+
+
 
 //Dashboard Resepsionis
 Route::get('/dashboardTamu', [DashboardTamuController::class, 'index'])->name('dashboardTamu');

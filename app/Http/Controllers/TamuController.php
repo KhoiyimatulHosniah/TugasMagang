@@ -70,7 +70,9 @@ class TamuController extends Controller
      */
     public function edit($id)
     {
-        //
+        $items = tamu::find($id);
+        $opd = opd::all();
+        return view('buku_tamu.editTamu', compact('items', 'opd'));
     }
 
     /**
@@ -82,9 +84,19 @@ class TamuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+        $items = tamu::find($id);
 
+        $items->nama = $request->input('nama');
+        $items->jenis_kelamin = $request->input('jenis_kelamin');
+        $items->tanggal = $request->input('tanggal');
+        $items->tujuan = $request->input('tujuan');
+        $items->id_OPD = $request->input('id_OPD');
+        $items->no_telp = $request->input('no_telp');
+
+        $items->save();
+
+        return redirect('datatamu')->with('success', 'Data tamu berhasil diperbarui.');
+    }
     /**
      * Remove the specified resource from storage.
      *
