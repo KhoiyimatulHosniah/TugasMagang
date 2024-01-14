@@ -178,3 +178,4 @@ Route::get('/tambahopd/{id}/hapus', [TambahOpdController::class, 'hapus'])->name
 
 //cetak
 Route::get('/printnotulen/{id}', 'NotulensiController@printNotulen')->name('printNotulen');
+Route::get('/get_document_data', 'DocumentController@getDocumentData');

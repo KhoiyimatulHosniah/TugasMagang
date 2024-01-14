@@ -167,7 +167,44 @@
                         </div>
                 <!-- DataTales Example -->
                     <div class="card-body">
-
+                        <div class="d-flex justify-content-end align-items-center mt-2">
+                            <div class="input-group col-sm-4 ml-3">
+                                <input type="text" id="searchInput" class="form-control form-control-sm" placeholder="Search...">
+                                <div class="input-group-append">
+                                    <button id="searchButton" class="btn btn-primary btn-sm" type="button"><i class="fas fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- At the end of the body tag -->
+                        <script src="asset/vendor/jquery/jquery.min.js"></script>
+                        <script>
+                        $(document).ready(function () {
+                        // Function to filter data when search button is clicked
+                        $("#searchButton").click(function () {
+                        filterTable();
+                        });
+                        
+                        // Function to filter data based on search input
+                        function filterTable() {
+                        var value = $("#searchInput").val().toLowerCase();
+                        
+                        $("#tabelRapat tbody tr").each(function () {
+                        var rowText = $(this).text().toLowerCase();
+                        var isVisible = rowText.indexOf(value) > -1;
+                        $(this).toggle(isVisible);
+                        });
+                        }
+                        
+                        // Show all data if search input is cleared
+                        $("#searchInput").on("input", function () {
+                        var value = $(this).val().trim().toLowerCase();
+                        if (value === "") {
+                        $("#tabelRapat tbody tr").show();
+                        }
+                        });
+                        });
+                        </script>
                         <table id="dataTable" class="table table-bordered" style="width:100%">
                             <thead>
                             <tr>

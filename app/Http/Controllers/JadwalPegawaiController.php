@@ -14,7 +14,7 @@ class JadwalPegawaiController extends Controller
      */
     public function jadwal()
     {
-        $items = tambahjadwal::paginate(10);
+        $items = tambahjadwal::paginate(5);
         return view('buku_tamu.jadwalPegawai', compact('items'));
     }
 

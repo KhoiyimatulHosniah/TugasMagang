@@ -17,7 +17,7 @@ class DataTamuController extends Controller
 
     public function tabelTamu()
     {
-        $items = tamu::paginate(10); // Mengambil semua data pengguna dari tabel tamus
+        $items = tamu::paginate(5); // Mengambil semua data pengguna dari tabel tamus
         return view('buku_tamu.dataTamu', compact('items'));
     }
 

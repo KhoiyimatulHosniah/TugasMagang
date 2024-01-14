@@ -15,7 +15,7 @@ class FormNotulenController extends Controller
      */
     public function tabelNotulensi()
     {
-        $items = formnotulensi::paginate(10);
+        $items = formnotulensi::paginate(5);
         return view('notulensi.formNotulen', compact('items'));
     }
     /**

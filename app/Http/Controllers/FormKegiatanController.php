@@ -68,9 +68,9 @@ class FormKegiatanController extends Controller
      */
     public function edit($id)
     {
-        $items = formkegiatan::find($id);
+        $item = formkegiatan::find($id);
 
-        return view('formKegiatan.edit', compact('items'));
+        return view('formKegiatan.edit', compact('item'));
     }
 
     /**
