@@ -98,7 +98,7 @@
                             @csrf
 
                             <div class="form-group">
-                                <input type="textname="username" class="form-control form-control-user"
+                                <input type="text"name="username" class="form-control form-control-user"
                                        id="exampleInputUsername"
                                        aria-describedby="usernameHelp" placeholder="Username"
                                        value="{{ old('username') }}">
