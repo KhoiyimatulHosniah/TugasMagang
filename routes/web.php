@@ -29,7 +29,6 @@ use App\Http\Controllers\FormOpdController;
 use App\Http\Controllers\LoginRapatController;
 use App\Http\Controllers\TampilRapatController;
 use App\Http\Controllers\TampiluserController;
-use App\Http\Controllers\NotulensiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,9 +56,14 @@ Route::post('/loginNotulensi', [LoginNotulensiController::class, 'login']);
 Route::post('/logout', [LoginNotulensiController::class, 'logout'])->name('logout');
 
 /*Login Rapat*/
-Route::get('/loginRapat', [LoginRapatController::class, 'showLoginRapat'])->name('loginRapat');
-Route::post('/loginRapat', [LoginRapatController::class, 'loginRapat']);
+Route::middleware(['guest', 'custom_auth'])->group(function () {
+    Route::get('/loginRapat', [LoginRapatController::class, 'showLoginRapat'])->name('loginRapat');
+    Route::post('/loginRapat', [LoginRapatController::class, 'loginRapat']);
+});
 Route::post('/logout', [LoginRapatController::class, 'logout'])->name('logout');
+//Register
+Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register.show');
+Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 
 /*LandingPage*/
 Route::get('/landing2', [Landing2Controller::class, 'index'])->name('landing2');
@@ -133,10 +137,6 @@ Route::get('/tambahTamu', [TambahTamuController::class, 'index'])->name('tambahT
 Route::get('/tambahTamu/create', [TambahTamuController::class, 'create'])->name('tambahTamu.create');
 Route::post('/tambahTamu/store', [TambahTamuController::class, 'store'])->name('tambahTamu.store');
 
-//Register
-Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register.show');
-Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
-
 //tampilrapat
 Route::get('/tampilRapat', [TampilRapatController::class, 'tampilrapat'])->name('tampilRapat');
 Route::post('/tampilRapat/store', [TampilRapatController::class, 'store'])->name('tampilRapat.store');
@@ -189,8 +189,4 @@ Route::put('/tambahopd/{id}/update', [TambahOpdController::class, 'update'])->na
 
 
 //cetak
-Route::get('/printnotulen/{id}', [NotulensiController::class, 'printNotulen'])->name('printnotulen');
-Route::get('/printnotulen', [NotulensiController::class, 'create'])->name('printnotulen.create');
-Route::get('/printnotulen/{id}', [NotulensiController::class, 'printNotulen'])->name('printnotulen');
-Route::get('/get_document_data', 'DocumentController@getDocumentData');
-
+Route::get('/formnotulen/{id}/print', [FormNotulenController::class, 'print'])->name('formNotulen.print');

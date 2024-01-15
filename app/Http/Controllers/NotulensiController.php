@@ -11,11 +11,7 @@ class NotulensiController extends Controller
 
         return view('notulensi.printnotulen');
     }
-    public function printNotulen($id)
-{
-    $notulensi = formnotulensi::find($id);
-    return view('printnotulen', compact('notulensi'));
-}
+
 
 public function store(Request $request)
     {

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cetak Notulensi</title>
     <!-- Tambahkan CSS atau gaya cetak jika diperlukan -->
-    <link rel="stylesheet" href="{{ asset('css/print.css')}}">
+
     <style>
         body {
             font-family: 'Times New Roman', Times, serif
@@ -30,22 +30,23 @@
 
     <!-- Tambahkan konten cetak notulensi sesuai kebutuhan -->
     <h1>Notulen</h1>
-    @foreach($items as $item)
-    <p>ID Notulensi: {{ $item->id }}</p>
-    <p>SIDANG/RAPAT: {{ $item->sidang_rapat }}</p>
-    <p>Hari/Tanggal: {{ $item->hari }}, {{ $item->tanggal }}</p>
-    <p>Jam Panggilan: {{ $item->jam_panggilan }}</p>
-    <p>Jam sidang/rapat: {{ $item->jam_sidang_rapat }}</p>
-    <p>PIMPINAN SIDANG/RAPAT</p>
-    <p>Ketua: {{ $item->ketua }}</p>
-    <p>Sekretaris: {{ $item->sekretaris }}</p>
-    <p>Pencatat: {{ $item->pencatat }}</p>
-    <p>Peserta sidang/rapat: {{ $item->peserta_sidang }}</p>
-    <p>KEGIATAN SIDANG/RAPAT: {{ $item->kegiatan_sidang }}</p>
-    <p>Kata Pembuka: {{ $item->kata_pembuka }}</p>
-    <p>Pembahasan: {{ $item->pembahasan }}</p>
-    <p>Keputusan: {{ $item->keputusan }}</p>
-    @endforeach
+
+            <p>SIDANG/RAPAT: {{$items->sidang_rapat}}</p>
+            <p>Hari/Tanggal: {{ $items->hari }}, {{ $items->tanggal }}</p>
+            <p>Jam Panggilan: {{$items->jam_panggilan}}</p>
+            <p>Jam sidang/rapat: {{$items->jam_sidang_rapat}}</p>
+
+            <p>PIMPINAN SIDANG/RAPAT</p>
+            <p>Ketua: {{$items->ketua}}</p>
+            <p>Sekretaris: {{$items->sekretaris}}</p>
+            <p>Pencatat: {{$items->pencatat}}</p>
+            <p>Peserta sidang/rapat: {{$items->peserta_sidang}}</p>
+            <p>KEGIATAN SIDANG/RAPAT: {{$items->kegiatan_sidang}}</p>
+            <p>Kata Pembuka: {{$items->kata_pembuka}}</p>
+            <p>Pembahasan: {{$items->pembahasan}}</p>
+            <p>Keputusan: {{$items->keputusan}}</p>
+
+
 </body>
 
 </html>

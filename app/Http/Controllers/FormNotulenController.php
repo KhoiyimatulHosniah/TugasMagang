@@ -93,14 +93,14 @@ class FormNotulenController extends Controller
     public function update(Request $request, $id)
     {
         $items = formkegiatan::find($id);
-        
+
         $items->sidang_rapat = $request->input('sidang_rapat');
         $items->hari = $request->input('hari');
         $items->tanggal = $request->input('tanggal');
         $items->jam_panggilan = $request->input('jam_panggilan');
         $items->jam_sidang_rapat = $request->input('jam_sidang_rapat');
         $items->acara = $request->input('acara');
-        $items->ketua = $request->input('etua');
+        $items->ketua = $request->input('ketua');
         $items->sekretaris = $request->input('sekretaris');
         $items->pencatat = $request->input('pencatat');
         $items->peserta_sidang = $request->input('peserta_sidang');
@@ -112,8 +112,15 @@ class FormNotulenController extends Controller
         $items->save();
 
         // Redirect ke halaman atau rute yang sesuai setelah berhasil mengupdate data
-        return redirect()->route('formKegiatan')->with ('success', 'Data Kegiatas Berhasil Diperbaharui');
-    
+        return redirect()->route('formKegiatan')->with ('success', 'Data Kegiatan Berhasil Diperbaharui');
+
+    }
+
+    public function print(Request $request, $id)
+    {
+        $items = formnotulensi::find($id);
+        return view('notulensi.printnotulen', compact('items'));
+
     }
 
     /**
