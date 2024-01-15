@@ -30,21 +30,21 @@
 
     <!-- Tambahkan konten cetak notulensi sesuai kebutuhan -->
     <h1>Notulen</h1>
-    @foreach($notulensis as $notulensi)
-    <p>ID Notulensi: {{ $notulensi->id }}</p>
-    <p>SIDANG/RAPAT: {{ $notulensi->sidang_rapat }}</p>
-    <p>Hari/Tanggal: {{ $notulensi->hari }}, {{ $notulensi->tanggal }}</p>
-    <p>Jam Panggilan: {{ $notulensi->jam_panggilan }}</p>
-    <p>Jam sidang/rapat: {{ $notulensi->jam_sidang_rapat }}</p>
+    @foreach($items as $item)
+    <p>ID Notulensi: {{ $item->id }}</p>
+    <p>SIDANG/RAPAT: {{ $item->sidang_rapat }}</p>
+    <p>Hari/Tanggal: {{ $item->hari }}, {{ $item->tanggal }}</p>
+    <p>Jam Panggilan: {{ $item->jam_panggilan }}</p>
+    <p>Jam sidang/rapat: {{ $item->jam_sidang_rapat }}</p>
     <p>PIMPINAN SIDANG/RAPAT</p>
-    <p>Ketua: {{ $notulensi->ketua }}</p>
-    <p>Sekretaris: {{ $notulensi->sekretaris }}</p>
-    <p>Pencatat: {{ $notulensi->pencatat }}</p>
-    <p>Peserta sidang/rapat: {{ $notulensi->peserta_sidang }}</p>
-    <p>KEGIATAN SIDANG/RAPAT: {{ $notulensi->kegiatan_sidang }}</p>
-    <p>Kata Pembuka: {{ $notulensi->kata_pembuka }}</p>
-    <p>Pembahasan: {{ $notulensi->pembahasan }}</p>
-    <p>Keputusan: {{ $notulensi->keputusan }}</p>
+    <p>Ketua: {{ $item->ketua }}</p>
+    <p>Sekretaris: {{ $item->sekretaris }}</p>
+    <p>Pencatat: {{ $item->pencatat }}</p>
+    <p>Peserta sidang/rapat: {{ $item->peserta_sidang }}</p>
+    <p>KEGIATAN SIDANG/RAPAT: {{ $item->kegiatan_sidang }}</p>
+    <p>Kata Pembuka: {{ $item->kata_pembuka }}</p>
+    <p>Pembahasan: {{ $item->pembahasan }}</p>
+    <p>Keputusan: {{ $item->keputusan }}</p>
     @endforeach
 </body>
 

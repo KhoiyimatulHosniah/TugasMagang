@@ -260,11 +260,11 @@ aria-hidden="true">
                                                     }
                                                 </script>
                                                 
-                                                <a href="{{ route('formKegiatan.edit', ['id' => $item->id]) }}"
+                                                <a href="{{ route('formNotulen.edit', ['id' => $item->id]) }}"
                                                     class="btn btn-primary btn-circle">
                                                      <i class="fas fa-edit"></i>
                                                  </a>
-                                                 <a href="{{ route('formKegiatan.hapus', ['id' => $item->id]) }}"
+                                                 <a href="{{ route('formNotulen.hapus', ['id' => $item->id]) }}"
                                                     class="btn btn-danger btn-circle"
                                                     onclick="confirmModal('{{ route('formKegiatan.hapus', ['id' => $item->id]) }}')">
                                                      <i class="fas fa-trash-alt"></i>
