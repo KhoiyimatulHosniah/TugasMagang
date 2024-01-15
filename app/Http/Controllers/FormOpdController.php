@@ -64,7 +64,7 @@ class FormOpdController extends Controller
 {
     $item = opd::find($id);
 
-        return view('formopd.edit', compact('item'));
+        return view('Operator.editOpd', compact('item'));
     
 }
 

@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\formkegiatan;
-use App\Models\opd;
 
 class TambahRapatController extends Controller
 {
@@ -17,7 +16,8 @@ class TambahRapatController extends Controller
      */
     public function index()
     {
-        return view('notulensi.tambahRapat');
+        $rapat= formkegiatan::all();
+        return view('notulensi.tambahRapat', compact('rapat'));
     }
 
     
@@ -71,6 +71,10 @@ class TambahRapatController extends Controller
      */
     public function edit($id)
     {
+        $item = formkegiatan::find($id);
+
+        return view('notulensi.editkegiatan', compact('item'));
+    
     }
 
     /**
@@ -82,7 +86,18 @@ class TambahRapatController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $items = formkegiatan::find($id);
+
+        $items->kegiatan = $request->input('kegiatan');
+        $items->hari = $request->input('hari');
+        $items->tanggal = $request->input('tanggal');
+        $items->pukul = $request->input('pukul');
+        $items->tempat = $request->input('tempat');
+
+        $items->save();
+
+        return redirect('formKegiatan')->with('success', 'Data Rapat berhasil diperbarui.');
+    
     }
 
     /**

@@ -206,11 +206,9 @@
                                 <option value=""disabled selected>Pilih Ruangan</option>
                                 <option >Ruang Baluran</option>
                                 <option >Ruang Intelligence Room</option>
-                                <option >Lainnya</option>
+                                <option >Ruang Aula Diskominfo</option>
                             </select>
-                            <div id="otherInput" style="display: none;">
-                                <input type="text" class="form-control mt-2" id="otherText" placeholder="Isi tempat lainnya">
-                            </div>
+                            
                         </div>
                     </div>
                     

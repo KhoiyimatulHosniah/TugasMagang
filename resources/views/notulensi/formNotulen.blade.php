@@ -266,7 +266,7 @@ aria-hidden="true">
                                                  </a>
                                                  <a href="{{ route('formNotulen.hapus', ['id' => $item->id]) }}"
                                                     class="btn btn-danger btn-circle"
-                                                    onclick="confirmModal('{{ route('formKegiatan.hapus', ['id' => $item->id]) }}')">
+                                                    onclick="confirmModal('{{ route('formNotulen.hapus', ['id' => $item->id]) }}')">
                                                      <i class="fas fa-trash-alt"></i>
                                                  </a>
                                             </td>

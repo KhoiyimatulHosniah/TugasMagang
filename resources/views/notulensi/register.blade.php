@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,11 +10,10 @@
     <title>BUTANOL APPLICATION</title>
     <link href="asset/images/logoB.png" rel="icon">
 
-    <!-- Custom fonts for this template-->
+    <!-- Custom fonts for this template -->
     <link href="asset/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -25,12 +23,11 @@
     <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template-->
+    <!-- Custom styles for this template -->
     <link href="asset/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
 
-
-    {{--    Show password--}}
+    <!-- Show password -->
     <script>
         function showPassword() {
             var passwordInput = document.getElementById('password');
@@ -41,142 +38,116 @@
             }
         }
     </script>
-
 </head>
 
 <body class="bg-primary">
-<!-- ======= Header ======= -->
-<header id="header" class="fixed-top ">
-    <div class="container d-flex align-items-center">
+    <!-- Header -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center">
+            <h1 class="logo me-auto">
+                <a href="/landing1" style="display: flex; align-items: center;">
+                    <img src="asset/images/logo2.png" alt="Logo" style="height: 40px; margin-right: 10px;">
+                    Pemerintah Kabupaten Situbondo
+                </a>
+            </h1>
+        </div>
+    </header>
+    <!-- End Header -->
 
-        <h1 class="logo me-auto">
-            <a href="/landing1" style="display: flex; align-items: center;">
-                <img src="asset\images/logo2.png" alt="Logo" style="height: 40px; margin-right: 10px;">
-                Pemerintah Kabupaten Situbondo
-            </a>
-        </h1>
+    <!-- Section -->
+    <section class="vh-3 gradient-custom">
+        <div class="container py-0 vh-90">
+            <div class="row justify-content-center align-items-center h-90">
+                <div class="col-12 col-md-6 col-lg-6 col-xl-6">
+                    <div class="card bg-form-login text-white" style="margin-top:0;">
+                        <div class="card-body back-login p-5 text-center">
 
-    </div>
-</header><!-- End Header -->
-<br>
-<section class="vh-3 gradient-custom">
-    <div class="container py-0 vh-90">
-        <div class="row d-flex justify-content-center align-items-center h-90">
-            <div class="col-3 col-md-6 col-lg-3 col-xl-5">
-                <div class="card bg-form-login text-white" style="margin-top:0;">
-                    <div class="card-body back-login p-5 text-center">
-
-                        <div class="mb-md-2 mt-0 vh-4" style="height: 150px; display: flex; align-items: center; justify-content: center;">
-                            <img src="asset/images/register1.png" alt="Logo" style="margin-right: 20px;">
-                            <div>
-                                <h3 class="text-gray-900 mb-1">Register</h3>
-                                <p class="text-gray-900 mb-0">Daftarkan Akun untuk Menghadiri Rapat</p>
-                            </div>
-                        </div>
-
-                        @if(session('success'))
-                            <div class="alert alert-success">
-                                {{ session('success') }}
-                            </div>
-                        @endif
-
-                        @if(session('error'))
-                            <div class="alert alert-danger">
-                                {{ session('error') }}
-                            </div>
-                        @endif
-
-                        <form class="register" action="{{ route('register.store') }}" method="POST">
-                            @csrf
-                            <div class="form-group">
-                                <input type="text" name="nama" class="form-control"
-                                       id="exampleInputnama"
-                                        placeholder="Nama">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" name="username" class="form-control"
-                                       id="exampleInputUsername"
-                                       aria-describedby="usernameHelp" placeholder="Username"
-                                       value="{{ old('username') }}">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" name="email" class="form-control"
-                                       id="exampleInputEmail"
-                                        placeholder="Email">
-                            </div>
-                            
-                            <div class="form-group">
-                                <select name="jenis_kelamin" class="form-control ">
-                                    <option value="" disabled selected>Jenis Kelamin</option>
-                                    <option value="lakilaki">Laki-laki</option>
-                                    <option value="perempuan">Perempuan</option>
-                                
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <select name="id_OPD" class="form-control">
-                                    <option value="" disabled selected>Nama Instansi</option>
-                                    @foreach($opd as $item)
-                                        <option value="{{ $item->id_OPD }}">{{ $item->nama_instansi }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" name="jabatan" class="form-control"
-                                       id="exampleInputjabatan"
-                                        placeholder="Jabatan">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" name="notlp" class="form-control"
-                                       id="exampleInputnotlp"
-                                        placeholder="No Telepon">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" name="password" class="form-control"
-                                       id="exampleInputPassword"
-                                       placeholder="Password" required>
-                            </div>
-                            
-                           
-                            
-                            @if ($errors->any())
-                                <div id="notification" class="alert alert-danger">
-                                    {{ $errors->first() }}
+                            <div class="mb-md-2 mt-0 vh-4" style="height: 150px; display: flex; align-items: center; justify-content: center;">
+                                <img src="asset/images/register1.png" alt="Logo" style="margin-right: 20px;">
+                                <div>
+                                    <h3 class="text-gray-900 mb-1">Register</h3>
+                                    <p class="text-gray-900 mb-0">Daftarkan Akun untuk Menghadiri Rapat</p>
                                 </div>
+                            </div>
 
-
-                                <script>
-                                    $(document).ready(function () {
-                                        // Sembunyikan notifikasi setelah 3 detik
-                                        setTimeout(function () {
-                                            $('#notification').fadeOut('fast');
-                                        }, 3000); // 3000 milidetik (3 detik)
-                                    });
-                                </script>
+                            @if(session('success'))
+                                <div class="alert alert-success">
+                                    {{ session('success') }}
+                                </div>
                             @endif
 
-                            <button type="submit" class="btn btn-primary btn-user btn-block">Register</button>
-                        </form>
-                        <div class="mt-3">
-                            <p class="text-gray-900 mb-0">Sudah punya akun? <a href="/loginRapat">Login</a></p>
+                            @if(session('error'))
+                                <div class="alert alert-danger">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
+
+                            <form class="register" action="{{ route('register.store') }}" method="POST">
+                                @csrf
+                                <div class="form-group">
+                                    <input type="text" name="nama" class="form-control" id="exampleInputnama" placeholder="Nama">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="username" class="form-control" id="exampleInputUsername" aria-describedby="usernameHelp" placeholder="Username" value="{{ old('username') }}">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="email" class="form-control" id="exampleInputEmail" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <select name="jenis_kelamin" class="form-control">
+                                        <option value="" disabled selected>Jenis Kelamin</option>
+                                        <option value="lakilaki">Laki-laki</option>
+                                        <option value="perempuan">Perempuan</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <select name="id_OPD" class="form-control">
+                                        <option value="" disabled selected>Nama Instansi</option>
+                                        @foreach($opd as $item)
+                                            <option value="{{ $item->id_OPD }}">{{ $item->nama_instansi }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="jabatan" class="form-control" id="exampleInputjabatan" placeholder="Jabatan">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="notlp" class="form-control" id="exampleInputnotlp" placeholder="No Telepon">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" name="password" class="form-control" id="exampleInputPassword" placeholder="Password" required>
+                                </div>
+
+                                @if ($errors->any())
+                                    <div id="notification" class="alert alert-danger">
+                                        {{ $errors->first() }}
+                                    </div>
+
+                                    <script>
+                                        $(document).ready(function () {
+                                            setTimeout(function () {
+                                                $('#notification').fadeOut('fast');
+                                            }, 3000);
+                                        });
+                                    </script>
+                                @endif
+
+                                <button type="submit" class="btn btn-primary btn-user btn-block">Register</button>
+                            </form>
+                            <div class="mt-3">
+                                <p class="text-gray-900 mb-0">Sudah punya akun? <a href="/loginRapat">Login</a></p>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-</body>
+    </section>
+    <!-- End Section -->
 
-<!-- Bootstrap core JavaScript-->
-<script src="asset/vendor/jquery/jquery.min.js"></script>
-<script src="asset/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="asset/vendor/jquery/jquery.min.js"></script>
+    <script src="asset/vendor/bootstrap/js/bootstrap.bundle.min
 
 <!-- Core plugin JavaScript-->
 <script src="asset/vendor/jquery-easing/jquery.easing.min.js"></script>

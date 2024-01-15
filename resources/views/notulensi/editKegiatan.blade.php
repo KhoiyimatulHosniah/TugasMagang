@@ -167,23 +167,29 @@
 
 <body>
     <div class="tamu-container">
-        <h2>Edit Data Tamu</h2>
-        <form class="tamu-form" action="{{ route('tamu.update', ['id' => $items->id]) }}" method="POST">
+        <h2>Edit Kegiatan Rapat</h2>
+        <form class="tamu-form" action="{{ route('formKegiatan.update', ['id' => $items->id]) }}" method="POST">
             @csrf
             @method('PUT')
 
             <div class="form-group">
-                <input type="text" class="form-control" name="nama" id="exampleInputName" aria-describedby="nameHelp"
-                    placeholder="Nama" value="{{ $items->nama }}">
+                <input type="text" class="form-control" name="kegiatan" id="exampleInputKegiatan" aria-describedby="nameHelp"
+                    placeholder="Nama Kegiatan" value="{{ $items->kegiatan }}">
             </div>
 
             <div class="form-group">
-                <select type="text" placeholder="Pilih Jenis Kelamin" class="form-control form-select"
-                    name="jenis_kelamin" aria-describedby="nameHelp" id="jenis_kelamin">
-                    <option value="" disabled selected>Pilih Jenis Kelamin</option>
-                    <option value="Laki-laki" {{ $items->jenis_kelamin == 'Laki-laki' ? 'selected' : '' }}>Laki-laki
+                <select type="text" placeholder="Pilih Hari" class="form-control form-select"
+                    name="hari" aria-describedby="nameHelp" id="hari">
+                    <option value="" disabled selected>Pilih Hari</option>
+                    <option value="Senin" {{ $items->hari == 'Senin' ? 'selected' : '' }}>Senin
                     </option>
-                    <option value="Perempuan" {{ $items->jenis_kelamin == 'Perempuan' ? 'selected' : '' }}>Perempuan
+                    <option value="Selasa" {{ $items->hari == 'Selasa' ? 'selected' : '' }}>Selasa
+                    </option>
+                    <option value="Rabu" {{ $items->hari == 'Rabu' ? 'selected' : '' }}>Rabu
+                    </option>
+                    <option value="Kamis" {{ $items->hari == 'Kamis' ? 'selected' : '' }}>Kamis
+                    </option>
+                    <option value="Jumat" {{ $items->hari == 'Jumat' ? 'selected' : '' }}>Jumat
                     </option>
                 </select>
             </div>
@@ -192,23 +198,22 @@
                     placeholder="Tanggal" value="{{ $items->tanggal }}">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" name="tujuan" id="exampleInputName" aria-describedby="nameHelp"
-                    placeholder="Tujuan" value="{{ $items->tujuan }}">
+                <input type="time" class="form-control" name="pukul" id="exampleInputPukul" aria-describedby="nameHelp"
+                    placeholder="Pukul" value="{{ $items->pukul }}">
             </div>
+            
             <div class="form-group">
-                <select type="text" placeholder="Pilih Nama Instansi" class="form-control form-select" name="id_OPD"
-                    aria-describedby="nameHelp" id="id_OPD">
-                    <option value="" disabled selected>Nama Instansi</option>
-                    @foreach($opd as $instansi)
-                    <option value="{{ $instansi->id_OPD }}" {{ $items->id_OPD == $instansi->id_OPD ? 'selected' : '' }}>
-                        {{ $instansi->nama_instansi }}
+                <select type="text" placeholder="Pilih Tempat" class="form-control form-select"
+                    name="tempat" aria-describedby="nameHelp" id="tempat">
+                    <option value="" disabled selected>Pilih Tempat</option>
+                    <option value="Ruang Baluran" {{ $items->tempat == 'Ruang Baluran' ? 'selected' : '' }}>Ruang Baluran
                     </option>
-                    @endforeach
+                    <option value="Ruang Intelligence Room" {{ $items->tempat == 'Ruang Intelligence Room' ? 'selected' : '' }}>Ruang Intelligence Room
+                    </option>
+                    <option value="Ruang Aula Diskominfo" {{ $items->tempat == 'Ruang Aula Diskominfo' ? 'selected' : '' }}>Ruang Aula Diskominfo
+                    </option>
+                    
                 </select>
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" name="no_telp" id="exampleInputName" aria-describedby="nameHelp"
-                    placeholder="Telepon" value="{{ $items->no_telp }}">
             </div>
             <hr>
             <button type="submit" class="btn btn-primary btn-user btn-block">Update</button>
