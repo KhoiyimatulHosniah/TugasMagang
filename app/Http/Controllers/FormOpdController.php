@@ -62,9 +62,9 @@ class FormOpdController extends Controller
      */
     public function edit(Request $request, $id)
 {
-    $item = opd::find($id);
-
-        return view('Operator.editOpd', compact('item'));
+    $items = opd::find($id);
+    $opd = opd::all();
+        return view('Operator.editOpd', compact('items'));
     
 }
 
@@ -78,7 +78,14 @@ class FormOpdController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $items = opd::find($id);
+        $items->nama_instansi = $request->input('nama_instansi');
+        
+        $items->save();
+
+        // Redirect ke halaman atau rute yang sesuai setelah berhasil mengupdate data
+        return redirect()->route('formopd')->with ('success', 'Nama Instansi Berhasil Diperbaharui');
+    
     }
 
     /**

@@ -29,6 +29,8 @@ use App\Http\Controllers\FormOpdController;
 use App\Http\Controllers\LoginRapatController;
 use App\Http\Controllers\TampilRapatController;
 use App\Http\Controllers\TampiluserController;
+use App\Http\Controllers\NotulensiController;
+use App\Http\Controllers\SignaturePadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -100,7 +102,7 @@ Route::get('/formKegiatan/create', [FormKegiatanController::class, 'create'])->n
 Route::post('/formKegiatan/store', [FormKegiatanController::class, 'store'])->name('formKegiatan.store');
 Route::get('/formKegiatan/{id}/hapus', [FormKegiatanController::class, 'hapus'])->name('formKegiatan.hapus');
 Route::put('/formKegiatan/{id}/update', [FormKegiatanController::class, 'update'])->name('formKegiatan.update');
-Route::put('/formKegiatan/{id}/edit', [FormKegiatanController::class, 'edit'])->name('formKegiatan.edit');
+Route::get('/formKegiatan/{id}/edit', [FormKegiatanController::class, 'edit'])->name('formKegiatan.edit');
 Route::get('/tambahRapat', [TambahRapatController::class, 'index'])->name('tambahRapat');
 Route::get('/tambahRapat/create', [TambahRapatController::class, 'create'])->name('tambahRapat.create');
 Route::post('/tambahRapat/store', [TambahRapatController::class, 'store'])->name('tambahRapat.store');
@@ -141,7 +143,9 @@ Route::post('/tambahTamu/store', [TambahTamuController::class, 'store'])->name('
 Route::get('/tampilRapat', [TampilRapatController::class, 'tampilrapat'])->name('tampilRapat');
 Route::post('/tampilRapat/store', [TampilRapatController::class, 'store'])->name('tampilRapat.store');
 Route::post('/tampilRapat', [TampilRapatController::class, 'tampilrapat'])->name('tampilRapat');
+Route::post('/logout', [TampilRapatController::class, 'logout'])->name('logout');
 
+Route::post('tampilRapat', [TampilRapatController::class, 'upload'])->name('tampilRapat.upload');
 //Button Logout
 Route::get('/landingpage', function () {
     return view('landingpage');
@@ -153,12 +157,12 @@ Route::get('/formDataTamu', [FormDataTamuController::class, 'tabelTamu'])->name(
 Route::get('/formJadwalPegawai', [FormJadwalPegawaiController::class, 'index'])->name('formJadwalPegawai');
 Route::get('/formJadwalPegawai/create', [FormJadwalPegawaiController::class, 'create'])->name('formJadwalPegawai.create');
 Route::post('/formJadwalPegawai/store', [FormJadwalPegawaiController::class, 'store'])->name('formJadwalPegawai.store');
-Route::get('/formJadwalPegawai/{id}/hapus', [FormJadwalPegawaiController::class, 'hapus'])->name('formJadwalPegawai.hapus');
+Route::get('/formJadwalPegawai/hapus', [FormJadwalPegawaiController::class, 'hapus'])->name('formJadwalPegawai.hapus');
 Route::get('/formJadwalPegawai/{id}/edit', [FormJadwalPegawaiController::class, 'edit'])->name('formJadwalPegawai.edit');
-Route::get('/formDataTamu', [FormDataTamuController::class, 'tabelTamu'])->name('formDataTamu');
-Route::get('/formJadwalPegawai', [FormJadwalPegawaiController::class, 'index'])->name('formJadwalPegawai');
-Route::get('/userregister', [TampiluserController::class, 'tabelregister'])->name('userregister');
 Route::put('/formJadwalPegawai/{id}/update', [FormJadwalPegawaiController::class, 'update'])->name('formJadwalPegawai.update');
+Route::get('/formDataTamu', [FormDataTamuController::class, 'tabelTamu'])->name('formDataTamu');
+Route::get('/userregister', [TampiluserController::class, 'tabelregister'])->name('userregister');
+
 
 //Login Operator
 Route::get('/loginOperator', [LoginOperatorController::class, 'showLoginOperator'])->name('loginOperator');
@@ -190,3 +194,11 @@ Route::put('/tambahopd/{id}/update', [TambahOpdController::class, 'update'])->na
 
 //cetak
 Route::get('/formnotulen/{id}/print', [FormNotulenController::class, 'print'])->name('formNotulen.print');
+Route::get('/printnotulen/{id}', [NotulensiController::class, 'printNotulen'])->name('printnotulen');
+Route::get('/printnotulen', [NotulensiController::class, 'create'])->name('printnotulen.create');
+Route::get('/printnotulen/{id}', [NotulensiController::class, 'printNotulen'])->name('printnotulen');
+Route::get('/get_document_data', 'DocumentController@getDocumentData');
+
+//tandatangan
+Route::get('signaturepad', [SignaturePadController::class, 'index'])->name('signaturepad');
+Route::post('signaturepad', [SignaturePadController::class, 'upload'])->name('signaturepad.upload');

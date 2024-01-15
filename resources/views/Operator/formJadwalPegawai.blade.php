@@ -252,13 +252,13 @@ aria-hidden="true">
                                             <td>{{ $item->tujuan }}</td>
                                             <td>{{ $item->notlp }}</td>
                                             <td>
-                                                <a href="{{ route('formKegiatan.edit', ['id' => $item->id]) }}"
+                                                <a href="{{ route('formJadwalPegawai.edit', ['id' => $item->id]) }}"
                                                     class="btn btn-primary btn-circle">
                                                      <i class="fas fa-edit"></i>
                                                  </a>
-                                                 <a href="{{ route('formKegiatan.hapus', ['id' => $item->id]) }}"
+                                                 <a href="{{ route('formJadwalPegawai.hapus', ['id' => $item->id]) }}"
                                                     class="btn btn-danger btn-circle"
-                                                    onclick="confirmModal('{{ route('formKegiatan.hapus', ['id' => $item->id]) }}')">
+                                                    onclick="confirmModal('{{ route('formJadwalPegawai.hapus', ['id' => $item->id]) }}')">
                                                      <i class="fas fa-trash-alt"></i>
                                                  </a>
                                             </td>

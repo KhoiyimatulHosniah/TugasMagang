@@ -94,7 +94,7 @@
                             </div>
                         @endif
 
-                        <form class="user" action="{{ url('/loginRapat') }}" method="POST">
+                        <form class="user" action="{{ url('/tampilRapat') }}" method="POST">
                             @csrf
 
                             <div class="form-group">
@@ -128,7 +128,9 @@
 
                             <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
                         </form>
-
+                        <div class="mt-3">
+                            <p class="text-gray-900 mb-0">Belum punya akun? <a href="/register">Register</a></p>
+                        </div>
                     </div>
                 </div>
             </div>

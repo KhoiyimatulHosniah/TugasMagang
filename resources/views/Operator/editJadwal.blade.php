@@ -168,7 +168,7 @@
 <body>
     <div class="tamu-container">
         <h2>Edit Data Tamu</h2>
-        <form class="tamu-form" action="{{ route('tamu.update', ['id' => $items->id]) }}" method="POST">
+        <form class="tamu-form" action="{{ route('formJadwalPegawai.update', ['id' => $items->id]) }}" method="POST">
             @csrf
             @method('PUT')
 
@@ -176,39 +176,26 @@
                 <input type="text" class="form-control" name="nama" id="exampleInputName" aria-describedby="nameHelp"
                     placeholder="Nama" value="{{ $items->nama }}">
             </div>
-
             <div class="form-group">
-                <select type="text" placeholder="Pilih Jenis Kelamin" class="form-control form-select"
-                    name="jenis_kelamin" aria-describedby="nameHelp" id="jenis_kelamin">
-                    <option value="" disabled selected>Pilih Jenis Kelamin</option>
-                    <option value="Laki-laki" {{ $items->jenis_kelamin == 'Laki-laki' ? 'selected' : '' }}>Laki-laki
-                    </option>
-                    <option value="Perempuan" {{ $items->jenis_kelamin == 'Perempuan' ? 'selected' : '' }}>Perempuan
-                    </option>
-                </select>
+                <input type="text" class="form-control" name="bidang" id="exampleInputName" aria-describedby="nameHelp"
+                    placeholder="Bidang" value="{{ $items->bidang }}">
             </div>
             <div class="form-group">
-                <input type="date" class="form-control" name="tanggal" id="exampleInputTanggal" aria-describedby="nameHelp"
-                    placeholder="Tanggal" value="{{ $items->tanggal }}">
+                <input type="date" class="form-control" name="tanggal_berangkat" id="exampleInputTanggalPulang" aria-describedby="nameHelp"
+                    placeholder="Tanggal Berangkat" value="{{ $items->tanggal_berangkat }}">
+            </div>
+            <div class="form-group">
+                <input type="date" class="form-control" name="tanggal_pulang" id="exampleInputTanggalPulang" aria-describedby="nameHelp"
+                    placeholder="Tanggal Pulang" value="{{ $items->tanggal_pulang }}">
             </div>
             <div class="form-group">
                 <input type="text" class="form-control" name="tujuan" id="exampleInputName" aria-describedby="nameHelp"
                     placeholder="Tujuan" value="{{ $items->tujuan }}">
             </div>
+            
             <div class="form-group">
-                <select type="text" placeholder="Pilih Nama Instansi" class="form-control form-select" name="id_OPD"
-                    aria-describedby="nameHelp" id="id_OPD">
-                    <option value="" disabled selected>Nama Instansi</option>
-                    @foreach($opd as $instansi)
-                    <option value="{{ $instansi->id_OPD }}" {{ $items->id_OPD == $instansi->id_OPD ? 'selected' : '' }}>
-                        {{ $instansi->nama_instansi }}
-                    </option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" name="no_telp" id="exampleInputName" aria-describedby="nameHelp"
-                    placeholder="Telepon" value="{{ $items->no_telp }}">
+                <input type="text" class="form-control" name="notlp" id="exampleInputName" aria-describedby="nameHelp"
+                    placeholder="Telepon" value="{{ $items->notlp }}">
             </div>
             <hr>
             <button type="submit" class="btn btn-primary btn-user btn-block">Update</button>

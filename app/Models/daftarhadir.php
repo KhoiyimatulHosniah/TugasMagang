@@ -19,5 +19,6 @@ class daftarhadir extends Model
         'nama_instansi',
         'jabatan',
         'telepon',
+        'tanda_tangan'
     ];
 }

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('id_OPD');
             $table->string('jabatan');
             $table->string('no_telp');
+            $table->binary('tanda_tangan')->nullable();
             $table->timestamps();
         });
     }

@@ -9,7 +9,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class register extends Model
+class register extends Model 
 {
     use HasFactory, Notifiable;
     protected $table = 'registers';
@@ -33,4 +33,5 @@ class register extends Model
     {
         return $this->belongsTo(opd::class, 'id_OPD');
     }
+    
 }

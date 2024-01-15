@@ -40,8 +40,16 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'register' => [
+            'driver' => 'session',
+            
+          
+    'provider' => 'registers',
+        ],
     ],
+    
 
+    
     /*
     |--------------------------------------------------------------------------
     | User Providers
@@ -64,13 +72,21 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-
+'providers' => [
+        'users' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\register::class, // Update to your actual User model
+            'table' => 'registers', // Update to your custom table name
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
     ],
 
+    
+    ],
+    
     /*
     |--------------------------------------------------------------------------
     | Resetting Passwords

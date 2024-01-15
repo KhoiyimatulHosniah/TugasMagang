@@ -173,7 +173,7 @@
             @method('PUT')
 
             <div class="form-group">
-                <input type="text" class="form-control" name="sidang" id="exampleInputName" aria-describedby="nameHelp"
+                <input type="text" class="form-control" name="sidang_rapat" id="exampleInputSidang" aria-describedby="nameHelp"
                     placeholder="Nama Sidang/Kegiatan" value="{{ $items->sidang_rapat }}">
             </div>
             <div class="form-group">
@@ -208,10 +208,7 @@
                 <input type="text" class="form-control" name="acara" id="exampleInputName" aria-describedby="nameHelp"
                     placeholder="Acara" value="{{ $items->acara }}">
             </div>
-            <div class="form-group">
-                <input type="text" class="form-control" name="ketua" id="exampleInputName" aria-describedby="nameHelp"
-                    placeholder="Ketua" value="{{ $items->ketua }}">
-            </div>
+            
             <div class="form-group">
                 <input type="text" class="form-control" name="ketua" id="exampleInputName" aria-describedby="nameHelp"
                     placeholder="Ketua" value="{{ $items->ketua }}">
@@ -220,24 +217,21 @@
                 <input type="text" class="form-control" name="sekretaris" id="exampleInputName" aria-describedby="nameHelp"
                     placeholder="Sekretaris" value="{{ $items->sekretaris }}">
             </div>
-            <div class="form-group">
-                <input type="text" class="form-control" name="sekretaris" id="exampleInputName" aria-describedby="nameHelp"
-                    placeholder="Sekretaris" value="{{ $items->sekretaris }}">
-            </div>
+            
             <div class="form-group">
                 <input type="text" class="form-control" name="pencatat" id="exampleInputName" aria-describedby="nameHelp"
                     placeholder="Pencatat" value="{{ $items->pencatat }}">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" name="pesertasidang" id="exampleInputName" aria-describedby="nameHelp"
+                <input type="text" class="form-control" name="peserta_sidang" id="exampleInputName" aria-describedby="nameHelp"
                     placeholder="Peserta Sidang" value="{{ $items->peserta_sidang }}">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" name="kegiatansidang" id="exampleInputName" aria-describedby="nameHelp"
+                <input type="text" class="form-control" name="kegiatan_sidang" id="exampleInputName" aria-describedby="nameHelp"
                     placeholder="Kegiatan Sidang" value="{{ $items->kegiatan_sidang}}">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" name="katapembuka" id="exampleInputName" aria-describedby="nameHelp"
+                <input type="text" class="form-control" name="kata_pembuka" id="exampleInputName" aria-describedby="nameHelp"
                     placeholder="Kata Pembuka" value="{{ $items->kata_pembuka }}">
             </div>
             <div class="form-group">

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\formkegiatan;
 use App\Models\formnotulensi;
 
 class FormNotulenController extends Controller
@@ -80,7 +79,7 @@ class FormNotulenController extends Controller
     {
         $items= formnotulensi::find($id);
 
-        return view('notulensi.editnotulen', compact('items'));
+        return view('notulensi.editNotulen', compact('items'));
     }
 
     /**
@@ -92,8 +91,13 @@ class FormNotulenController extends Controller
      */
     public function update(Request $request, $id)
     {
+<<<<<<< Updated upstream
         $items = formkegiatan::find($id);
 
+=======
+        $items = formnotulensi::find($id);
+        
+>>>>>>> Stashed changes
         $items->sidang_rapat = $request->input('sidang_rapat');
         $items->hari = $request->input('hari');
         $items->tanggal = $request->input('tanggal');
@@ -112,6 +116,7 @@ class FormNotulenController extends Controller
         $items->save();
 
         // Redirect ke halaman atau rute yang sesuai setelah berhasil mengupdate data
+<<<<<<< Updated upstream
         return redirect()->route('formKegiatan')->with ('success', 'Data Kegiatan Berhasil Diperbaharui');
 
     }
@@ -121,6 +126,10 @@ class FormNotulenController extends Controller
         $items = formnotulensi::find($id);
         return view('notulensi.printnotulen', compact('items'));
 
+=======
+        return redirect()->route('formNotulen')->with ('success', 'Data Kegiatas Berhasil Diperbaharui');
+    
+>>>>>>> Stashed changes
     }
 
     /**

@@ -65,9 +65,9 @@ class FormJadwalPegawaiController extends Controller
      */
     public function edit($id)
     {
-        $item = tambahjadwal::find($id);
+        $items = tambahjadwal::find($id);
 
-        return view('formJadwalPegawai.edit', compact('item'));
+        return view('Operator.editJadwal', compact('items'));
     }
 
     /**
@@ -79,7 +79,20 @@ class FormJadwalPegawaiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $items = tambahjadwal::find($id);
+
+        $items->nama = $request->input('nama');
+        $items->bidang = $request->input('bidang');
+        $items->tanggal_berangkat = $request->input('tanggal_berangkat');
+        $items->tanggal_pulang = $request->input('tanggal_pulang');
+        $items->tujuan = $request->input('tujuan');
+        $items->notlp = $request->input('notlp');
+
+        $items->save();
+        
+
+        return redirect('formJadwalPegawai')->with('success', 'Data tamu berhasil diperbarui.');
+    
     }
 
     /**
