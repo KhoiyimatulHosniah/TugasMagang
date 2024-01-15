@@ -6,11 +6,17 @@ use Illuminate\Http\Request;
 use App\Models\formnotulensi;
 class NotulensiController extends Controller
 {
+    public function create()
+    {
+
+        return view('notulensi.printnotulen');
+    }
     public function printNotulen($id)
 {
     $notulensi = formnotulensi::find($id);
-    return view('printNotulen', compact('notulensi'));
+    return view('printnotulen', compact('notulensi'));
 }
+
 public function store(Request $request)
     {
         $request->validate([
