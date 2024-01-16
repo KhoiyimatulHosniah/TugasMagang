@@ -212,23 +212,7 @@
                         </div>
                     </div>
                     
-                    <script>
-                        function checkOther() {
-                            var tempatDropdown = document.getElementById('tempat');
-                            var otherInput = document.getElementById('otherInput');
-                            var otherText = document.getElementById('otherText');
                     
-                            if (tempatDropdown.value === 'Lainnya') {
-                                otherInput.style.display = 'block';
-                                otherText.required = true;
-                            } else {
-                                otherInput.style.display = 'none';
-                                otherText.required = false;
-                                otherText.value = '';
-                            }
-                            
-                        }
-                    </script>
                     
                         
                     <!-- Content Row -->

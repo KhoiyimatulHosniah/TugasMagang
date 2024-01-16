@@ -233,7 +233,6 @@ aria-hidden="true">
                                         <th>Nama Instansi</th>
                                         <th>Jabatan</th>
                                         <th>No Telepon</th>
-                                        <th>Tanda Tangan</th>
                                         <th>Aksi</th>
                                     </tr>
                                     </thead>

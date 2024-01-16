@@ -46,4 +46,5 @@ class RegisterController extends Controller
 
     return redirect('/loginRapat')->with('success', 'Registrasi Berhasil!');
 }
+
 }

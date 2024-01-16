@@ -11,6 +11,7 @@ class LoginNotulensiController extends Controller
     public function showLoginNotulensi()
     {
         return view('notulensi.loginnotulen');
+
     }
 
     public function login(Request $request)
@@ -37,7 +38,12 @@ class LoginNotulensiController extends Controller
                 case 'Notulensi':
                     return redirect('dashboardNotulen');
                     break;
-
+                case 'Operator':
+                    return redirect('dashboardOperator');
+                    break;
+                case 'Resepsionis':
+                        return redirect('dashboardTamu')->with('success', 'Login berhasil. Selamat datang, ' . $user->role);
+                        break;
                 default:
                     return redirect('loginNotulensi');
             }

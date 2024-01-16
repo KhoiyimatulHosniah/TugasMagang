@@ -48,8 +48,8 @@
           <h1>Selamat Datang di</h1>
           <h1>Notulensi Aplikasi</h1>
           <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="/loginRapat" class="btn-get-started scrollto">Daftar Hadir</a>
-            <a href="/loginNotulensi" class="btn-get-started scrollto">Notulensi</a>
+            <a href="/tampilRapat" class="btn-get-started scrollto">Daftar Hadir</a>
+            <a href="/login" class="btn-get-started scrollto">Notulensi</a>
            </div>
         </div>
       </div>

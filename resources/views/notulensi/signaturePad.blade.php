@@ -1,6 +1,15 @@
-<html>
-<head>
-    <title>Laravel Signature Pad Tutorial Example - Medikre.com </title>
+<!DOCTYPE html>
+<html lang="en">
+
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUTANOL APPLICATION</title>
+    <link href="asset/images/logoB.png" rel="icon">
+
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css">
   
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
@@ -16,9 +25,33 @@
             width: 100% !important;
             height: auto;
         }
+        <style>
+        
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+        }
+
+        div {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        select, input {
+            padding: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
     </style>
   
 </head>
+
 <body class="bg-dark">
 <div class="container mb-5">
    <div class="row">
@@ -34,45 +67,42 @@
                             <strong>{{ $message }}</strong>
                         </div>
                     @endif
-                    <form method="POST" action="{{ route('tampilRapat.upload') }}">
+                    <form class="user" action="{{ route('signaturepad.store') }}" method="POST">
                         @csrf
                         
                         <div class="col-md-12">
-                            @if(Auth::check()) <!-- Check if the user is logged in -->
-                                <div>
-                                    <label for="">Nama:</label>
-                                    <span>{{ Auth::user()->nama }}</span>
-                                </div>
-                                
-                                <div>
-                                    <label for="">Jenis Kelamin:</label>
-                                    <span>{{ Auth::user()->jenis_kelamin }}</span>
-                                </div>
-                                
-                                <div>
-                                    <label for="">Nama Instansi:</label>
-                                    <span>{{ Auth::user()->nama_instansi }}</span>
-                                </div>
-                                
-                                <div>
-                                    <label for="">Jabatan:</label>
-                                    <span>{{ Auth::user()->jabatan }}</span>
-                                </div>
-                                
-                                <div>
-                                    <label for="">No Telepon:</label>
-                                    <span>{{ Auth::user()->no_telp }}</span>
-                                </div>
-                            @endif
-                        </div>
-                        
-                            <label class="" for="">Tanda tangan:</label>
-                            <br/>
-                            <div id="sig" ></div>
-                            <br/>
-                            <button id="clear" class="btn btn-danger btn-sm">Hapus</button>
-                            <textarea id="signature64" name="signed" style="display: none"></textarea>
-                        </div>
+                           
+                            <div>
+                                <label for="nama">Nama:</label>
+                                <input type="text" id="nama" name="nama">
+                            </div>
+                            
+                            <div>
+                                <label for="jenis_kelamin">Jenis Kelamin:</label>
+                                <select name="jenis_kelamin" class="form-control">
+                                    <option value="" disabled selected>Jenis Kelamin</option>
+                                    <option value="lakilaki">Laki-laki</option>
+                                    <option value="perempuan">Perempuan</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="nama_instansi">Nama Instansi:</label>
+                                <select id="opd" name="id_OPD">
+                                <option value="">Pilih Nama Instansi</option>
+                                @foreach($tamu as $instansi)
+                                <option
+                                    value="{{$instansi->id_OPD}}">{{$instansi->nama_instansi}}</option>
+                            @endforeach
+                                </select>
+                            <div>
+                                <label for="jabatan">Jabatan:</label>
+                                <input type="text" id="jabatan" name="jabatan">
+                            </div>
+                            <div>
+                                <label for="no_telepon">No Telepon:</label>
+                                <input type="text" id="no_telepon" name="no_telp">
+                            </div>
                         <button class="btn btn-success" >Kirim</button>
                     </form>
                </div>
@@ -80,13 +110,6 @@
        </div>
    </div>
 </div>
-<script type="text/javascript">
-    var sig = $('#sig').signature({syncField: '#signature64', syncFormat: 'PNG'});
-    $('#clear').click(function(e) {
-        e.preventDefault();
-        sig.signature('clear');
-        $("#signature64").val('');
-    });
-</script>
+
 </body>
 </html>

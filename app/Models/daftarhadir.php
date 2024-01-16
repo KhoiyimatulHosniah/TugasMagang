@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
 
 class daftarhadir extends Model
 {
@@ -16,9 +18,14 @@ class daftarhadir extends Model
         
         'nama',
         'jenis_kelamin',
-        'nama_instansi',
+        'id_OPD',
         'jabatan',
-        'telepon',
-        'tanda_tangan'
+        'no_telp',
     ];
+    protected $with = ['opd'];
+
+    public function opd(): BelongsTo
+    {
+        return $this->belongsTo(opd::class, 'id_OPD');
+    }
 }

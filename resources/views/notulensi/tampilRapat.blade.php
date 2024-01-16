@@ -36,43 +36,7 @@
           Pemerintah Kabupaten Situbondo
         </a>
       </h1>
-      <nav id="navbar" class="navbar">
-        <ul><li><a href="/loginRapat" data-toggle="modal" data-target="#logoutModal">Logout</a></li>
-        </ul>
-    </nav>
-<script>
-    function toggleDropdown() {
-        var dropdownContent = document.getElementById("dropdownContent");
-        dropdownContent.classList.toggle("show");
-    }
-</script>
-
-<style>
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 120px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-    }
-
-    .dropdown-content a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-    }
-
-    .dropdown-content a:hover {
-        background-color: #f1f1f1;
-        
-    }
-
-    .show {
-        display: block;
-    }
-</style>
+      
     
   </header><!-- End Header -->
 
@@ -193,26 +157,8 @@
             <td>{{ $item->pukul }}</td>
             <td>{{ $item->tempat }}</td>
             <td>
-              <a href="{{ route('signaturepad') }}"class="btn hadir-button" onclick="checkSchedule('{{ $item->tanggal }}', '{{ $item->pukul }}')">Hadiri Rapat</a>
+              <a href="signaturepad" class="btn hadir-button" onclick="checkSchedule('{{ $item->tanggal }}', '{{ $item->pukul }}')">Hadiri Rapat</button>
             </td>
-            <script>
-              document.addEventListener('DOMContentLoaded', function () {
-                var buttons = document.querySelectorAll('.hadir-button');
-            
-                buttons.forEach(function (button) {
-                  button.addEventListener('click', function () {
-                    // Mendapatkan data rapat dari baris yang sesuai
-                    var meetingDate = this.closest('tr').querySelector('td:nth-child(4)').innerText;
-                    var meetingTime = this.closest('tr').querySelector('td:nth-child(5)').innerText;
-                    var meetingPlace = this.closest('tr').querySelector('td:nth-child(6)').innerText;
-            
-                    // Mengirim data ke halaman selanjutnya
-                    window.location.href = '/signaturepad?date=' + meetingDate + '&time=' + meetingTime + '&place=' + meetingPlace;
-                  });
-                });
-              });
-            </script>
-            
           </tr>
         @endforeach
       </tbody>

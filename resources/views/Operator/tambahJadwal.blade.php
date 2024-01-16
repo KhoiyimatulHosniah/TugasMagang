@@ -178,7 +178,14 @@
                                 <div class="form-group row">
                                     <label for="bidang" class="col-sm-4 col-form-label">Bidang</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="bidang" name="bidang">
+                                        <select class="form-control" id="bidang" name="bidang" onchange="checkOther()">
+                                            <option value=""disabled selected>Pilih Bidang</option>
+                                            <option >Bidang SEKRETARIAT</option>
+                                            <option >Bidang KIP</option>
+                                            <option >Bidang PERSANDIAN</option>
+                                            <option >Bidang TIK</option>
+                                        </select>
+                                        
                                     </div>
                                 </div>
                                 <div class="form-group row">

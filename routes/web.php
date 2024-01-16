@@ -31,6 +31,7 @@ use App\Http\Controllers\TampilRapatController;
 use App\Http\Controllers\TampiluserController;
 use App\Http\Controllers\NotulensiController;
 use App\Http\Controllers\SignaturePadController;
+use App\Http\Controllers\CetakNotulenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,7 +45,7 @@ use App\Http\Controllers\SignaturePadController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('landingpage.landing1');
 });
 
 /*Login Buku Tamu*/
@@ -58,10 +59,9 @@ Route::post('/loginNotulensi', [LoginNotulensiController::class, 'login']);
 Route::post('/logout', [LoginNotulensiController::class, 'logout'])->name('logout');
 
 /*Login Rapat*/
-Route::middleware(['guest', 'custom_auth'])->group(function () {
     Route::get('/loginRapat', [LoginRapatController::class, 'showLoginRapat'])->name('loginRapat');
     Route::post('/loginRapat', [LoginRapatController::class, 'loginRapat']);
-});
+
 Route::post('/logout', [LoginRapatController::class, 'logout'])->name('logout');
 //Register
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register.show');
@@ -75,8 +75,8 @@ Route::get('/landing1', [Landing1Controller::class, 'index'])->name('landing1');
 /*daftar hadir*/
 Route::get('/daftarhadir', [DaftarhadirController::class, 'tabelDaftarhadir'])->name('daftarhadir');
 Route::post('/daftarhadir/submit', [DaftarhadirController::class, 'submitForm'])->name('daftar-hadir.submit');
-Route::get('/daftarhadir/edit/{id}', [DaftarhadirController::class, 'edit'])->name('daftarhadir.edit');
-Route::get('/daftarhadir/{id}/hapus', [DaftarHadirController::class, 'hapus'])->name('daftarhadir.hapus');
+Route::post('/daftarhadir/store', [DaftarhadirController::class, 'store'])->name('daftarhadir.store');
+Route::get('/daftarhadir/hapus', [DaftarHadirController::class, 'hapus'])->name('daftarhadir.hapus');
 // Form Tamu
 Route::get('/form', [TamuController::class, 'index'])->name('form');
 Route::get('/tamu/create', [TamuController::class, 'create'])->name('tamu.create');
@@ -200,5 +200,12 @@ Route::get('/printnotulen/{id}', [NotulensiController::class, 'printNotulen'])->
 Route::get('/get_document_data', 'DocumentController@getDocumentData');
 
 //tandatangan
-Route::get('signaturepad', [SignaturePadController::class, 'index'])->name('signaturepad');
-Route::post('signaturepad', [SignaturePadController::class, 'upload'])->name('signaturepad.upload');
+Route::get('signaturepad', [SignaturePadController::class, 'daftarHadir'])->name('signaturepad');
+Route::post('signaturepad/store', [SignaturePadController::class, 'store'])->name('signaturepad.store');
+
+Route::get('/signaturepad/create', [SignaturePadController::class, 'create'])->name('signaturepad.create');
+Route::get('signaturepad', [SignaturePadController::class, 'index'])->name('index');
+
+//cetak
+Route::get('/cetaknotulen', [CetakNotulenController::class, 'index'])->name('cetaknotulen');
+Route::get('/cetaknotulen/{id}', [CetakNotulenController::class, 'generateCetakPendaftaran'])->name('cetaknotulen.generate');

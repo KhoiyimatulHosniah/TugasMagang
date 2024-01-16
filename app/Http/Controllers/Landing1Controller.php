@@ -13,7 +13,14 @@ class Landing1Controller extends Controller
      */
     public function index()
     {
-        return view('landingpage.landing1');
+        // Example: Storing data in the session
+        session(['key' => 'value']);
+
+        // Example: Retrieving session data
+        $data = session('key');
+
+        return view('landingpagelanding1', compact('data'));
+        
     }
    
     /**

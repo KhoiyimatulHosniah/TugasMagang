@@ -77,7 +77,7 @@
                         <div class="mb-md-2 mt-0 vh-4" style="height: 150px; display: flex; align-items: center; justify-content: center;">
                             <img src="asset/images/login1.png" alt="Logo" style="margin-right: 20px;">
                             <div>
-                                <h3 class="text-gray-900 mb-1">Login Resepsionis</h3>
+                                <h3 class="text-gray-900 mb-1">Login </h3>
                                 <p class="text-gray-900 mb-0">Masukkan Username dan Password Anda</p>
                             </div>
                         </div>

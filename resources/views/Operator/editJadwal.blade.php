@@ -177,8 +177,18 @@
                     placeholder="Nama" value="{{ $items->nama }}">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" name="bidang" id="exampleInputName" aria-describedby="nameHelp"
-                    placeholder="Bidang" value="{{ $items->bidang }}">
+                <select type="text" placeholder="Pilih Bidang" class="form-control form-select"
+                    name="bidang" aria-describedby="nameHelp" id="bidang">
+                    <option value="" disabled selected>Pilih Bidang</option>
+                    <option value="Bidang SEKRETARIAT" {{ $items->bidang == 'Bidang SEKRETARIAT' ? 'selected' : '' }}>Bidang SEKRETARIAT
+                    </option>
+                    <option value="Bidang KIP" {{ $items->bidang == 'Bidang KIP' ? 'selected' : '' }}>RBidang KIP
+                    </option>
+                    <option value="Bidang PERSANDIAN" {{ $items->bidang == 'Bidang PERSANDIAN' ? 'selected' : '' }}>Bidang PERSANDIAN
+                    </option>
+                    <option value="Bidang TIK" {{ $items->bidang == 'Bidang TIK' ? 'selected' : '' }}>Bidang TIK
+                    </option>
+                </select>
             </div>
             <div class="form-group">
                 <input type="date" class="form-control" name="tanggal_berangkat" id="exampleInputTanggalPulang" aria-describedby="nameHelp"
