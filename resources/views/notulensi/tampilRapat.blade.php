@@ -21,11 +21,33 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+<!-- Timer Notifikasi-->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 
 <body>
-
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        @if(session('success'))
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil!',
+            text: '{{ session('success') }}',
+            timer: 2000, // waktu dalam milidetik (2 detik)
+            showConfirmButton: false
+        });
+        @elseif(session('error'))
+        Swal.fire({
+            icon: 'error',
+            title: 'Error!',
+            text: '{{ session('error') }}',
+            timer: 2000, // waktu dalam milidetik (2 detik)
+            showConfirmButton: false
+        });
+        @endif
+    });
+</script>
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">

@@ -251,7 +251,7 @@
                                             <td>{{ $item->ketua }}</td>
                                             <td>{{ $item->sekretaris }}</td>
                                             <td>
-                                                <a href="{{ route('cetaknotulen.generate', ['id' => $item->id]) }}"
+                                                <a href="{{ route('cetaknotulen.print', ['id' => $item->id]) }}"
                                                    class="btn btn-primary btn-circle"
                                                    onclick="printNotulensi({{ $item->id }})">
                                                     <i class='fas fa-print'></i>
@@ -260,7 +260,7 @@
                                                 <script>
                                                     function printNotulensi(itemId) {
                                                         // Menggunakan window.open() untuk membuka halaman cetak dalam jendela baru
-                                                        var printWindow = window.open('{{ route('cetaknotulen.generate', '') }}/' + itemId, '_blank');
+                                                        var printWindow = window.open('{{ route('cetaknotulen.print', '') }}/' + itemId, '_blank');
 
                                                         // Menunggu halaman cetak terbuka sebelum melakukan print()
                                                         printWindow.addEventListener('load', function () {

@@ -110,8 +110,6 @@ class CetakNotulenController extends Controller
         $items = formnotulensi::find($id);
         return view('notulensi.printnotulen', compact('items'));
 
-        return redirect()->route('formNotulen')->with ('success', 'Data Kegiatas Berhasil Diperbaharui');
-    
     }
     public function generateCetakPendaftaran($id)
     {

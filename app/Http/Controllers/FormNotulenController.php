@@ -124,7 +124,7 @@ class FormNotulenController extends Controller
         $items = formnotulensi::find($id);
         return view('notulensi.printnotulen', compact('items'));
 
-        return redirect()->route('formNotulen')->with ('success', 'Data Kegiatas Berhasil Diperbaharui');
+        return redirect()->route('formNotulen')->with ('success', 'Data Kegiatan Berhasil Diperbaharui');
     
     }
 

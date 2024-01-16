@@ -242,10 +242,10 @@ aria-hidden="true">
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $item->nama }}</td>
                                             <td>{{ $item->jenis_kelamin}}</td>
-                                            <td>{{ $item->nama_instansi }}</td>
+                                            <td>{{ $item->opd->nama_instansi }}</td>
                                             <td>{{ $item->jabatan}}</td>
-                                            <td>{{ $item->notlp }}</td>
-                                            <td> </td>
+                                            <td>{{ $item->no_telp }}</td>
+                                            
                                             <td>
                                                 <a href="/printNotulen" class="btn btn-primary btn-circle" onclick="printNotulensi('{{ $item->id }}')">
                                                     <i class='fas fa-print'></i>

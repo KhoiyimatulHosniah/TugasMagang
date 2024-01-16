@@ -209,3 +209,4 @@ Route::get('signaturepad', [SignaturePadController::class, 'index'])->name('inde
 //cetak
 Route::get('/cetaknotulen', [CetakNotulenController::class, 'index'])->name('cetaknotulen');
 Route::get('/cetaknotulen/{id}', [CetakNotulenController::class, 'generateCetakPendaftaran'])->name('cetaknotulen.generate');
+Route::get('/cetaknotulen/{id}/print', [CetakNotulenController::class, 'print'])->name('cetaknotulen.print');
